@@ -1,0 +1,131 @@
+---
+title: Syllabus
+banner: Fall 2020, Block 3 — MA251
+---
+
+# Syllabus
+
+> Prime numbers belong to an exclusive world of intellectual conceptions. We speak of those marvellous notions that enjoy simple, elegant description, yet lead to extreme --- one might say unthinkable --- complexity in the details. The basic notion of primality can be accessible to a child, yet no human mind harbors anything like a complete picture. 
+> <span class="blockquote-attribution">—R. Crandall and C.  Pomerance</span>
+
+## Overview
+
+MA251 is an introduction to number theory, a branch of mathematics that studies the integers (..., -1, 0, 1, 2, 3, ...). It's a remarkably mysterious field, where simple ideas quickly give way to questions that may remain unanswered for centuries. While foundational ideas in number theory form the *content* of the course, the course may in fact be better described as an invitation to a particular mode of thinking: mathematical proofs. Reading, understanding, and writing proofs are all skills that take substantial practice to master, and perhaps the foremost goal for MA251 is starting to develop some facility with these skills. 
+
+I'd like to include a personal note here. When I took a course analogous to MA251 as an undergraduate, it felt entirely unlike any math class I had ever taken before. In my mathematical career up until that point, it had felt like math was about doing increasingly sophisticated calculations by hand. Suddenly, I found myself facing material where calculations were peripheral and abstraction was central. It was unquestionably the hardest math class I had taken up until that point. But it was also incredibly rewarding. It was this class, in fact, that made me switch my major to mathematics. 
+
+To sum up, then, I have three hopes for you in this class:
+
+1. that you'll be patient with yourself during the course, since abstraction and proofs may be completely new and incredibly challenging for you, as they were for me;
+2. that you'll be able to feel the beauty that lurks underneath all of the abstraction at some point during the course; and 
+3. that you'll find the rational mode of thinking trained by proof-writing to be useful at some point in life.
+
+## Textbook 
+
+We'll be using David M. Burton's *Elementary Number Theory* (7th edition). The plan is to get through chapter 8, skipping over chapter 6. If you have some other edition of the textbook, please let me know!
+
+
+## Mechanics
+
+In order to keep us and our communities as safe as possible during the Covid-19 pandemic, this MA251 course will be fully remote. It will be mostly asynchronous, but there will be a number of live events (see below). 
+
+### General Routine
+
+Each day of the course is structured as a "Module" on Canvas. An "Overview" page associated to each module lists off tasks for you for that day, deadlines that'll occur on that day, as well as any live events that occur that day. The page may also include some reminders about upcoming deadlines, but it is your responsibility to *look ahead at future deadlines* to make sure you're getting everything done on time.
+
+The general structure of each day is roughly the following.
+
+* You will read some sections out of the textbook. Then you will formulate a question you have about the reading (a "Reading Question") that you will submit using a Google Form, and you will solve some basic exercises about the reading ("Comprehension Check") that you will submit through Canvas. 
+    - Both of these things are due at 8am Mountain Time (MT). Note that, depending on your time zone and sleep schedule, this may mean that you may have to do this assignment the day before the deadline! Deadlines will be strict, so please get things submitted on time. 
+    - If you don't have any questions about the reading, your "Reading Question" can be a a non-question instead. For example, you might decide to send me a question that you had at first but then you managed to figure out on your own. Or you might send me something that you understand but that you think one of your peers might find confusing. I'm mostly looking for an indication that you did the assigned reading and made a sincere attempt to process it.
+    - Your solutions to the comprehension check will be graded only for completeness.
+* I will look through your Reading Questions and then make one or more short videos summarizing what I think are the highlights from the reading, and also trying to answer some of your questions. I will typically try to post this video before 11am MT, but there could be a bit of a delay some days. 
+    - Please note that these videos are not intended to be substitutes for doing the reading! They'll just be discussions of a few important and/or confusing points from the reading. 
+* There will be some "Practice Problems" problems from the textbook for you to work on. These will not be collected, but you're strongly encouraged to spend time really figuring them out. The more you practice, the better you'll get!
+
+### Self Reflection
+
+Research in pedagogy shows that a key part of learning is taking the time to ask yourself questions about your learning. I'd like to encourage you to take the time to do this kind of reflection, and there will be a number of assignments throughout the course with this goal in mind. 
+
+### Problem Sets
+
+There will be a number of "Problem Sets" during the block. Your job is to solve any 5 of the problems from each set and TeX up solutions to them.
+
+There will be two deadlines for each problem set: a draft deadline, and a final deadline. The draft deadline is optional: you need not submit anything, but you'll get feedback on anything you do submit. The final deadline is, well, final. (The very last problem set may jump directly to a final deadline, for time reasons!)
+
+I'll grade each problem out of 5 points. In order for you to get full credit for a solution, it must be *thorough*. This means the following:
+
+1. It must be correct. 
+2. It must be complete: every assertion you make should be accompanied with a formal proof (or a reference to a result that's proved in the textbook). If your solution makes use of an unproved assertion, it is incomplete, even if that assertion is true. 
+3. It must be written with good "style." This is a little vague, but there are many examples of proofs with good "style" in the textbook. You'll notice, for example, that most of the proofs in the textbook are mostly written in complete sentences. A proof that is written entirely in symbols, even if correct and complete, is not good "style." (An occasional typo or minor grammar issues are fine; this isn't an English class!)
+
+A word of warning: I'll likely be a little strict about all of the above points! Remember that training your proof-writing skills is a central goal of this class. When you first start writing proofs, it's natural to feel unsure about your proofs. There are several things you can do if you feel unsure: 
+
+* Submit something by the first deadline so you get my feedback. 
+* Ask me, the LA, or the paraprof for help. 
+* Get a classmate to read your proof and have them point out anything they don't understand. 
+
+If you submit more than 5 solutions, I will start by grading the first 5. If those solutions are all thorough, you’ll get 1 point of extra credit for each additional thorough solution after that. If any of your first 5 solutions aren’t thorough, the later solutions won’t count for anything. I want you to feel confident about your solutions!
+
+Finally, a word about the Honor Code. You're allowed to get help on the problem sets from me, the LA, the paraprof, and your classmates. But, in the end, your solution must be written up in your own words. If your solution is overly similar to something else (another student's solution, something on the internet, etc), it will be reported to the Honor Council. 
+
+### What's TeX?
+
+First of all, the name: the word "LaTeX" is pronounced either "LAY-tek" or "LAH-tek", with *k* sound at the end (not a *ks* sound). Sometimes people just say TeX ("tek") for short. 
+
+Next, what it is: LaTeX is a software system for preparing PDF documents. You input the content of your document alongside a little bit of "code," all in plaintext, and then you hit compile and out pops a beautifully formatted PDF. Because there's a little bit of "code" involved, there's a little bit of a learning curve. But it's not too steep, and once you get used to it you'll find that it's by far the most convenient way out there for typesetting mathematical expressions. 
+
+People working in mathematically heavy fields TeX up documents all the time, so I think it's a useful skill to have. To this end, your PDF submissions for your problem sets are required to be TeXed. 
+
+You can either install LaTeX on your computer, or you can use [Overleaf](https://www.overleaf.com). If you haven't used LaTeX before, I encourage you to check out Overleaf's guide, "[Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)." 
+
+Here's a [template](template.tex) for your problem sets, if you want something to get started. You're more than welcome to set up a document yourself. 
+
+### Quizzes and Exams
+
+There won't be any!
+
+### Live Events
+
+There will be a few different types of live events: 
+
+* Introduction: This will happen only on the first day. It'll be a chance for all of us to see each other's faces, get to know each other, ask questions about the syllabus, etc. 
+* Group Session: I have divided the class up into a groups of 3--4. On Tuesday mornings, I'll host a half-hour Zoom session specifically for your group (between 9:30 and 11am MT, depending on which group you're in). This is a chance for you to talk to your groupmates about whatever you're struggling with, and if there are things you're all struggling on together, I'll be there to chime in and help. 
+* Problem Session: The LA Elizabeth and the paraprof Cinea will host problem sessions at various times throughout the week. These are opportunities for you to work on math together with your classmates, and Elizabeth and Cinea can help out if needed. 
+* Sunny's Office Hours: I'll have some office hours throughout the week for you to stop by and ask me for help with whatever you need. 
+
+I *strongly* encourage you to attend as many of these live events as you can, and to set up synchronous study sessions with your classmates on your own as well. It can be easy to feel isolated during this era of quarantines and social distancing, but, despite the vast distances that may separate us, you do have access to a community: me, Elizabeth, Cinea, and all of your classmates. Taking advantage of this will help you feel less isolated, and also help your learning. 
+
+## Assessment
+
+Grades will be calculated as follows.
+
+----------------------- ------
+Reading assignments     25%
+Reflection assignments  10%
+Problem Sets            40%
+Project(s)              10%
+Participation           15%
+----------------------- ------
+
+Here are some details about each of these components. 
+
+* *Reading assignments*. This is for the "Reading Questions" and "Comprehension Checks." You can get up to 2 points for each reading that's assigned: 1 point for the "Reading Question," and 1 point for the "Comprehension Check." The reading assignments component of your grade will be the total number of points you accumulate in this way, out of a maximum of $2(n-2)$ points, where $n$ is the total number of readings assigned. In other words, you don't need to do submit both things every day to get a perfect score for this component of your grade.
+* *Reflection assignments*. This is for all of the reflection assignments (mathematical autobiography, weekly reflections, etc). 
+* *Problem sets*. This is where your problem set scores go. 
+* *Project(s)*. This is for the "Final Project," and possibly some other things. 
+* *Participation*. You'll get a full score for the participation component of your grade as long as I am able to see that you are putting in a good faith effort to engage with the class. This includes showing up to as many of the live events as you can. 
+
+## Accommodations
+
+If you anticipate or experience any disability-related barriers to your learning in this course, please discuss your concerns with me as soon as possible and we'll find a way to provide the accommodations that you need. Also, please contact the office of [Accessibility Resources](https://www.coloradocollege.edu/offices/accessibilityresources/) if you have not done so already.
+
+## Honor code
+
+Please make sure that you are familiar with the [Honor Code](https://www.coloradocollege.edu/other/honorcouncil/resources/student.html) at CC. Violations of the Honor Code will have to be reported to the Honor Council, which is really no fun for anyone.
+
+## Covid-19
+
+The Covid-19 pandemic challenges us as individuals and as communities in so many ways. Remote learning is one of them. I am not an expert at remote learning, and I understand that you're likely only just starting to get used to remote learning as well. Please feel free to reach out if you find yourself in need of advice and I'll do what I can to help. 
+
+If you find yourself faced with a challenging situation that might affect your classwork, please let me know and I'll do my best to accommodate your situation. Also know that a variety of offices on campus are available to help you through difficult situations. For instance, you might get in touch with the [Counseling Center](https://www.coloradocollege.edu/offices/counseling/), or with [Campus Safety](https://www.coloradocollege.edu/offices/campussafety/). You can get financial help through the [Coronavirus Emergency Fund](https://www.coloradocollege.edu/other/coronavirus/emergency-fund.html), and you can find more information and resources on the [Coronavirus Updates & Resources page](https://www.coloradocollege.edu/other/coronavirus/). 

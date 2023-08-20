@@ -1,0 +1,29 @@
+---
+title: Final Project
+banner: Spring 2022, Block 7 — MA410
+---
+
+# Final Project
+
+The goal for the final project is for you to learn about some piece of number theory that we didn't talk about in class. 
+
+## Instructions
+
+1. Form a group of about 2--4 and choose a topic that's related to course material but that we did not cover. There are many possibilities! You might look through [Nee] for some inspiration (eg, 1.IV, 2.VIII, 3.I.2, 3.VI--IX, 5.IX--XI, 6.I--III, 7.II--VII, 10--12...). You could look into the Riemann zeta function. You could look into the Riemann mapping theorem and Schwarz-Christoffel mappings. You could look into an application of complex analysis to a field of your choosing (the sections in [Nee] listed above include some sections on applications to physics). You don't have to choose something I've listed here --- try looking around yourself a bit! Just make sure that your topic involves a "substantial" application of the ideas we've discussed. 
+    
+    During week 3, you'll be asked to submit a **proposal**. All you have to do for this is tell me who you'll be working with and what you're planning on doing. Submit it through gradescope as a group submission by following [these instructions](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members). 
+
+2. Write up a **document** in which you give a brief exposition of the topic. It should be written in LaTeX. The length is flexible (somewhere in the whereabouts of 3 pages might be reasonable). Make sure to give clear definitions of any new terms. If there's a theorem involved whose proof is too long or hard, you can omit the proof and just provide the statement. Write in a way that a fellow classmate would be able to understand what you've written, and make sure to cite your sources. Submit the document through gradescope as a group submission by following [these instructions](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members).
+    
+3. Prepare an informal and brief (10ish minutes) **presentation** about your topic for your class. It can take any format you like (slides, chalk talk, etc). Just make sure everyone in your group is involved in presenting. 
+
+## Grading
+
+Your project will be graded out of 20 points, as follows. 
+
+* (10 points) Mathematical content. For full credit, make sure that there's some substantial mathematical content to whatever you do. 
+* (5 points) Exposition. For full credit, write up your exposition clearly and precisely, in a way that's easy to follow. Make sure to cite your references too. 
+* (5 points) Presentation. For full credit, your presentation should clearly express the main ideas of what you studied. 
+
+
+

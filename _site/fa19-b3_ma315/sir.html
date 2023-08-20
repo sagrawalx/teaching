@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Fall 2019, Block 3 — MA315 — SIR Project
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="index">Fall 2019, Block 3 — MA315</a>
+</header>
+
+<main>
+<h1 id="sir-project">SIR Project</h1>
+<p>This project<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> asks you to explore an ODE model that is used in epidemiology. The output of this project is a report. You’re strongly encouraged to discuss with each other, but you should write up your report individually in your own words. One part of the project will involve generating some data in groups; your analysis should still be written up individually.</p>
+<p>Email me your report as a PDF by 11:59pm on 3rd Wednesday.</p>
+<h2 id="introduction">Introduction</h2>
+<p>A <em>compartmental model</em> in epidemiology is one that divides the population into various groups (or compartments) in order to model the spread of an infection. The SIR model is an important example of a compartment model; it uses a nonlinear system of ODEs to model the spread of a non-fatal infection through a population. It derives its name from the names of the three groups that it divides the population into:</p>
+<ol type="1">
+<li>The people that are <strong>S</strong>usceptible to catching the disease but are currently uninfected.</li>
+<li>The people that are currently <strong>I</strong>nfected.</li>
+<li>The people that are immune to the disease, either inherently, or because they have <strong>R</strong>ecovered from the infection and have now developed immunity.</li>
+</ol>
+<p>Let <span class="math inline">\(t\)</span> denote the number of days that have elapsed since the infection begins to spread; we let <span class="math inline">\(S(t)\)</span>, <span class="math inline">\(I(t)\)</span>, and <span class="math inline">\(R(t)\)</span> be the number of people in each of the above categories on day <span class="math inline">\(t\)</span>. The model makes several simplifying assumptions and uses it to derive a system of ODEs satisfied by the functions <span class="math inline">\(S\)</span>, <span class="math inline">\(I\)</span>, and <span class="math inline">\(R\)</span>.</p>
+<ol type="1">
+<li><p>The total population <span class="math display">\[N = S(t) + I(t) + R(t)\]</span> is always constant. In other words, this model makes the most sense for infections that spread in relatively short periods of time (much shorter than the life span of a human being) and do not kill off those who get infected.</p></li>
+<li><p>Each infected person infects a fixed fraction, <span class="math inline">\(b\)</span>, of susceptible people every day. In other words, each infected person causes <span class="math inline">\(bS(t)\)</span> new infections on day <span class="math inline">\(t\)</span>, so <span class="math inline">\(dS/dt = -bSI\)</span>.</p></li>
+<li><p>A fixed fraction, <span class="math inline">\(c\)</span>, of infected individuals recover every day. In other words, <span class="math inline">\(dR/dt = cI\)</span>.</p></li>
+</ol>
+<p>Putting the above assumptions together, we find <span class="math inline">\(dI/dt = bSI - cI\)</span>. In other words, the SIR model asserts that the functions <span class="math inline">\(S\)</span>, <span class="math inline">\(I\)</span>, and <span class="math inline">\(R\)</span> satisfy the following system of ODEs. <span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp;= -bSI \\
+\frac{dI}{dt} &amp;= bSI - cI \\
+\frac{dR}{dt} &amp;= cI
+\end{aligned}\]</span></p>
+<h2 id="part-1">Part 1</h2>
+<p>Answer the following questions.</p>
+<ol type="1">
+<li>Why does it make sense for <span class="math inline">\(dS/dt\)</span> to be negative and <span class="math inline">\(dR/dt\)</span> to be positive?</li>
+<li>What real world constraints does our model impose on the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>?</li>
+<li>Explain how one derives the equation for <span class="math inline">\(dI/dt\)</span> from the other three equations.</li>
+<li>What terms make this system of ODEs nonlinear?</li>
+<li>Use your intuition and guess what should happen to <span class="math inline">\(S(t), I(t)\)</span> and <span class="math inline">\(R(t)\)</span> as <span class="math inline">\(t \to \infty\)</span>.</li>
+<li>Explain why, if <span class="math inline">\(S(0) &lt; c/b\)</span>, then <span class="math inline">\(I\)</span> is monotonically decreasing. (In other words, if <span class="math inline">\(c/b\)</span> is large, the infection doesn’t spread.)</li>
+<li>Describe a real world interpretation of the ratio <span class="math inline">\(c/b\)</span>.</li>
+</ol>
+<h2 id="interlude">Interlude</h2>
+<p>Parts 2 and 3 will ask you to do some numerical calculations using a computer. If you are already comfortable with some programming language that can do numerical calculations with systems of ODEs, I encourage you to use that it. This should be possible with most high-level mathematical programming software (Sage, R, Octave/MATLAB, Maple, Mathematica…), and there are probably libraries that will do this for lower-level programming languages (C, Java…).</p>
+<p>If you don’t have one you’re comfortable with yet, I suggest familiarizing yourself with one of the open-source ones. You do have access to licenses to some proprietary software through CC, but you won’t after you graduate. My suggestion is <a href="https://www.sagemath.org/">SageMath</a>.</p>
+<p>Here is some Sage code that will generate plots of <span class="math inline">\(S\)</span>, <span class="math inline">\(I\)</span> and <span class="math inline">\(R\)</span> for <span class="math inline">\(t = 0\)</span> through <span class="math inline">\(t = 30\)</span> using the parameters <span class="math inline">\(b = 0.01\)</span>, <span class="math inline">\(c = 0.1\)</span>, and <span class="math inline">\(N = 100\)</span>, and the initial conditions <span class="math inline">\(I(0) = 1\)</span>, <span class="math inline">\(R(0) = 0\)</span>, and <span class="math display">\[S(0) = N - (I(0) + R(0)) = 99.\]</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial conditions</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>I_0 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>R_0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>S_0 <span class="op">=</span> N <span class="op">-</span> (I_0 <span class="op">+</span> R_0)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Endpoint time</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Step size (the smaller this number, the more accurate the solutions, but the more time the computation will take)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve system numerically</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>S, I, R, t <span class="op">=</span> var(<span class="st">&#39;S, I, R, t&#39;</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> desolve_system_rk4([<span class="op">-</span>b<span class="op">*</span>S<span class="op">*</span>I, b<span class="op">*</span>S<span class="op">*</span>I <span class="op">-</span> c<span class="op">*</span>I, c<span class="op">*</span>I], [S, I, R], ivar<span class="op">=</span>t, ics<span class="op">=</span>[<span class="dv">0</span>, S_0, I_0, R_0], step<span class="op">=</span>s, end_points<span class="op">=</span>T)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Ss <span class="op">=</span> [ [i,j] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> P]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Is <span class="op">=</span> [ [i,k] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> P]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Rs <span class="op">=</span> [ [i,l] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> P]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate plots</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> list_plot(Ss, color<span class="op">=</span><span class="st">&quot;blue&quot;</span>, plotjoined<span class="op">=</span><span class="va">True</span>, legend_label<span class="op">=</span><span class="st">&#39;$S$&#39;</span>, axes_labels<span class="op">=</span>[<span class="st">&#39;$t$&#39;</span>,<span class="st">&#39;#&#39;</span>]) <span class="op">+</span> list_plot(Is, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, legend_label<span class="op">=</span><span class="st">&#39;$I$&#39;</span>, plotjoined<span class="op">=</span><span class="va">True</span>) <span class="op">+</span> list_plot(Rs,  color<span class="op">=</span><span class="st">&quot;green&quot;</span>, legend_label<span class="op">=</span><span class="st">&#39;$R$&#39;</span>, plotjoined<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plot.show()</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># To save your plot, use plot.save(&quot;location/of/file/to/save/to.png&quot;)</span></span></code></pre></div>
+<p>I encourage you to toy around with the code until you’ve figured out what’s going on. It may be worth pointing out that the object <code>Ss</code> is a list consisting of pairs <span class="math inline">\([t, S(t)]\)</span>, and similarly with <code>Is</code> and <code>Rs</code>. The output of the above code is the following plot.</p>
+<p><img src="sir-sample.png" style="width: 80%;"/></p>
+<h2 id="part-2">Part 2</h2>
+<p>Colorado Springs has a population of about 500,000. Suppose that initially just 1 person contracts an infection that’s very contagious, but not very deadly. No one is immune initially, but people develop immunity after they’ve recovered from the infection. Each infected person infects 0.0005% of the susceptible population every day, and 40% of the infected population recovers every day.</p>
+<ol type="1">
+<li>What values of the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are suggested by the above description? What initial conditions <span class="math inline">\(S(0)\)</span>, <span class="math inline">\(I(0)\)</span>, and <span class="math inline">\(R(0)\)</span> are suggested?</li>
+<li>Generate a plot showing how <span class="math inline">\(S\)</span>, <span class="math inline">\(I\)</span>, and <span class="math inline">\(R\)</span> vary with time until day 40. Be sure your plot is clearly labeled.</li>
+<li>On what day is the infected population the highest?</li>
+</ol>
+<p>Now assume that 40% of the population is inherently immune to this infection.</p>
+<ol start="4" type="1">
+<li>How do the initial conditions and/or parameters change under this assumption?</li>
+<li>Generate a plot showing how <span class="math inline">\(S\)</span>, <span class="math inline">\(I\)</span>, and <span class="math inline">\(R\)</span> vary with time.</li>
+<li>At what point is over 90% of the population immune to the infection?</li>
+</ol>
+<h2 id="part-3">Part 3</h2>
+<p>For this part, you’ll generate some data modeling the spread of a zombie virus in groups of 3-4 using some markers and hex grid transparencies, and then fit an SIR model to the data you collect from your simulation. I’ll explain the details of how the mechanics of simulation will go in class.</p>
+<p>In a small town of 50 inhabitants, 1 person has been infected by a zombie virus. As a group, decide on some infection rules, recovery rules, and movement rules. How close does a human have to be to be infected by a zombie? How many humans or cells can one zombie infect in a single time step? How many cells can a human move in a single time step? How many cells can a zombie move in a single time step? How do you deal with the edge of the grid? Are any of the humans immune from zombiehood from the outset? Under what conditions does a zombie recover and become immune from zombiehood?</p>
+<p>You should assume that humans and zombies do not reproduce or die, so that the total population is always 50, but aside from that, feel free to decide on rules however you like, and to clearly record all of the rules you’re using to generate your data.</p>
+<p>Then run the simulation and generate your data. Use a spreadsheet to record your data in a table that looks something like the following. Or just use a plain text CSV file. Keep running your simulation until either it is clear to you that nothing is going to change, or until you hit time step 40.</p>
+<table style="display: block; margin: auto; width=80%">
+<tr>
+<th>
+<span class="math inline">\(t\)</span>
+</th>
+<th>
+<span class="math inline">\(S(t)\)</span>
+</th>
+<th>
+<span class="math inline">\(I(t)\)</span>
+</th>
+<th>
+<span class="math inline">\(R(t)\)</span>
+</th>
+</tr>
+<tr>
+<td>
+0
+</td>
+<td>
+?
+</td>
+<td>
+1
+</td>
+<td>
+?
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+?
+</td>
+<td>
+?
+</td>
+<td>
+?
+</td>
+</tr>
+</table>
+<p>Once you have your data, your job is to find the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> that fit your data well, and to generate a plot that looks something like the following (where the points represent the data that you actually collected from the simulation, and the curves are the solutions generated by the SIR model).</p>
+<p><img src="sir-sample-2.png" style="width: 80%;"/></p>
+<p>You can do this by guessing and checking various values of the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> until you find something that works reasonably well. For an optional challenge, try to figure out a way to find optimal<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> values for the parameters :)</p>
+<p>Note that I artificially concocted the simulation data displayed in the above plot precisely so that the ODE model fits the data reasonably well. Your model might not fit your data as well, and that’s perfectly okay. Share the plot using the best values of <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> you can find, and then answer the following questions.</p>
+<ol type="1">
+<li>What values did you use for the parameters?</li>
+<li>Are there particular regions where the model seems to fit your data well? Are there particular regions where it doesn’t fit very well?</li>
+<li>If you couldn’t find any set of parameters that fit well, can you explain why? Was there something about the rules for infection/movement/recovery you decided on for the simulation that broke down the assumptions of the SIR model?</li>
+</ol>
+<p>If you’re using Sage and you have a CSV file containing your data, you should be able to use something like the following to generate these kinds of plots.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">&#39;/location/of/data/file.csv&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.01</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial conditions</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>I_0 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>R_0 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>S_0 <span class="op">=</span> N <span class="op">-</span> (I_0 <span class="op">+</span> R_0)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Endpoint time</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Step size</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve system numerically</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>S, I, R, t <span class="op">=</span> var(<span class="st">&#39;S, I, R, t&#39;</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> desolve_system_rk4([<span class="op">-</span>b<span class="op">*</span>S<span class="op">*</span>I, b<span class="op">*</span>S<span class="op">*</span>I <span class="op">-</span> c<span class="op">*</span>I, c<span class="op">*</span>I], [S, I, R], ivar<span class="op">=</span>t, ics<span class="op">=</span>[<span class="dv">0</span>, S_0, I_0, R_0], step<span class="op">=</span>s, end_points<span class="op">=</span>T)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>Ss <span class="op">=</span> [ [i,j] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> P]</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Is <span class="op">=</span> [ [i,k] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> P]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Rs <span class="op">=</span> [ [i,l] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> P]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data from file</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>reader <span class="op">=</span> csv.reader(<span class="bu">open</span>(<span class="bu">file</span>))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> []</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> reader:</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    i, j, k, l <span class="op">=</span> row</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    data.append([<span class="bu">float</span>(i), <span class="bu">float</span>(j), <span class="bu">float</span>(k), <span class="bu">float</span>(l)])</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>Sdata <span class="op">=</span> [ [i,j] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> data]</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>Idata <span class="op">=</span> [ [i,k] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> data]</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>Rdata <span class="op">=</span> [ [i,l] <span class="cf">for</span> i, j, k, l <span class="kw">in</span> data]</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Make plot</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> list_plot(Ss, color<span class="op">=</span><span class="st">&quot;blue&quot;</span>, plotjoined<span class="op">=</span><span class="va">True</span>, legend_label<span class="op">=</span><span class="st">&#39;$S$&#39;</span>, axes_labels<span class="op">=</span>[<span class="st">&#39;$t$&#39;</span>,<span class="st">&#39;#&#39;</span>]) <span class="op">+</span> list_plot(Is, color<span class="op">=</span><span class="st">&quot;red&quot;</span>, legend_label<span class="op">=</span><span class="st">&#39;$I$&#39;</span>, plotjoined<span class="op">=</span><span class="va">True</span>) <span class="op">+</span> list_plot(Rs,  color<span class="op">=</span><span class="st">&quot;green&quot;</span>, legend_label<span class="op">=</span><span class="st">&#39;$R$&#39;</span>, plotjoined<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>plot <span class="op">+=</span> list_plot(Sdata, color<span class="op">=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span> list_plot(Idata, color<span class="op">=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span> list_plot(Rdata,  color<span class="op">=</span><span class="st">&quot;green&quot;</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>plot.show()</span></code></pre></div>
+<h2 id="part-4">Part 4</h2>
+<p>Describe another scenario, besides the spread of an infection, that could reasonably be modeled using the SIR system of ODEs: <span class="math display">\[\begin{aligned}
+\frac{dS}{dt} &amp;= -bSI \\
+\frac{dI}{dt} &amp;= bSI - cI \\
+\frac{dR}{dt} &amp;= cI
+\end{aligned}\]</span> Be sure to explain precisely what <span class="math inline">\(S\)</span>, <span class="math inline">\(I\)</span>, and <span class="math inline">\(R\)</span> stand for in your model. What units do they have? What real world interpretation do the parameters <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> have? What simplifying assumptions about the scenario make this system of ODEs appropriate?</p>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>This project is adapted from the SIR project described by Stanley Florkowski and Ryan Miller on <a href="https://www.simiode.org/resources/4796/download/6-018-S-ExploringSIRModel-StudentVersion.pdf?b192279d45ce41a0fded95960ba3c998=1">SIMIODE</a>, and from ideas I got from conversations with Andrea Bruder.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>There are probably many ways of defining “optimal,” and even with a fixed definition of “optimal,” there are many ways of finding those optimal parameters. You’ll have to figure out both of these things if you decide to do this challenge. If you’d like some possible hints, come talk to me!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main>
+
+</body>
+
+</html>

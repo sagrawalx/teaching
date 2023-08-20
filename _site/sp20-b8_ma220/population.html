@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Spring 2020, Block 8 — MA220 — Population Project
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="index">Spring 2020, Block 8 — MA220</a>
+</header>
+
+<main>
+<h1 id="population-project">Population Project</h1>
+<h2 id="overview">Overview</h2>
+<p>This project asks you to explore a linear algebra model that is sometimes used in population ecology. Write up your report, and submit it as a PDF through Canvas. You’re strongly encouraged to discuss with each other, but you should write up your report individually in your own words.</p>
+<p>You will need you to understand some matrix operations, and to know how to do them on a computer. Specifically, the two operations you’ll need to understand are matrix-vector products (look at Three.IV.2.3 in the textbook) and matrix-matrix products (look at Three.IV.2.3 in the textbook). The calculations involved below would be very tedious to do by hand, but thankfully, there are many libraries out there to help you do these calculations.</p>
+<ul>
+<li>If you have a favorite programming language, I encourage you to figure out how to do linear algebra calculations in that programming language. Basically any programming language should be able to do the kinds of calculations that are discussed below (R, Mathematica, …).</li>
+<li>If you don’t have a favorite programming language, my suggestion is to familiarize yourself with <a href="https://www.sagemath.org/">SageMath</a>, an open source mathematical programming language with fairly simple syntax (it builds on top of Python). I’ve included some SageMath code snippets below to help you. You can run SageMath through a browser at <a href="https://cocalc.com/?utm_source=sagemath.org&amp;utm_medium=landingpage">CoCalc</a>, but it’s painfully slow; if you can, I’d suggest following the directions on the SageMath website to install it on your computer.</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>We’re in charge of managing the population of a certain species of fish in a certain lake. This species of fish has a life span of 4 years.</p>
+<p>Every year, we run a census to find the number of fish of each age, and record this number using a vector in <span class="math inline">\(\mathbb{R}^{4}\)</span>. For example, a population vector <span class="math inline">\(v = (100,90,80,70)\)</span> means that there are 100 newborn fish, 90 1-year-old fish, 80 2-year-old fish, and 70 3-year-old fish.</p>
+<p>After collecting many years of data, we find that if the population vector one year is <span class="math inline">\(v\)</span>, then the population vector the following year is given by the matrix-vector product <span class="math inline">\(Av\)</span>, where <span class="math inline">\(A\)</span> is the following <span class="math inline">\(4 \times 4\)</span> matrix.</p>
+<p><span class="math inline">\(A = \begin{bmatrix} 0 &amp; 1.5 &amp; 4.2 &amp; 0 \\ 0.5 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0.6 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.4 &amp; 0 \end{bmatrix}\)</span></p>
+<p>Suppose that the lake was empty in the year 2000 and we introduced 100 newborn fish into the lake. Let <span class="math inline">\(v_n\)</span> denote the population vector when <span class="math inline">\(n\)</span> years have elapsed. In other words, we have <span class="math inline">\(v_0 = (100, 0, 0, 0, 0)\)</span>, <span class="math inline">\(v_1 = Av_0\)</span>, <span class="math inline">\(v_2 = Av_1 = A^2v_0\)</span>, and so forth. The matrix <span class="math inline">\(A\)</span> is called the <em>evolution matrix</em> of the system.</p>
+<p>Here’s how you would put the evolution matrix <span class="math inline">\(A\)</span> and the population vector <span class="math inline">\(v_0\)</span> into SageMath.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> matrix([[<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="fl">4.2</span>,<span class="dv">0</span>],[<span class="fl">.5</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="fl">.6</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.4</span>,<span class="dv">0</span>]])</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> vector([<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span></code></pre></div>
+<p>Then, to calculate <span class="math inline">\(v_1 = Av_0\)</span> and <span class="math inline">\(v_2 = A^2v_0\)</span>, you would type in the following.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">*</span>v</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A<span class="op">^</span><span class="dv">2</span><span class="op">*</span>v</span></code></pre></div>
+<h2 id="part-1-basics">Part 1: Basics</h2>
+<p>To answer the following questions, you might find it useful to compute a few of the terms <span class="math inline">\(v_1, v_2, v_3, ...\)</span> by hand, to get some intuition about what the evolution matrix is actually doing to the population vectors.</p>
+<ol type="1">
+<li><p>These number in the first row of <span class="math inline">\(A\)</span> are called <em>birth rates</em>. Explain what these numbers mean.</p></li>
+<li><p>The nonzero entries below the first row are called <em>survival rates</em>. Explain what these numbers mean.</p></li>
+<li><p>Calculate <span class="math inline">\(v_{10}, v_{100}, v_{1000}\)</span>, and <span class="math inline">\(v_{10000}\)</span>. Can you qualitatively describe what happens to the fish population over time (eg, does it stay stable, does it blow up, …)?</p></li>
+<li><p>Compare <span class="math inline">\(v_{100}\)</span> and <span class="math inline">\(v_{101}\)</span> by finding a real number <span class="math inline">\(\lambda\)</span> such that <span class="math inline">\(v_{101}\)</span> is <em>approximately</em> equal to <span class="math inline">\(\lambda v_{100}\)</span>. Then do the same to compare <span class="math inline">\(v_{1000}\)</span> and <span class="math inline">\(v_{1001}\)</span>. Then do the same to compare <span class="math inline">\(v_{10000}\)</span> and <span class="math inline">\(v_{10001}\)</span>. What do you notice?</p></li>
+</ol>
+<p>The number <span class="math inline">\(\lambda\)</span> that you found above is called the <em>dominant eigenvalue</em> of the system. We’ll discuss eigenvalues more at the end of the block.</p>
+<h2 id="part-2-pollution">Part 2: Pollution</h2>
+<ol type="1">
+<li><p>Suppose that pollution in the lake causes all of the birth rates to decline by 35% and survival rates to decline by 15%. Let <span class="math inline">\(B\)</span> denote the new evolution matrix. How does the evolution matrix change? Can you write <span class="math inline">\(B = DA\)</span> for some matrix <span class="math inline">\(D\)</span>?</p></li>
+<li><p>Calculate <span class="math inline">\(v_1, v_{10}, v_{100}, v_{1000}\)</span> and <span class="math inline">\(v_{10000}\)</span>. Qualitatively describe what happens to the fish population in the long-term.</p></li>
+<li><p>Finding the dominant eigenvalue of the system; in other words, find a real number <span class="math inline">\(\lambda\)</span> such that <span class="math inline">\(v_{10001}\)</span> is <em>approximately</em> equal to <span class="math inline">\(\lambda v_{10000}\)</span>.</p></li>
+<li><p>Suppose instead that pollution in the lake causes all of the birth rates to decline by 36% instead, and survival coefficients still decline by 15%. Qualitatively describe what happens to the fish population in the long term now, and find the dominant eigenvalue of the system.</p></li>
+<li><p>Make a conjecture relating the dominant eigenvalue to the qualitative long-term behavior of the fish population. You don’t need to prove your conjecture; we’ll come back to this at the end of the block.</p></li>
+</ol>
+<h2 id="part-3-sustainable-harvesting">Part 3: Sustainable Harvesting</h2>
+<p>Let’s ignore pollution and return the original evolution matrix <span class="math inline">\(A\)</span>.</p>
+<ol type="1">
+<li><p>Suppose that a harvesting scheme is enacted wherein 50% of all fish are harvested every year. Let <span class="math inline">\(B\)</span> denote the new evolution matrix. How does <span class="math inline">\(B\)</span> compare to <span class="math inline">\(A\)</span>? (<em>Hint</em>. This is more confusing than it looks at first glance, so don’t just guess the answer; do some example calculations by hand to check if your proposed matrix <span class="math inline">\(B\)</span> makes sense.)</p></li>
+<li><p>Like you did above, find the dominant eigenvalue of the system, and describe the qualitative long-term behavior of the fish population. Would this harvesting scheme be sustainable over the course of 100 years?</p></li>
+<li><p>Experiment to find what approximately what percentage of fish we can harvest while maintaining an approximately stable population for 100 years.</p></li>
+</ol>
+<h2 id="part-4-fish-farming-and-early-retirement">Part 4: Fish Farming and Early Retirement</h2>
+<p>You’ve just inherited some money and a fish farm, and you’ve decided that you’re going to try to run a fish selling business, with the goal of retiring as early as possible.</p>
+<p>You’re starting off with $100,000 in cash, and your plan is to spend exactly $25,000 every year. We’ll ignore inflation here. Your fish farm starts off with 10,000 newborn fish. Based on the average weight of fish at various ages and the going rate of fish in the market, you find that…</p>
+<table>
+<thead>
+<tr class="header">
+<th>harvesting a…</th>
+<th>will get you…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>newborn fish</td>
+<td>$10</td>
+</tr>
+<tr class="even">
+<td>1 year old fish</td>
+<td>$30</td>
+</tr>
+<tr class="odd">
+<td>2 year old fish</td>
+<td>$50</td>
+</tr>
+<tr class="even">
+<td>3 year old fish</td>
+<td>$20</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, suppose you know that you’ll be able to retire as soon as you hit $2,000,000. Your job is to figure out a harvesting scheme so that you hit retirement as soon as possible, and also avoid bankruptcy.</p>
+<p>For example, in the previous part, we discussed a very basic harvesting scheme: harvest some fixed percentage (ie, 50%) of fish every year. Here’s a SageMath code snippet that simulates what would happen if you did this. Note that everything on a line that follows a hash (#) is a comment; it doesn’t do anything, it’s just there to explain to you what each step of the code is doing.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is just to format currency using typical American standards</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> locale</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>locale.setlocale(locale.LC_ALL, <span class="st">&#39;en_US.UTF-8&#39;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Some of the given data; you don&#39;t need to edit this</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> matrix([[<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="fl">4.2</span>,<span class="dv">0</span>],[<span class="fl">.5</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="fl">.6</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.4</span>,<span class="dv">0</span>]]) <span class="co"># evolution matrix</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> vector([<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]) <span class="co"># initial population vector</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> vector([<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">20</span>]) <span class="co"># prices for fish of each age</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>money <span class="op">=</span> [<span class="dv">100000</span>] <span class="co"># initial money</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>cost_of_living <span class="op">=</span> <span class="dv">25000</span> <span class="co"># amount you have to spend per year</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>retirement <span class="op">=</span> <span class="dv">2000000</span> <span class="co"># amount you need for retirement</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">1</span> <span class="co"># This variable records what year you&#39;re currently on</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> t <span class="op">&gt;=</span> <span class="dv">1</span>:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># !!! This is the part you want to edit !!!</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    harvest_rate <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    current_harvest <span class="op">=</span> harvest_rate <span class="op">*</span> population</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># You probably don&#39;t need to edit below this, but you can if you want to and know what you&#39;re doing</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    current_income <span class="op">=</span> current_harvest.dot_product(prices) <span class="co"># money get from selling</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    population <span class="op">-=</span> current_harvest <span class="co"># subtract harvest from population</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    population <span class="op">=</span> A <span class="op">*</span> population <span class="co"># evolve population</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    money.insert(t, money[t<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> current_income <span class="op">-</span> cost_of_living) <span class="co"># add income, and subtract expenses</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This part figures out if you&#39;ve gone bankrupt or if you&#39;re able to retire</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> money[t] <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;You&#39;ll go bankrupt in </span><span class="sc">{}</span><span class="st"> years.&quot;</span>.<span class="bu">format</span>(t))</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> money[t] <span class="op">&gt;</span> retirement:</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;You&#39;ll be able to retire after </span><span class="sc">{}</span><span class="st"> years.&quot;</span>.<span class="bu">format</span>(t))</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        t <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># This lists off how much money you have at the end of each year</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t, m <span class="kw">in</span> <span class="bu">enumerate</span>(money, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;End of year </span><span class="sc">{}</span><span class="st">: </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(t, locale.currency(m, grouping<span class="op">=</span><span class="va">True</span>)))</span></code></pre></div>
+<p>Note: If you prefer R, here is an R translation of this code: <a href="fish.R">fish.R</a>. Many thanks to Hiromi K. for initiating this translation!</p>
+<p>Running this code tells me that I go bankrupt in 11 years. In other words, this harvesting scheme is no good! The code also outputs me how much money I have left at the end of each year.</p>
+<p>Your job is to adjust the harvesting scheme so that you avoid bankruptcy and are able to retire as soon as possible. You can start by experimenting with just varying the percentage of fish harvested yearly, but you don’t have to harvest a fixed percentage of all the fish every year. For example, what if you harvest only fish of certain ages? What if you harvest more fish of certain ages than of other ages? What if you wait some number of years before starting to harvest? The possibilities are endless! Be creative :)</p>
+<p>You should clearly explain (using full sentences) all of the harvesting schemes you experimented with in words, and indicate which one you found to be the best. For the best harvesting scheme you found, you should also include clearly commented code (like above) that explains how you ran the simulation (if you only adjusted the part that says “This is the part you want to edit,” you only need to include that part of the code).</p>
+<p>There are parts of this model that aren’t super realistic (for instance, depending on what you do, you could wind up with unrealistically large numbers of fish). If you like, you can treat this as a kind of linear algebra game! Just so you know, the best harvesting scheme I’ve been able to come up with gets me to retirement after 12 years. Can you get to retirement faster than me? :)</p>
+
+</main>
+
+</body>
+
+</html>

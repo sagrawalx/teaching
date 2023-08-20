@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Fall 2019, Block 3 — MA315 — Sage ODE Cheatsheet
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="index">Fall 2019, Block 3 — MA315</a>
+</header>
+
+<main>
+<h1 id="sage-ode-cheatsheet">Sage ODE Cheatsheet</h1>
+<p>Here’s a very brief overview of how to do a few ODE-related things in Sage, mostly intended as a reference for me, but maybe you’ll find it useful too.</p>
+<h2 id="first-order-odes">First Order ODEs</h2>
+<p>Here’s how to find the general solution to the ODE y’ = x + y.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f(x,y) <span class="op">=</span> x<span class="op">+</span>y</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> function(<span class="st">&#39;y&#39;</span>)(x)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>deq <span class="op">=</span> diff(y, x) <span class="op">==</span> f(x,y) <span class="co"># or deq = diff(y,x) - f(x,y)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> desolve(deq, y)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sol.show()</span></code></pre></div>
+<p>Here’s how to find the solution that satisfies the initial value condition y(0) = -1/2 and how to plot it on the interval [-2,2]. Keeping the same first few commands as above,</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> desolve(deq, y, ics<span class="op">=</span>[<span class="dv">0</span>, <span class="op">-</span><span class="fl">0.5</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plot(sol, <span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sol.show() <span class="co"># or p.show()</span></span></code></pre></div>
+<p>Here’s how to generate a slope field of the ODE together with a plot of the numerical solution to this ODE satisfying the same initial value condition.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>f(x,y) <span class="op">=</span> x<span class="op">+</span>y</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> var(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> plot_slope_field(f, (x, <span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>), (y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">+=</span> desolve_rk4(f, y, ics<span class="op">=</span>[<span class="dv">0</span>,<span class="op">-</span><span class="fl">0.5</span>], ivar<span class="op">=</span>x, output<span class="op">=</span><span class="st">&#39;plot&#39;</span>, end_points<span class="op">=</span>[<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>], thickness<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>p.show()</span></code></pre></div>
+<h2 id="linear-algebra">Linear Algebra</h2>
+<p>…</p>
+<h2 id="systems-of-first-order-odes">Systems of First Order ODEs</h2>
+<p>Here’s how to plot a vector field corresponding to the autonomous nonlinear system x’ = x + y and y’ = xy.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> var(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plot_vector_field((x<span class="op">+</span>y,x<span class="op">*</span>y), (x,<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>), (y,<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>))</span></code></pre></div>
+<p>…</p>
+<h2 id="references">References</h2>
+<p>Here are some other resources with more information.</p>
+<ol type="1">
+<li><a href="http://doc.sagemath.org/html/en/prep/Quickstarts/Differential-Equations.html">Sage Quickstart for Differential Equations</a>.</li>
+<li>Judson’s <a href="http://faculty.sfasu.edu/judsontw/ode/"><em>ODEs Project</em></a>.</li>
+</ol>
+
+</main>
+
+</body>
+
+</html>

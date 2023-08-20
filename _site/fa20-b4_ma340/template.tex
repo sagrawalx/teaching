@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+
+\theoremstyle{definition}
+\newtheorem{inner}{Problem}
+\newenvironment{problem}[1]
+  {\renewcommand\theinner{#1}\inner}
+  {\endinner}
+\theoremstyle{remark}
+\newtheorem*{solution}{Solution}
+
+\title{Batch ???}
+\author{INSERT NAME HERE}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{INSERT PROBLEM NUMBER HERE}
+INSERT PROBLEM STATEMENT HERE.
+\end{problem}
+
+\begin{solution}
+INSERT SOLUTION HERE. 
+\end{solution}
+
+\begin{problem}{INSERT PROBLEM NUMBER HERE}
+INSERT PROBLEM STATEMENT HERE.
+\end{problem}
+
+\begin{solution}
+INSERT SOLUTION HERE. 
+\end{solution}
+
+\end{document}
+

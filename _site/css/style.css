@@ -1,0 +1,140 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Baloo+2:wght@800&display=swap");
+body {
+  font-size: 16px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: normal;
+  line-height: 1.7;
+  color: #444;
+  min-width: 30em;
+  max-width: 50em;
+  text-align: left;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+body em {
+  font-style: italic;
+}
+body strong {
+  font-weight: bold;
+}
+body a:link, body a:visited {
+  color: #777;
+}
+body a:hover, body a:active {
+  color: #339999;
+}
+body blockquote, body div.sourceCode {
+  display: block;
+  padding-left: 2em;
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-left-color: #eee;
+}
+body code, body div.sourceCode {
+  font-family: monospace;
+  overflow: auto;
+  max-height: 40em;
+  @import url("code.css");
+}
+body span.blockquote-attribution {
+  display: block;
+  text-align: right;
+}
+body table th, body table td {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+}
+body table th {
+  background-color: #eee;
+}
+body table td.subheading {
+  background-color: #eee;
+  font-style: italic;
+}
+
+#banner {
+  padding-top: 1em;
+}
+#banner a, #banner a:visited {
+  font-size: 2.25em;
+  color: #777;
+  font-weight: bolder;
+  font-family: "Baloo 2", cursive;
+  text-decoration: none;
+}
+#banner a:hover, #banner a:active {
+  color: #339999;
+}
+
+main {
+  padding-bottom: 5em;
+}
+main a {
+  text-decoration: underline dotted;
+}
+main h1 {
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 1.25em;
+  margin-bottom: 1em;
+}
+main h2 {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+main h3 {
+  font-weight: normal;
+  font-style: italic;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+main p {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+main li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+main ul {
+  list-style: square;
+  padding-left: 2.5em;
+}
+main ul ul {
+  list-style: circle;
+}
+main ol {
+  list-style: decimal;
+  padding-left: 2.5em;
+}
+main .footnoteRef, main sup {
+  vertical-align: super;
+  font-size: xx-small;
+}
+main .footnotes {
+  font-size: small;
+}
+main .footnotes ol {
+  padding-left: 4.5em;
+  padding-right: 2em;
+}
+main hr {
+  margin-top: 1em;
+  border: 0;
+  height: 1px;
+  background: #ddd;
+}
+
+.email:after {
+  content: attr(data-domain);
+}
+
+.email:before {
+  content: attr(data-localpart) "@";
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Fall 2021, Block 4 — MA240 — Introduction to Bootstrapping
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="../index">Fall 2021, Block 4 — MA240</a>
+</header>
+
+<main>
+<h1 id="introduction-to-bootstrapping">Introduction to Bootstrapping</h1>
+<h2 id="overview">Overview</h2>
+<p>Let us say loosely that an <em>aggregation function</em> is a function which takes as input some data and outputs a single number. For example, the function which takes as input data from a single numerical variable and outputs the mean (or median, or 25th percentile, or 53rd percentile, or standard deviation) is an aggregation function. The function which takes as input data from a single binary variable and outputs the percentage of <code>TRUE</code> values is also an aggregation function. We can also have aggregation functions which take as input data from multiple variables. For example, you might be interested in the function which takes as input data from two numerical variables, and outputs the slope of the least squares regression line. As is probably clear, almost anything can be considered an aggregation function.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Suppose I fix an aggregation function. If I were able to evaluate the aggregation function on data from the entire population, the output would be called a <em>population parameter</em>. Of course, in many situations of interest, we do not have population data. Instead, we merely have data from a random sample. The output of the aggregation function on this data from a random sample is called a <em>sample statistic</em> (sometimes also called a <em>point estimate</em>).</p>
+<p>When we calculate a sample statistic, it’s often a good idea to try to understand how “uncertain” we should be about its value. How far might the value of the population parameter be? How different might the sample statistic have been if we had chosen a different random sample?</p>
+<p>These questions can be formalized precisely using mathematics. There is probability space which lists off all of the possible random samples of a given size. The aggregation function can then be regarded as a random variable on this probability space. The “uncertainty of the sample statistic” is then formalized by asking: what is the distribution of this random variable? This distribution is called the <em>sampling distribution</em> of the statistic.</p>
+<p>We can sometimes derive what the sampling distribution looks like on the nose, but only in somewhat special situations. <em>Bootstrapping</em> is a widely applicable strategy for approximating the sampling distribution of a test statistic, no matter what aggregation function we might be interested in.</p>
+<p>The idea is that we repeatedly <em>resample with replacement</em> from our random sample, evaluate the aggregation function from each of those resamples, and build a distribution of the outputs. The result of this process is called the <em>bootstrap distribution</em>.</p>
+<p>Difficult mathematics guarantees that, for almost any aggregation function and almost any population distribution, the bootstrap distribution you get from your sample will be a good stand-in for the sampling distribution (at least as long as your sample was “large enough,” where the precise definition of “large enough” depends on what aggregation function you’re dealing with). Thankfully, while it may be difficult to prove this, it’s not at all difficult to apply this idea in practice!</p>
+<h2 id="extended-example">Extended Example</h2>
+<h3 id="introduction">Introduction</h3>
+<p>Suppose I’m interested in the 75th percentile (ie, third quartile) of departure delays of flights out of NYC, and that I collect a random sample of data from 2000 flights to figure out what the 75th percentile might be.</p>
+<p>Let me simulate this by taking a random sample of 2000 flights from the <code>nycflights13::flights</code> data set.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">=</span> <span class="dv">2000</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> sample_size)</span></code></pre></div>
+<p>I’m now going to forget about the <code>flights</code> tibble and pretend like <code>sample</code> is the only data I have access to (except for a brief interlude below). The R function <code>quantile</code> is useful for calculating percentiles. The following outputs the 75th percentile of the <code>dep_delay</code> column of <code>samples</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(sample<span class="sc">$</span>dep_delay, <span class="at">prob =</span> <span class="fl">0.75</span>, <span class="at">names =</span> <span class="cn">FALSE</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>For me, this outputs 10, but you might get something else since your random sample will be different. This means that 75% of flights in my sample have a departure delay of less than 10 minutes from their scheduled departure time.</p>
+<p>Since the call to <code>quantile(...)</code> above involves a lot of typing, let’s save ourselves some typing by defining a new function, called <code>q3</code>, which does the same thing:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>q3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(x, <span class="at">prob =</span> <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Running <code>q3(sample$dep_delay)</code> still outputs 10 (for me), as it should! It’s still the same sample, after all. Check that you still get the same output.</p>
+<p>The function <code>q3</code> is the relevant aggregation function in this extended example. When you bootstrap in other settings, you’ll have to swap out <code>q3</code> for whatever other aggregation function you might be interested in.</p>
+<p>Now I might want to understand how uncertain I ought to be about this 10 number that I calculated.</p>
+<h2 id="interlude-lets-stop-pretending">Interlude: Let’s Stop Pretending</h2>
+<p>For a moment, let’s stop pretending that we don’t have access to the full <code>flights</code> data set. I can use this full data set to calculate the true 75th percentile (ie, the population parameter):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q3</span>(flights<span class="sc">$</span>dep_delay)</span></code></pre></div>
+<p>It turns out to be 11, so the statistic I calculated from my sample wasn’t too far off.</p>
+<p>I can also calculate the true sampling distribution by repeatedly sampling from the full data set. Here’s how to do this. (Don’t worry too much about how this piece of code works right now. We’ll discuss the important parts below, and then if you like, you can come back to this code and figure out what it’s doing.)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>repetitions <span class="ot">=</span> <span class="dv">5000</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>index_lists <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="fu">seq</span>(repetitions), <span class="sc">~</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="fu">nrow</span>(flights)), sample_size))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">map</span>(index_lists, <span class="sc">~</span> <span class="fu">resample</span>(flights, .))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">sample =</span> samples, <span class="at">.id =</span>  <span class="fu">seq</span>(repetitions)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">q3 =</span> <span class="fu">map_dbl</span>(sample, <span class="sc">~</span> <span class="fu">q3</span>(<span class="fu">as_tibble</span>(.)<span class="sc">$</span>dep_delay)))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>samples <span class="sc">%&gt;%</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(q3)) <span class="sc">+</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">16</span>)</span></code></pre></div>
+<p>The output shows us roughly what the true sampling distribution looks like.</p>
+<p><img src="q3-sampling-dist.png" style="display: block; margin-left: auto; margin-right: auto; padding-top: 1em;"/></p>
+<p>This gives us some indication for how uncertain to be about our statistic. It shows us, for example, that, though 11 is the most common 75th percentile that one might obtain from a random sample of size 2000, a sample whose 75th percentile is 10 (like the sample that I got) is not so uncommon.</p>
+<!--
+If you'd like to extract a number that measures this uncertainty, you can calculate the  *standard error*, ie, the standard deviation of the sampling distribution: 
+
+```R
+sd(samples$q3)
+```
+
+I get about 1.21 when I do this. A loose way of  interpretting this is as specifying a kind of range around the population parameter: *most* samples of size 2000 taken from `flights` will have a 75th percentile that's within 1.21 minutes of the true parameter value (ie, of 11 minutes). Since my sample's 75th percentile was in fact within 1.21 minutes of the parameter value, my sample wasn't too unusual. 
+
+Standard error isn't the only number you can extract from the sampling distribution, but it is a relatively straightforward one. There are many others of varying degrees of complexity. -->
+<p>When the sampling distribution is roughly symmetric and centered about the true population parameter (as it is above), the aggregation function is said to be “unbiased.” There are various ways of making this a precise mathematical definition which aren’t worth dwelling on here, but most aggregation functions that one uses in practice are unbiased according to at least one of these definitions of unbiased. It’s possible to deal with biased aggregation functions, but things get a little more complicated.</p>
+<p>Let’s now go back to pretending that we don’t have access to the <code>flights</code> data set. In real life, we won’t often have access to population data (and even if we do, constructing a sampling distribution from the population data would be a somewhat academic exercise). There’s now know way of knowing that the parameter value is actually 11, or of knowing what the sampling distribution looks like, or of knowing the standard error.</p>
+<p>But we <em>can</em> calculate the bootstrap distribution, which is an approximation for the sampling distribution. To do this, we’ll repeatedly take resamples of size 2000 with replacement from <code>sample</code>, and then compute the 75th percentile of each of those resamples. Note that it’s important that the resamples are chosen <em>with replacement</em>. If we were to choose a sample of size 2000 from <code>sample</code> <em>without</em> replacement, the result will always just be all of <code>sample</code>, since <code>sample</code> has 2000 elements!</p>
+<h2 id="resamples">Resamples</h2>
+<p>The <code>modelr</code> package provides some useful tools for resampling. It’s a <code>tidyverse</code> package, but isn’t loaded in by default with the <code>library(tidyverse)</code> command, so you should load it in now. (You might already have done this if you copied the previous chunk of code into the console, but there’s no harm in doing it again.)</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span></code></pre></div>
+<p>To understand resamples, let’s take a single resample with replacement from <code>sample</code> of the same size as <code>sample</code>. The function <code>resample_bootstrap</code> does exactly this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>resample <span class="ot">&lt;-</span> <span class="fu">resample_bootstrap</span>(sample)</span></code></pre></div>
+<p>This generates an object of type “resample,” which is sort of like a tibble — except it’s not. To save space in memory, it’s actually just a list of pointers to rows in <code>sample</code>. To turn it into an actual tibble, you have to use the function <code>as_tibble</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(resample)</span></code></pre></div>
+<p>Now if I want to compute the 75th percentile of departure delays from this resample, I’d can do this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q3</span>(<span class="fu">as_tibble</span>(resample)<span class="sc">$</span>dep_delay)</span></code></pre></div>
+<p>Or, if you’re really into pipes, you could equivalently do this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>resample <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(dep_delay) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">q3</span>()</span></code></pre></div>
+<h2 id="bootstrapping">Bootstrapping</h2>
+<p>To bootstrap, we’re going to take 5000 resamples. Note that the number 5000 is arbitrary; feel free to choose any big number when you’re bootstrapping. The bigger the better, but of course computations will get slower with bigger numbers.</p>
+<p>The <code>bootstrap</code> function from <code>modelr</code> repeatedly performs <code>resample_bootstrap</code>, as many times as you specify, and stores the results of each resample in a row in a tibble.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>repetitions <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>resamples <span class="ot">&lt;-</span> <span class="fu">bootstrap</span>(sample, repetitions)</span></code></pre></div>
+<p>The result of this is a tibble named <code>resamples</code> with 5000 rows, each corresponding to one resample. There are two columns: one named <code>strap</code> which contains the actual <code>resample</code> object, and one named <code>.id</code> which assigns a number to each resample.</p>
+<p>We’re now going to add a column named <code>q3</code> to <code>resamples</code>. This column will record the 75th percentiles of all of the resamples.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>resamples <span class="ot">&lt;-</span> resamples <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">q3 =</span> <span class="fu">map_dbl</span>(strap, <span class="sc">~</span> <span class="fu">q3</span>(<span class="fu">as_tibble</span>(.)<span class="sc">$</span>dep_delay)))</span></code></pre></div>
+<p>What’s going on here? The function <code>map_dbl</code> takes as input a list and outputs a list of <code>dbl</code>s (ie, decimal numbers). The list it takes as input is specified by the first argument to <code>map_dbl</code> — in this case, the <code>strap</code> column of <code>resamples</code>, which is a list of objects of type “resample.” It then applies the function that follows the <code>~</code> to each object in the input list, substituting that object in place of the <code>.</code> that shows up in the expression. This gives us a list of doubles (each double being the 75th percentile of departure delays of each resample), and we assign that list of doubles to be a column named <code>q3</code> in the <code>resamples</code> tibble.</p>
+<p>Note <code>q3</code> is now both a function as well as a column in <code>resamples</code>. Make sure you know which one is being talked about whenever you type <code>q3</code> from here on out.</p>
+<p>You can now make a histogram of these 75th percentiles to see the bootstrap distribution.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>resamples <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(q3)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">16</span>)</span></code></pre></div>
+<p>You should now see a distribution that isn’t <em>too</em> different from the sampling distribution that we made during the interlude, but instead of being centered around 11, it’ll probably be centered around whatever you got for <code>q3(sample$dep_delay)</code>. Here’s what I see:</p>
+<p><img src="q3-bootstrap-dist.png" style="display: block; margin-left: auto; margin-right: auto; padding-top: 1em;"/></p>
+<h2 id="standard-error">Standard Error</h2>
+<p>Once you have a bootstrap distribution, you can extract quantitative measures of uncertainty from it. The easiest of these is the standard error.</p>
+<p>By definition, <em>standard error</em> is the standard deviation of the sampling distribution. We don’t know what the sampling distribution is (or rather, we’re pretending we don’t…), so a good stand-in is the standard deviation of the bootstrap distribution. We can calculate this as follows:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(resamples<span class="sc">$</span>q3)</span></code></pre></div>
+<p>I get 1.52, but you might get something a little different since your <code>sample</code> and <code>resamples</code> will be different from mine.</p>
+<p>A loose way to interpret this 1.52 value is as specifying some kind of range around the statistic. It’s saying roughly that the it would not be too surprising if the true parameter value was within 1.52 units of the sample statistic that I obtained from my sample.</p>
+<p>We saw during the interlude that the parameter value was 11 – which is in fact within 1.52 minutes of my sample statistic. Is the parameter value within the range specified by the standard error of your sample statistic? (It might not be, and that’s okay.)</p>
+<h2 id="required-exercise">Required Exercise</h2>
+<p>Using your <code>sample</code> and your bootstrap <code>resamples</code>, generate a plot like this:</p>
+<p><img src="q3-by-carrier.png" style="display: block; margin-left: auto; margin-right: auto; padding-top: 1em;"/></p>
+<p>The points in this plot mark off the 75th percentile of the departure delays of each carrier, and the lines extend from the 75th percentile minus the standard error to the 75th percentile plus the standard error. The carriers on the y-axis are sorted by the 75th percentile of their departure delays.</p>
+<p>Note that, depending on the <code>sample</code> you’re working with, your plot might look radically different from the one above: the ordering of carriers could be very different, some carriers might have huge standard errors, some carriers might just be points without intervals, etc. Remember at the end of the introduction where we said “if the same size is ‘large enough’”? The issue here is that a sample of size 2000 is not really big enough for this particular calculation to be stable. It’s big enough for the standard error calculation for the 75th percentile of <em>all</em> flights to be relatively stable, but after grouping into categories based on carrier, some of the groups have too small a sample — especially the groups corresponding to carriers that have very few flights represented in the <code>flights</code> data set.</p>
+<p>So, after you get your code working with your original <code>sample</code> of size 2000, take a new larger <code>sample</code> of size 20000 from <code>flights</code>. Filter out the carriers which have very few observations. Build a bootstrap distribution using your filtered sample, and then use this bootstrap to generate the same kind of plot as the one above.</p>
+<p>This exercise might be a little challenging. It may be helpful to review the <code>dplyr</code> functions <code>group_by</code> and <code>summarize</code>, and to browse the <code>dplyr</code> and <code>tidyr</code> <a href="https://www.rstudio.com/resources/cheatsheets/">cheatsheets</a> for other helpful functions.</p>
+<p>For the purposes of grading, we’ll pretend that this exercise belongs to [WNP21, Section 5.1] (which has no associated exercises). In other words, you should do this exercise as a part of assignment <a href="../assignments#F">F</a>.</p>
+<h2 id="confidence-intervals">Confidence Intervals</h2>
+<p>Another quantitative measure of uncertainty that can be extracted from a bootstrap distribution is a <em>confidence interval</em>. There are several different types of bootstrapped confidence intervals. Here, we just focus on one simple type.</p>
+<p>The confidence interval of confidence level <span class="math inline">\(\gamma\)</span> goes from the <span class="math inline">\(((1-\gamma)/2)\)</span>th percentile of the bootstrap distribution up to the <span class="math inline">\((1-(1-\gamma)/2)\)</span>th percentile. For example, if <span class="math inline">\(\gamma = 0.9\)</span>, we have <span class="math inline">\((1-\gamma)/2 = 0.05\)</span> and the 90% confidence interval goes from the 5th to the 95th percentile of the bootstrap distribution. Recall that the bootstrap distribution is stored in <code>resamples$q3</code>, and we can use the <code>quantile</code> function to calculate its percentiles. In fact, we can calculate both in one go:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(resamples<span class="sc">$</span>q3, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.95</span>), <span class="at">names =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<p>For me, this outputs a 5th percentile of 8 and a 95th percentile of 12. I interpret this confidence interval by saying that I am 90% confident that the true 75th percentile of departure delays is between 8 and 12.</p>
+<p>As I know from the interlude, the true value (ie, 11) is in fact in this range. Does your 90% confidence interval contain the true value? Even before you’ve done it, I know that there’s a 90% chance that it will. (If it doesn’t, that’s okay! After all, there is a 10% chance that it won’t.)</p>
+<h2 id="optional-exercises">Optional Exercises</h2>
+<p>Here are some more exercises that you might choose to do as a part of assignment <a href="../assignments#F">F</a> to get to the 10 problem total.</p>
+<ol type="1">
+<li><p>Calculate 80%, 95%, and 99% confidence intervals for the 75th percentile of departure delays from your bootstrap distribution.</p></li>
+<li><p>Change the plot from the <a href="#required-exercise">required exercise</a> so that the lines display 90% confidence intervals (instead of the standard error). In other words, the line segments should stretch from the lower endpoint of the 90% confidence interval to the upper endpoint.</p></li>
+<li><p>Here’s how you’d use <code>geom_density</code> to display the bootstrap distribution:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>resamples <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(q3)) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density</span>()</span></code></pre></div>
+<p>You’ll probably notice something strange when you do this. Try replacing <code>geom_density()</code> with <code>geom_density(adjust = 1/2)</code> or <code>geom_density(adjust = 2)</code> or <code>geom_density(adjust = 4)</code>, and so forth, until you see something that looks reasonable. Once you’ve found something that seems reasonable, what are your opinions about using <code>geom_density</code> instead of <code>geom_histogram</code> to visualize the bootstrap distribution? Explain.</p></li>
+<li><p>Go back to the code in the interlude that generated the picture of the sampling distribution, and explain how it works.</p></li>
+<li><p>Read this <a href="rsample">addendum about <code>rsample</code></a>. Then explain what would need to change with the code from the interlude that generated the picture of the sampling distribution if you wanted to use <code>rsample</code> instead of <code>modelr</code>.</p></li>
+</ol>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Technically, an aggregation function should be a real-valued function on the space of distributions which satisfies some very technical properties (eg, Hadamard differentiability). Don’t worry about all of this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main>
+
+</body>
+
+</html>

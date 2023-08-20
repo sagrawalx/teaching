@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Fall 2020, Block 4 — MA340 — Syllabus
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="index">Fall 2020, Block 4 — MA340</a>
+</header>
+
+<main>
+<h1 id="syllabus">Syllabus</h1>
+<blockquote>
+<p>Algebraic geometry seems to have acquired the reputation of being esoteric, exclusive, and very abstract, with adherents who are secretly plotting to take over all the rest of mathematics! In one respect this last point is accurate… <span class="blockquote-attribution">—David Mumford, 1975</span></p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<h3 id="about-the-subject">About the subject</h3>
+<p>Algebraic geometry is often defined as the branch of mathematics concerned with describing solutions to systems of polynomial equations, just as linear algebra is the branch of mathematics concerned with describing solutions to systems of linear equations.</p>
+<p>This definition is accurate in some respects, and makes an important analogy. One of the key ideas we’ll be exploring this block is a kind of generalization of row reduction that works for systems of polynomial equations.</p>
+<p>That being said, this definition also misses an important point: algebraic geometry is a bustling intellectual crossroads! Number theorists, combinatorialists, representation theorists, string theorists, theoretical computer scientists, and many others find themselves interacting with algebraic geometry these days. Part of the reason for this bustle is that, since Grothendieck revolutionized algebraic geometry in the mid-1900s, the field has become incredibly abstract — and with great abstraction comes great power. For this reason, many graduate-level algebraic geometry classes use the abstract framework, but this abstraction can be very difficult to wrap your mind around if you haven’t had any exposure to the more concrete parts of the subject.</p>
+<p>Our goal in this class will be to approach algebraic geometry in a more down-to-earth and computational way. This is fun in and of itself. I also hope that those of you who go on to study algebraic geometry later on find this to be useful as a bridge to help you come to terms with the abstraction of the Grothendieck approach.</p>
+<h3 id="about-the-class">About the class</h3>
+<p>In order to keep all of us and our communities as safe as possible during the Covid-19 pandemic, this course will be fully remote.</p>
+<p>There’s great data out there that we learn much better by doing and discussing (rather than by trying to imbibe passively). This class will be structured around doing lots of problems and giving you opportunities to discuss them.</p>
+<h2 id="things-youll-need">Things you’ll need</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>You should feel comfortable writing proofs. You should know some linear algebra (eg, what the dimesion of a vector space is, or how to solve systems of linear equations using row reduction). You might also find it helpful to know something about ring theory (eg, what an ideal is), though this is not strictly necessary.</p>
+<p>If you’ve taken MA251, MA220, and MA321, you should be amply prepared. If you haven’t taken one of these classes, it might be okay anyway; talk to me to find out if this class is for you!</p>
+<h3 id="textbook">Textbook</h3>
+<p>We’ll be using Cox, Little, and O’Shea’s <em>Ideals, Varieties, and Algorithms</em> (4th edition). Here is a link to the <a href="https://dacox.people.amherst.edu/iva.html">known errata</a>.</p>
+<h3 id="latex">LaTeX</h3>
+<p>“LaTeX” is pronounced either “LAY-tek” or “LAH-tek”, with <em>k</em> sound at the end (not a <em>ks</em> sound). Sometimes people just say TeX (“tek”) for short.</p>
+<p>LaTeX is a software system for preparing PDF documents. You input the content of your document alongside a little bit of “code,” all in plaintext. Then you compile and the software produces a PDF. Because there’s some “code” involved, there’s a little bit of a learning curve. But it’s not too steep, and once you get used to it you’ll find that it’s by far the most convenient way out there for typesetting mathematical expressions.</p>
+<p>People working in mathematical fields TeX things up all the time, so I think it’s a useful skill to have. To this end, solutions to problems you submit (see <a href="#problems">“Problems”</a> below) must be TeXed.</p>
+<p>You can install LaTeX on your computer, or you can use <a href="https://www.overleaf.com">Overleaf</a>. If you haven’t used LaTeX before, I encourage you to check out Overleaf’s “<a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes">Learn LaTeX in 30 minutes</a>” guide.</p>
+<p>Here’s a <a href="template.tex">template</a> if you want something to get started (and, in case you’re curious, here’s the <a href="template.pdf">PDF</a> it outputs after compiling). You’re more than welcome to set up a document yourself.</p>
+<h3 id="sagemath">SageMath</h3>
+<p>While you won’t <em>need</em> to program for this class, you’ll likely find it convenient to get a computer to do calculations sometimes. The calculations can occasionally be a bit much to do by hand. Also, one of the most satisfying things about this approach to algebraic geoemtry is that it is amenable to explicit computation.</p>
+<p>My suggestion is that you use <a href="https://www.sagemath.org/">SageMath</a>, an open-source mathematical software system. It can do many of the types of calculations we’ll be discussing in this class. It builds on Python, so those of you who’ve used Python should find it’s syntax familiar.</p>
+<p>I’ve set up a “<a href="sage">Sage reference</a>” to collect information about how to get Sage to do some of the types of calculations you might want it to do for this class.</p>
+<h2 id="mechanics">Mechanics</h2>
+<h3 id="readings">Readings</h3>
+<p>The <a href="index#calendar">calendar</a> indicates sections from the textbook for each day. You’ll read those sections and then submit a “comprehension check” and a “reading question” by 8am MT on the day indicated on the calendar.</p>
+<ul>
+<li><p>For the “comprehension check,” you’ll attempt to solve the <a href="index#sections">problems marked “CC”</a> from each section that you read. You’ll get credit as long as I can see that you put in a sincere effort on these problems; it’s okay if they’re not all correct. You also do <em>not</em> need to TeX up your comprehension checks!</p></li>
+<li><p>You’ll formulate a “reading question” about what you read and submit it using a Google Form. Try to formulate questions as precisely as you can. If you didn’t understand something in the reading, pinpoint exactly what it was that you didn’t understand. If you couldn’t solve a comprehension check problem, that could make for a good reading question as well; tell me what you got stuck on and why you got stuck.</p>
+<p>If you don’t have any questions about the reading, your question might be a non-question. For example, you might tell me about a question that you had but then managed to figure out. Or you might tell me about something that you understand but that you think your peers might find confusing. I’m mostly looking for an indication that you did the assigned reading and made a sincere attempt to process it.</p></li>
+</ul>
+<p>Note that, depending on your time zone and sleep schedule, the 8am MT deadline might mean that you have to complete the assignment the day before the deadline indicated on the calendar. Deadlines will be strict, so please get things submitted on time.</p>
+<p>I will look through your questions and then make one or more short videos and/or documents summarizing what I think are the highlights from the reading and also trying to answer some of your questions. Please note that these videos are not intended to be substitutes for doing the reading! They’ll just be discussions of a few important and/or confusing points from the reading.</p>
+<h3 id="problems">Problems</h3>
+<p>You may choose any of the “easier” or “harder” problems indicated on the <a href="index#sections">webpage</a> to work on. You’ll accumulate points by submitting solutions to them, with a maximum of 3 points for each “easier” problem, and a maximum of 5 points for each “harder” problem. To get full credit on a solution:</p>
+<ul>
+<li>Your solution must be correct. This means that there are no logical errors, miscalculations, etc.</li>
+<li>Your solution must be complete. This means that, if you make an assertion, you should either give a reference to the statement in the textbook or prove it fully yourself. If your solution makes use of an unproved assertion, it is incomplete <em>even if</em> that assertion is true!</li>
+<li>Your solution must be written with good “style.” This is a little vague, but there are many examples of proofs with good style in the textbook. You’ll notice, for example, that most of the proofs in the textbook are mostly written in complete sentences. A proof that is written entirely in symbols, even if correct and complete, is not good style.</li>
+</ul>
+<p>Your solutions must be <a href="#latex">TeXed</a> (except for problems which require you to draw pictures, which can be done by hand). If you use Sage to do some computations, include some code to show me what you did.</p>
+<p>You’ll submit solutions in “batches,” whose deadlines are indicated on the <a href="index#calendar">calendar</a>. That being said, if you start thinking about a problem but aren’t able to figure it out by the batch deadline, I’d like to encourage you to continue thinking about it! There’s a lot to be learned from persevering when you’re stuck. To this end, you may email me <em>up to ten</em> solutions after the relevant batch deadline (but before the end of the block) and you’ll still get full credit for them.</p>
+<p>Finally, a word about the Honor Code. You’re encouraged to talk to me and your classmates if you’re stuck on a problem! That being said, your solutions must be written up in your own words in the end. If your solution is overly similar to something else (another student’s solution, something on the internet, etc), it will be reported to the Honor Council.</p>
+<h3 id="self-reflection">Self-reflection</h3>
+<p>Research in pedagogy shows that a key part of learning is taking the time to ask yourself questions about your learning. I’d like to encourage you to take the time to do this kind of reflection, and there will be a number of assignments throughout the course with this goal in mind.</p>
+<h3 id="live-events">Live events</h3>
+<p>There will be a few different types of live events:</p>
+<ul>
+<li>Introduction session: This will happen only on the first day. It’ll be a chance for all of us to see each other’s faces, get to know each other, ask questions about the syllabus, etc.</li>
+<li>Group sessions: I’ve divided the class up into a groups of 3–4. On Wednesday mornings, I’ll host a halfish-hour Zoom session specifically for your group. This is a chance for you to talk to your groupmates about whatever you’re struggling on, and I’ll be there to chime in and help.</li>
+<li>Office hours: I’ll have lots of office hours throughout the week for you to stop by and ask me for help with whatever you need. I’ll also use these as a chance to get you all to talk to <em>each other</em> about math.</li>
+</ul>
+<p>I strongly encourage you to set up live study sessions with your classmates on your own as well. I’ve set us up a Slack workspace that you might use to coordinate live study sessions; you can also use it to ask each other math questions via chat.</p>
+<p>It can be easy to feel isolated during this era of quarantines and social distancing, but, despite the vast distances that may separate us, you do have access to a community. Taking advantage of this community will help you feel less isolated, and also help your learning.</p>
+<h3 id="exams">Exams</h3>
+<p>There won’t be any!</p>
+<h2 id="assessment">Assessment</h2>
+<p>Grades will be calculated as follows.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Reading questions</td>
+<td style="text-align: left;">10%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comprehension checks</td>
+<td style="text-align: left;">10%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Reflection assignments</td>
+<td style="text-align: left;">10%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Problems</td>
+<td style="text-align: left;">60%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Participation</td>
+<td style="text-align: left;">10%</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some details about each of these components.</p>
+<ul>
+<li><p><em>Reading questions</em>. You get 1 point for each reading question you submit, up to a maximum of <span class="math inline">\(n-2\)</span>, where <span class="math inline">\(n\)</span> is the number of days a reading is assigned. In other words, you don’t need to submit a reading question every day to get full credit, and there’s no extra credit for doing so.</p></li>
+<li><p><em>Comprehension checks</em>. You get 1 point for each problem you attempt, up to a maximum of <span class="math inline">\(n-6\)</span>, where <span class="math inline">\(n\)</span> is the total number of comprehension check problems that are assigned. In other words, you don’t need to submit comprehension checks every day to get full credit, and there’s no extra credit for going above the requirements.</p></li>
+<li><p><em>Reflection assignments</em>. This is for all of the reflection assignments (mathematical autobiography, weekly reflections, etc).</p></li>
+<li><p><em>Problems</em>. Your score in this category will be computed as <span class="math display">\[
+\begin{cases} 
+\dfrac{\min\{a, A\}}{A} \cdot \dfrac{b}{B} &amp; \text{if } b &lt; B \\ \\
+\dfrac{a}{A} &amp; \text{if } b = B \end{cases}\]</span> where</p>
+<ul>
+<li><span class="math inline">\(a\)</span> is the number of points you accumulate by doing problems,</li>
+<li><span class="math inline">\(A = 150\)</span>,</li>
+<li><span class="math inline">\(b\)</span> is the number of sections of the textbook out of which you do at least one “harder” problem, and</li>
+<li><span class="math inline">\(B\)</span> is the total number of sections of the textbook that we’ll be discussing.</li>
+</ul>
+<p>This formula has the following consequences:</p>
+<ul>
+<li><p>To get full credit on this part of your grade, you must accumulate <span class="math inline">\(A\)</span> points <em>and</em> you must do one “harder” problem from each section of the book that we’ll be discussing.</p></li>
+<li><p>You get extra credit in this category if and only if <span class="math inline">\(b = B\)</span> and <span class="math inline">\(a &gt; A\)</span>.</p></li>
+</ul>
+<p>I may decrease the value of <span class="math inline">\(A\)</span> at the end of the block if the default value above seems to have been too difficult to achieve.</p></li>
+<li><p><em>Participation</em>. You’ll get a full score for the participation component of your grade as long as I can see that you are putting in a good faith effort to engage with the class.</p></li>
+</ul>
+<h2 id="accommodations">Accommodations</h2>
+<p>If you anticipate or experience any disability-related barriers to your learning in this course, please discuss your concerns with me as soon as possible and we’ll find a way to provide the accommodations that you need. Also, please contact the office of <a href="https://www.coloradocollege.edu/offices/accessibilityresources/">Accessibility Resources</a> if you have not done so already.</p>
+<h2 id="honor-code">Honor code</h2>
+<p>Please make sure that you are familiar with the <a href="https://www.coloradocollege.edu/other/honorcouncil/resources/student.html">Honor Code</a> at CC. Violations of the Honor Code will have to be reported to the Honor Council, which is really no fun for anyone.</p>
+<h2 id="covid-19">Covid-19</h2>
+<p>The Covid-19 pandemic challenges us as individuals and as communities in so many ways. If you find yourself faced with a challenging situation that might affect your classwork, please let me know and I’ll do my best to accommodate your situation. Also know that a variety of offices on campus are available to help you through difficult situations. For instance, you might get in touch with the <a href="https://www.coloradocollege.edu/offices/counseling/">Counseling Center</a>, or with <a href="https://www.coloradocollege.edu/offices/campussafety/">Campus Safety</a>. You can get financial help through the <a href="https://www.coloradocollege.edu/other/coronavirus/emergency-fund.html">Coronavirus Emergency Fund</a>, and you can find more information and resources on the <a href="https://www.coloradocollege.edu/other/coronavirus/">Coronavirus Updates &amp; Resources page</a>.</p>
+
+</main>
+
+</body>
+
+</html>

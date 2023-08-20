@@ -1,0 +1,502 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Fall 2019, Block 3 — MA315 — Home
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="index">Fall 2019, Block 3 — MA315</a>
+</header>
+
+<main>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>Class: Monday through Friday, 9:15am, in Olin 258B.</li>
+<li>Instructor: Shishir Agrawal (I also go by Sunny).
+<ul>
+<li>Office: Tutt Science 234.</li>
+</ul></li>
+<li><a href="syllabus">Course syllabus</a>.</li>
+<li>Textbook: Lebl, <a href="https://www.jirka.org/diffyqs/"><em>Notes on Diffy Qs</em></a>. Version 5.5.
+<ul>
+<li>See <a href="exercise-notes">here</a> for some notes about some of the exercises.</li>
+<li>See <a href="comparative">here</a> for a comparison of our textbook with Judson’s <a href="http://faculty.sfasu.edu/judsontw/ode/html-20190821/odeproject.html"><em>ODEs Project</em></a>.</li>
+<li>See <a href="resources">here</a> for a longer list of potentially useful resources (including many free ones).</li>
+<li>See <a href="sage-ode">here</a> for my personal Sage ODE Cheatsheet.</li>
+</ul></li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3XYAbWgWQZIEyX4HnE8viWGoXfIljB1knLxE9hGFNM6YQRA/viewform">Reading assignment submission form</a>.</li>
+<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfR7DhcU_J2UER69_DAKCqxfQRKV1q4a4evcW3ge0NcHMruOA/viewform">Self reflection form</a>.</li>
+</ul>
+<h1 id="calendar">Calendar</h1>
+<table style="width: 100%">
+<tr>
+<th style="width: 10%;">
+Day
+</th>
+<th style="width: 26%;">
+Topic
+</th>
+<th style="width: 32%;">
+Reading assignment
+</th>
+<th style="width: 32%;">
+Problem set
+</th>
+</tr>
+<tr>
+<td class="subheading" colspan="4" style="padding-left: 3em;">
+Week 1
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Mon
+</td>
+<td>
+Introduction
+</td>
+<td>
+None
+</td>
+<td>
+(Read: 0.2–3, 1.1)<br />
+0.3.101<br />
+1.1.101–102, 105–106
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Tue
+</td>
+<td>
+Slope fields
+</td>
+<td>
+Read: 1.2<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, 1.7<br />
+Do: 1.2.101, 104, 1.7.101
+</td>
+<td>
+1.2.102–103, 105, 7–8<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><br />
+1.7.103, 104a<br />
+<a href="slope-fields.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Wed
+</td>
+<td>
+Separable equations, Linear equations
+</td>
+<td>
+Read: 1.3, 1.4<br />
+Do: 1.3.101, 103, 1.4.101
+</td>
+<td>
+1.3.102, 104–105, 107, 12<br />
+1.4.102–105<br />
+<a href="separable+linear.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).<br />
+Writing assignment due (11:59pm). <a href="/teaching/prompt.pdf">Prompt</a>.
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Thu
+</td>
+<td>
+Autonomous equations<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+</td>
+<td>
+Read: 1.6<br />
+Do: 1.6.1, 101
+</td>
+<td>
+1.6.2, 102, 104, 6–7<br />
+<a href="autonomous+review.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).<br />
+Visiting Artist Concert: <a href="https://www.coloradocollege.edu/newsevents/calendar/details.html?EventID=36686&amp;booking=1&amp;title=Visiting%20Artist%20Concert:%20Laura%20Farre%20Rozada">Symmetry and Fractals in Music</a> (7:30pm in Packard Performance Hall).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Fri
+</td>
+<td>
+Linear algebra review
+</td>
+<td>
+None (ie, spend some time reminding yourself some linear algebra<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>)
+</td>
+<td>
+(These should all be review) 2.1.101–102<br />
+3.2.101–104<br />
+3.3.101<br />
+3.4.1, 2, 101a, 102a, 5, 11<br />
+3.7.8<br />
+3.8.9<br />
+<a href="linalg-review.pdf">In class problems</a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Quiz 1 (in class). Sections covered: 0.2–1.4, 1.6–7.<br />
+Fearless Friday talk: Finding long cycles in graphs (2:30pm in TSC 229).<br />
+Submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfR7DhcU_J2UER69_DAKCqxfQRKV1q4a4evcW3ge0NcHMruOA/viewform">self reflection form</a> for week 1 (due Sunday by 11:59pm).<br />
+Start working on the <a href="sir">SIR project</a> (due third Wednesday).
+</td>
+</tr>
+<tr>
+<td class="subheading" colspan="4" style="padding-left: 3em;">
+Week 2
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Mon
+</td>
+<td>
+First order systems
+</td>
+<td>
+Read: 2.1, 3.1, 3.3<br />
+Do: 3.1.101, 103, 3.3.103
+</td>
+<td>
+2.1.104<br />
+3.1.104–105<br />
+3.3.104<br />
+<a href="systems.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Quiz 1 revisions (1–2pm).
+</td>
+</tr>
+<tr>
+<td>
+Tue
+</td>
+<td>
+Eigenvalue method: Complete real eigenvalues
+</td>
+<td>
+Read: 2.2 up through theorem 2.2.1(i), 3.4.2, 3.5 (cases 1 through 3)<br />
+Do: 2.2.1, 7 (both ways)<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, 3.4.3
+</td>
+<td>
+2.2.101 (both ways), 104, 107<br />
+3.1.102<br />
+3.4.101, 103<br />
+3.5.3–4<br />
+<a href="real-complete.pdf">In class problems</a>
+</td>
+</tr>
+<!-- SNOW DAY! tr>
+<td colspan="3">
+Office hours (1–2pm).
+</td>
+</tr-->
+<tr>
+<td rowspan="2">
+Wed
+</td>
+<td>
+Eigenvalue method: Complete complex eigenvalues
+</td>
+<td>
+Read: 2.2.1–2, 3.4.3, 3.5 (cases 4 through 6)<br />
+Do: 2.2.103, 3.4.4, 102
+</td>
+<td>
+2.2.105<br />
+3.4.104<br />
+3.5.102<br />
+<a href="complex-complete.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (2–3:30pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Thu
+</td>
+<td>
+Eigenvalue method: Defective eigenvalues
+</td>
+<td>
+Read: 3.7, finish off 2.2<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>, 2.4<br />
+Do: 3.7.102, 2.2.2, 102 (both ways), 2.4.101
+</td>
+<td>
+3.5.2, 103<br />
+3.7.103–104<br />
+2.4.103, 4<br />
+<a href="eigenvalue-1.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–3:30pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Fri
+</td>
+<td>
+Eigenvalue method: Review
+</td>
+<td>
+None<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>
+</td>
+<td>
+3.5.1, 101<br />
+<a href="eigenvalue-2.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Quiz 2 (in class). Sections covered: 2.1–2, 3.1, 3.3–5, and 3.7 up through 3.7.1 (ie, homogeneous first order linear systems with constant coefficients, but don’t worry about defective eigenvalues yet).<br />
+Fearless Friday talk: A proof of Stirling’s formula (noon, in TSC 122).<br />
+Submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfR7DhcU_J2UER69_DAKCqxfQRKV1q4a4evcW3ge0NcHMruOA/viewform">self reflection form</a> for week 2 (due Sunday by 11:59pm).
+</td>
+</tr>
+<tr>
+<td class="subheading" colspan="4" style="padding-left: 3em;">
+Week 3
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Mon
+</td>
+<td>
+Matrix exponentials
+</td>
+<td>
+Read: 3.8<br />
+Do: 3.8.101
+</td>
+<td>
+3.8.102, 104, 6–8<br />
+<a href="matrix-exponential.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Quiz 2 revisions (1–2pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Tue
+</td>
+<td>
+Nonhomogeneous equations: Integrating factors and eigenvector decomposition
+</td>
+<td>
+Review: theorem 3.3.2<br />
+Read: 3.9.1 (up through the section on eigenvector decomposition)<br />
+Do: 3.9.101(a, b)
+</td>
+<td>
+3.9.102(a, b), 103–104<br />
+<a href="nonhomogeneous-1.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).<br />
+<a href="final-project">Final project</a> proposals due (11:59pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Wed
+</td>
+<td>
+Nonhomogeneous equations: Undetermined coefficients
+</td>
+<td>
+Read: 2.5.1–2, 3.9.1 (the section on undetermined coefficients), 2.6<br />
+Do: 2.5.103, 3.9.101(c), 2.6.101
+</td>
+<td>
+2.5.101–102<br />
+3.9.102(c)<br />
+2.6.103<br />
+<a href="nonhomogeneous-2.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).<br />
+<a href="sir">SIR project</a> due (11:59pm).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Thu
+</td>
+<td>
+Review
+</td>
+<td>
+None
+</td>
+<td>
+<a href="review-1.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Quiz 3 (in class). Sections covered: Sections covered: 2.1–2, 3.1, 3.3–5, 3.7–8 (ie, everything about homogeneous first order linear systems with constant coefficients).
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Fri
+</td>
+<td colspan="3">
+<a href="final-project">Final project</a> work day<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Quiz 3 revisions (1–2pm).<br />
+Fearless Friday talk: Closed chains with tetrahedral links (2:30pm in TSC 229).<br />
+<a href="final-project">Final project</a> draft due (6pm).<br />
+Submit <a href="https://docs.google.com/forms/d/e/1FAIpQLSfR7DhcU_J2UER69_DAKCqxfQRKV1q4a4evcW3ge0NcHMruOA/viewform">self reflection form</a> for week 3 (due Sunday by 11:59pm).
+</td>
+</tr>
+<tr>
+<td class="subheading" colspan="4" style="padding-left: 3em;">
+Week 4
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+Mon
+</td>
+<td>
+Review
+</td>
+<td>
+None
+</td>
+<td>
+<a href="review-2.pdf">In class problems</a>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+Office hours (1–2pm).
+</td>
+</tr>
+<tr>
+<td>
+Tue
+</td>
+<td colspan="3">
+Final exam (in class). Sections covered: everything!
+</td>
+</tr>
+<tr>
+<td>
+Wed
+</td>
+<td colspan="3">
+<a href="final-project">Final project</a> presentations.
+</td>
+</tr>
+</table>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>If you’d like to understand the proof of Picard’s existence and uniqueness theorem, see <a href="https://ptolemy.berkeley.edu/projects/embedded/eecsx44/lectures/Spring2013/Picard.pdf">these notes</a> by by Denise Gutermuth, and/or section 1.6 (“Existence and Uniqueness of Solutions”) in Judson’s <em>ODEs Project</em>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Don’t be frightened off by the word “challenging!” Both of these problems are pretty doable (and I suspect you won’t find 1.2.8 as “challenging” as 1.2.7).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>You might find section 1.7 (“Bifurcation”) in Judson’s <em>ODEs Project</em> a useful supplement to help you understand this better.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Specifically, should review the following concepts:</p>
+<ul>
+<li>
+Vector spaces
+</li>
+<li>
+Subspaces
+</li>
+<li>
+Linear independence
+</li>
+<li>
+Dimension
+</li>
+<li>
+Matrices
+</li>
+<li>
+Determinants
+</li>
+<li>
+Eigenvalues
+</li>
+<li>
+Eigenvectors
+</li>
+<li>
+Diagonalization
+</li>
+</ul>
+<p>All of this can be found in basically any linear algebra book. Check the <a href="resources">resources</a> page if you need some suggestions for references.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>We didn’t get a chance to go through these problems in class, but I’m posting them anyway in case you wanted a few more problems for practice.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>By “both ways,” I mean that you should try to do this problem using two methods: the method of chapter 2, and the method of chapter 3 (ie, rewrite the higher order linear ODE as a first order linear system and then apply the eigenvalue method). Then compare the two methods.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>Specifically, in section 2.2, look at theorem 2.2.1(ii) and example 2.2.1.</p>
+<p>If you’re into pure math, it’s important to point out that you’ve basically learned about Jordan Form at this point. Compare what you’ve just learned with sections Five.III-IV in Hefferon’s <a href="http://joshua.smcvt.edu/linearalgebra/"><em>Linear Algebra</em></a>, or chapter 8 in Axler’s <em>Linear Algebra Done Right</em>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p>You may find section 3.7 (“The Trace and Determinant Plane”) in Judson’s <em>ODEs Project</em> a useful resource in helping cement what’s going on with the eigenvalue method.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p>We’ll spend class time working on final projects. I’ll be around in case you’d like to ask me questions.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main>
+
+</body>
+
+</html>

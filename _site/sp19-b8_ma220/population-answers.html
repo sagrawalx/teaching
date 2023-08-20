@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Spring 2019, Block 8 — MA220 — Population Project Answers
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="index">Spring 2019, Block 8 — MA220</a>
+</header>
+
+<main>
+<h1 id="population-project-answers">Population Project Answers</h1>
+<h2 id="part-1-basics">Part 1: Basics</h2>
+<ol type="1">
+<li><p>The <span class="math inline">\(i\)</span>th entry in the first column is the number of offspring that a single fish that is <span class="math inline">\(i\)</span> years of age produces in a year.</p></li>
+<li><p>The nonzero entry in the <span class="math inline">\(i\)</span>th row is the percentage of <span class="math inline">\(i\)</span> year old fish that survive for a whole year.</p></li>
+<li><p>We have the following. <span class="math display">\[\begin{aligned}
+v_{10} &amp;= (559.55, 206.33, 116.66, 25.52) \\
+v_{100} &amp;= (1.89e13, 7.22e12, 3.31e12, 1.01e12) \\
+v_{1000} &amp;= (2.76e118, 1.05e118, 4.83e117, 1.48e117) \\
+v_{10000} &amp;= (1.21e1170, 4.63e1169, 2.12e1169, 6.49e1168)
+\end{aligned}\]</span> Evidently, the population blows up.</p></li>
+<li><p>The following code computes a list <span class="math inline">\([\lambda_1, \lambda_2, \lambda_3, \lambda_4]\)</span> where the <span class="math inline">\(i\)</span>th entry of <span class="math inline">\(v_{n+1}\)</span> is <span class="math inline">\(\lambda_i\)</span> times the <span class="math inline">\(i\)</span>th entry of <span class="math inline">\(v_n\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>[x<span class="op">/</span>y <span class="cf">for</span> x, y <span class="kw">in</span> <span class="bu">zip</span>(A<span class="op">^</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>v, A<span class="op">^</span>n<span class="op">*</span>v)]</span></code></pre></div>
+<p>The output is the following.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[<span class="fl">1.30872738039417</span>, <span class="fl">1.30872738039417</span>, <span class="fl">1.30872738039417</span>, <span class="fl">1.30872738039417</span>]</span></code></pre></div>
+<p>The output is the same for <span class="math inline">\(n = 100\)</span>, <span class="math inline">\(1000\)</span>, and <span class="math inline">\(10000\)</span>. In other words, <span class="math inline">\(\lambda = 1.3087\)</span> is the dominant eigenvalue.</p></li>
+</ol>
+<h2 id="part-2-pollution">Part 2: Pollution</h2>
+<p>Here are the correct answers given the numbers as they appear in the current version.</p>
+<ol type="1">
+<li><p>The entries in the first row of <span class="math inline">\(B\)</span> are 85% of the entries in the first row of <span class="math inline">\(A\)</span>, and all other entries are also 85% of the corresponding entries of <span class="math inline">\(A\)</span>. We have <span class="math inline">\(B = DA\)</span> for <span class="math display">\[D = \begin{bmatrix} 0.85 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0.85 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.85 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0.85 \end{bmatrix}.\]</span></p></li>
+<li><p>We have the following. <span class="math display">\[\begin{aligned}
+v_{10} &amp;= (110.16, 40.62, 22.97, 5.02) \\
+v_{100} &amp;= (1.65e6, 631442.93, 289491.73, 88480.38) \\
+v_{1000} &amp;= (7.24e47, 2.76e47, 1.27e47, 3.87e46)
+(1.87e464, 7.16e463, 3.28e463, 1.00e463)\end{aligned}\]</span> The population still blows up, but more slowly than before.</p></li>
+<li><p>The dominant eigenvalue is <span class="math inline">\(\lambda = 1.1124\)</span>.</p></li>
+<li><p>The fish population still increases, but even more slowly. The dominant eigenvalue is <span class="math inline">\(\lambda = 1.0993\)</span>.</p></li>
+<li><p>If the dominant eigenvalue is greater than 1, the population increases. If it is less than 1, the population decreases.</p></li>
+</ol>
+<p><strong>Remark.</strong> The following uses the corrected numbers, where in problem 1, birth rates decline by 35%.</p>
+<ol type="1">
+<li><p>The entries in the first row of <span class="math inline">\(B\)</span> are 65% of the entries in the first row of <span class="math inline">\(A\)</span>, and all other entries are 85% of the corresponding entries of <span class="math inline">\(A\)</span>. We have <span class="math inline">\(B = DA\)</span> for <span class="math display">\[D = \begin{bmatrix} 0.65 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0.85 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.85 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0.85 \end{bmatrix}.\]</span></p></li>
+<li><p>We have the following. <span class="math display">\[\begin{aligned}
+v_{10} &amp;= (2.55e7, 1.07e7, 5.58e6,
+1.85e6) \\
+v_{100} &amp;= (3.16e7, 1.34e7, 6.81e6,
+2.31e6) \\
+v_{1000} &amp;= (2.62e8, 1.11e8, 5.65e7,
+1.92e7) \\
+v_{10000} &amp;= (4.05e17, 1.72e17, 8.73e16,
+2.96e16)\end{aligned}\]</span> The population still blows up, but more slowly than before.</p></li>
+<li><p>The dominant eigenvalue is <span class="math inline">\(\lambda = 1.0024\)</span>.</p></li>
+<li><p>The fish population declines, and the dominant eigenvalue is <span class="math inline">\(\lambda = 0.9964\)</span>.</p></li>
+<li><p>If the dominant eigenvalue is greater than 1, the population increases. If it is less than 1, the population decreases.</p></li>
+</ol>
+<h2 id="part-3-sustainable-harvesting">Part 3: Sustainable Harvesting</h2>
+<ol type="1">
+<li><p>All entries of <span class="math inline">\(B\)</span> are 50% of the corresponding entries of <span class="math inline">\(A\)</span>. In other words, <span class="math inline">\(B = DA\)</span> where <span class="math display">\[D = \begin{bmatrix} 0.5 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0.5 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.5 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0.5 \end{bmatrix}.\]</span></p></li>
+<li><p>The dominant eigenvalue is <span class="math inline">\(\lambda = 0.6544\)</span>, and the population declines rapidly. It becomes essentially zero after about 11 years. So this is not sustainable over the course of 100 years.</p></li>
+<li><p>23% of the fish can be taken; more than that, and the dominant eigenvalue drops below 1 and the fish population declines.</p></li>
+</ol>
+<p><strong>Remark.</strong> A common (and fairly subtle) issue here seems to be people thinking that <span class="math inline">\(B = DA\)</span> for <span class="math display">\[D = \begin{bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0.5 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0.5 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0.5 \end{bmatrix},\]</span> with the reasoning that harvesting doesn’t change a fish’s ability to reproduce. But this is not correct, because the numbers in the first row aren’t quite number of newborn fish birthed by fish of a particular age; rather, they represent ratios, number of newborn fish for every fish of a particular age. In any case, for people who make this mistake, the dominant eigenvalue in question 2 is <span class="math inline">\(\lambda = 0.8607\)</span>, and the fish population being essentially 0 after 30 years, and the maximum sustainable harvest rate in question 3 is 35%.</p>
+<h2 id="part-4-maximizing-harvesting">Part 4: Maximizing Harvesting</h2>
+<p>The best I can come up with is harvesting all 3 year old fish every year and none of the others given the constraints of the problem, and then harvesting all of the fish left in the fishery at the end of 50 years. Here’s some code that does this.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> matrix([[<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="fl">4.2</span>,<span class="dv">0</span>],[<span class="fl">.5</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="fl">.6</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.4</span>,<span class="dv">0</span>]])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> vector([<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>harvest_rate <span class="op">=</span> matrix([[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>harvested <span class="op">=</span> vector([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    current_harvest <span class="op">=</span> harvest_rate <span class="op">*</span> population</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    harvested <span class="op">+=</span> current_harvest</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    population <span class="op">-=</span> current_harvest</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    population <span class="op">=</span> A <span class="op">*</span> population</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> harvested.norm(<span class="dv">1</span>) <span class="op">+</span> population.norm(<span class="dv">1</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>total</span></code></pre></div>
+<p>The output of this is 4.84496909243290e7, or about 48 million fish.</p>
+
+</main>
+
+</body>
+
+</html>

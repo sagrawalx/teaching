@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="/teaching/css/style.css" type="text/css" />
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<title>
+Spring 2022, Block J — MA117 — Lab Solutions
+</title>
+
+</head>
+
+<body>
+
+<header id="banner">
+<a href="../index">Spring 2022, Block J — MA117</a>
+</header>
+
+<main>
+<style>
+img {
+    width: 100%;
+}
+</style>
+<h1 id="lab-solutions">Lab Solutions</h1>
+<h2 id="one">Lab 1</h2>
+<ol type="1">
+<li><p><code>arbuthnot$girls</code></p></li>
+<li><p>There’s a generally upwards trend in the number of girls baptized.</p></li>
+<li><p>Here is the code I used to generate the plot.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>arbuthnot <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">total =</span> boys <span class="sc">+</span> girls) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop_boys =</span> boys <span class="sc">/</span> total) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, prop_boys)) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() </span></code></pre></div>
+<p>The result is the following. It fluctuates a lot, but always stays solidly above 0.5.</p>
+<p><img src="1-3.png" /></p></li>
+<li><p>We use the following command to load and store the data:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>present <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://sagrawalx.github.io/teaching/data/present.csv&quot;</span>)</span></code></pre></div></li>
+<li><p>The data is from years 1940–2002. There are 63 rows and 3 columns; the column names are <code>year</code>, <code>boys</code>, and <code>girls</code>.</p></li>
+<li><p>The birth counts are not on a similar scale: the <code>present</code> data counts births in the millions, while Arbuthnot’s data counts births in the thousands.</p></li>
+<li><p>Here is the code that generates the plot:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>present <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">ratio =</span> boys <span class="sc">/</span> girls)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, ratio)) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()</span></code></pre></div>
+<p>There ratio fluctuates a lot, but there’s a vaguely decreasing trend. In any case, the noteworthy observation here is that this ratio is always solidly above 1.</p>
+<p><img src="1-7.png" /></p>
+<p>Note: This is consistent with the observation that developed countries (ie, ones which don’t have issues involving sex-selective abortions) tend to have a sex ratio at birth of roughly 1.05 males per female. This in spite of the fact that the females are slightly more numerous in the overall population, since women tend to live longer than men. Depending on how much outside reading the students did, they may say some of this, but they should at least observe that the sex ratio in the plot above is always solidly above 1.</p></li>
+<li><p>The largest number of total births happened in 1961, as seen in the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>present <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">total =</span> boys <span class="sc">+</span> girls) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_max</span>(total)</span></code></pre></div></li>
+</ol>
+<h2 id="two">Lab 2</h2>
+<ol type="1">
+<li><p>There are 20000 cases and 9 variables. <code>genhlth</code>, <code>exerany</code>, <code>hlthplan</code>, <code>smoke100</code>, and <code>gender</code> are categorical, while <code>height</code>, <code>weight</code>, <code>wtdesire</code>, and <code>age</code> are numerical.</p></li>
+<li><p>For <code>height</code> and <code>age</code>, we get the following numerical summaries, and the interquartile ranges are 6 and 26, respectively.</p>
+<p>Input: <code>R  summary(cdc$height)  summary(cdc$age)</code> Output: ``` Min. 1st Qu. Median Mean 3rd Qu. Max. 48.00 64.00 67.00 67.18 70.00 93.00</p>
+<pre><code>Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </code></pre>
+<p>18.00 31.00 43.00 45.07 57.00 99.00 ```</p>
+<p>There are 9569 males in the sample (as computed by <code>table(cdc$gender)</code>). 4657 people in the sample report being in excellent health (as computed by <code>table(cdc$genhlth)</code>), which is 23.285% of the sample.</p></li>
+<li><p>The side-by-side bar plot shows that relatively more men report having smoked 100 cigarettes than women.</p></li>
+<li><p><code>under23_and_smoke &lt;- filter(cdc, age &lt; 23 &amp; smoke100 == "1")</code></p></li>
+<li><p>The box plot of <code>genhlth</code> against <code>bmi</code> shows that decreasing health appears to coincide with higher BMIs.</p>
+<p><img src="2-5a.png" /></p>
+<p>Here is a box plot of <code>hlthplan</code> against <code>bmi</code>. It appears that having a health plan is correlated with fewer extreme BMIs. Note: students might choose different variables here.</p>
+<p><img src="2-5b.png" /></p></li>
+<li><p>Here is the code:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cdc, <span class="fu">aes</span>(weight, wtdesire)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p>The scatterplot shows a generally positive trend, but the slope appears to be less than 1.</p>
+<p><img src="2-6.png" /></p>
+<p>Note: Students might interchange axes, and that’s fine.</p></li>
+<li><p><code>cdc &lt;- mutate(cdc, wtlossdesire = weight - wtdesire)</code></p>
+<p>An entry of 0 means that person is at their desired weight. An positive entry indicates the person wants to lose weight, and a negative entry indicates they want to gain weight.</p>
+<p>Note: Setting <code>wtlossdesire = wtdesire - weight</code> is incorrect.</p></li>
+<li><p>Running the following code generates the plots given below.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cdc, <span class="fu">aes</span>(wtlossdesire)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cdc, <span class="fu">aes</span>(<span class="at">y =</span> wtlossdesire)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="2-9a.png" /> <img src="2-9b.png" /></p>
+<p>It appears that most people are happy with their weights, but there is more of a skew towards the positive side (ie, more people want to lose weight than gain).</p></li>
+<li><p>Here are numerical summaries.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>male <span class="ot">&lt;-</span> <span class="fu">filter</span>(cdc, gender<span class="sc">==</span><span class="st">&quot;m&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>female <span class="ot">&lt;-</span> <span class="fu">filter</span>(cdc, gender<span class="sc">==</span><span class="st">&quot;f&quot;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(male<span class="sc">$</span>wtlossdesire)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(female<span class="sc">$</span>wtlossdesire)</span></code></pre></div>
+<p>Output:</p>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-500.00    0.00    5.00   10.71   20.00  300.00 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -83.00    0.00   10.00   18.15   27.00  300.00 </code></pre>
+<p>And here is a side-by-side box plot. It’s hard to see information in the box plots, but we can see from the numerical summaries that women generally want to lose more weight.</p>
+<p><img src="2-10.png" /></p></li>
+<li><p>The mean is approximately 169.7 and the sd is approximately 40.1. Roughly 70.76% of the weights are within one standard deviation of the mean, as is output by the following:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(cdc<span class="sc">$</span>weight)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(cdc<span class="sc">$</span>weight)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>within_one_sd <span class="ot">&lt;-</span> <span class="fu">filter</span>(cdc, weight <span class="sc">&gt;</span> m<span class="sc">-</span>s <span class="sc">&amp;</span> weight <span class="sc">&lt;</span> m<span class="sc">+</span>s)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(within_one_sd)<span class="sc">/</span><span class="dv">20000</span></span></code></pre></div>
+<p>Note: It is not correct if students just assume that <code>weight</code> is normally distributed and use the 68-95-99.7 rule. They should actually calculate the proportion of observations that are within one standard deviation using a <code>filter</code>, like above.</p></li>
+</ol>
+<h2 id="three">Lab 3</h2>
+<ol type="1">
+<li><p>There is always exactly one miss in any streak. A streak of 1 has one hit and one miss. A streak of 0 has just one miss.</p></li>
+<li><p>There are fewer and fewer longer streaks. The longest streak was 4, though the most frequent was 0.</p>
+<p><img src="3-2.png" /></p></li>
+<li><p>I got 21 heads, 79 tails. Note: Others might have different answers here, since this is a random simulation.</p></li>
+<li><p><code>sim_basket = sample(outcomes, size = 133, replace = TRUE, prob = c(0.45, 0.55))</code></p></li>
+<li><p>There are fewer and fewer longer streaks. The longest streak was 7, but the most frequent was 0.</p>
+<p><img src="3-5.png" /></p></li>
+<li><p>If we run the simulation again, the distribution should be similar, but not necessarily identical. Sometimes the longest streak is 4, sometimes it gets as long as 10, but it’s never terribly different from this.</p></li>
+<li><p>These simulations do not give evidence that Kobe has hot hands: all of the simulations are either similar to Kobe’s distribution, or they had even longer streaks!</p></li>
+</ol>
+<h2 id="four">Lab 4</h2>
+<ol type="1">
+<li><p>Here are the distributions, overlaid one on top of the other. Note: It’s okay if students make two separate histograms.</p>
+<p><img src="4-1.png" /></p>
+<p>Women tend to be less tall, but both distributions are roughly normal.</p></li>
+<li><p>It does appear roughly normal.</p>
+<p><img src="4-2.png" /></p></li>
+<li><p>The Q-Q plot of the simulated data looks an awful lot like the Q-Q plot of the real data.</p></li>
+<li><p>The plots do provide evidence that female heights are nearly normal.</p>
+<p><img src="4-4.png" /></p></li>
+<li><p>Female weights seem less normally distributed than heights.</p>
+<p><img src="4-5.png" /></p></li>
+<li><p>What is the probability that female heights are less than 178? The normal distribution says 97.8%, the actual data says 98.1%.</p>
+<p>What is the probability that female weights are less than 61? The normal distribution says 51.7%, the actual data says 59.2%.</p>
+<p>The answer for the height distribution is much closer.</p>
+<p>Note: Students may ask different probability questions. In any case, they should find that the answers for height are closer than the answers for weight.</p></li>
+<li><p>A = <code>che.de</code>, B = <code>bii.di</code>, C = <code>elb.di</code>, D = <code>age</code></p></li>
+<li><p>The Q-Q plot and the histogram are displayed below. In the Q-Q plot, the data lies above the line. This means that sample quantiles are above theoretical quantiles, which means that at any given point, we’ve seen <em>more</em> data than we would expect if the distribution was normally distributed. This means that the mass of the distribution is further to the left, so the distribution should be right skewed. This is confirmed by the histogram.</p>
+<p><img src="4-8a.png" /></p>
+<p><img src="4-8b.png" /></p>
+<p>Here is the code used to generate these plots:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bdims, <span class="fu">aes</span>(<span class="at">sample =</span> kne.di)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bdims, <span class="fu">aes</span>(kne.di)) <span class="sc">+</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div></li>
+</ol>
+<h2 id="five">Lab 5</h2>
+<ol type="1">
+<li><p>The distribution is slightly right skewed. The mean, at 1500, is slightly higher than the median, at 1442.</p>
+<p><img src="5-1.png" /></p></li>
+<li><p><code>samp1</code> has a less bell-curved-looking distribution for area, though it is still right skewed. The mean is 1486.42.</p>
+<p>Note: There is randomness involved here. Students’ answers may differ slightly.</p></li>
+<li><p><code>samp2</code> had a mean of 1418.44, which was less than the mean of <code>samp1</code>. If we took a larger sample, the sample mean should be closer to the true mean.</p>
+<p>Note: There is randomness involved here. Students’ answers may differ slightly.</p></li>
+<li><p>There are 5000 rows. The distribution is roughly normal, centered at 1500. If we took 50000 means, the distribution should still look roughly normal centered at 1500.</p></li>
+<li><p>There are 100 rows. Each is a mean of a sample of 50 areas.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>samples_small <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">size =</span> <span class="fu">numeric</span>(), <span class="at">mean_area =</span> <span class="fu">numeric</span>())</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  samp <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(ames, <span class="at">n =</span> <span class="dv">50</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  samples_small <span class="ot">&lt;-</span> <span class="fu">add_row</span>(samples_small, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">mean_area =</span> <span class="fu">mean</span>(samp<span class="sc">$</span>area))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>samples_small</span></code></pre></div>
+<p>Output:</p>
+<pre><code># A tibble: 100 × 2  
+    size mean_area  
+   &lt;dbl&gt;     &lt;dbl&gt;  
+ 1    50     1506.  
+ 2    50     1458.  
+ 3    50     1665.  
+ 4    50     1512.  
+ 5    50     1657.  
+ 6    50     1356.  
+ 7    50     1539.  
+ 8    50     1444.  
+ 9    50     1466.  
+10    50     1298.  
+# … with 90 more rows</code></pre></li>
+<li><p>When the sample size is larger, the variability decreases.</p>
+<p><img src="5-6.png" /></p></li>
+<li><p>Running <code>mean(slice_sample(ames, n = 50)$price)</code> yields 169726.3.</p>
+<p>Note: There is randomness involved here.</p></li>
+<li><p>To generate <code>sample_means50</code>, we run the following:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">size =</span> <span class="fu">numeric</span>(), <span class="at">mean_price =</span> <span class="fu">numeric</span>())</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  samp <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(ames, <span class="at">n =</span> <span class="dv">50</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  samples <span class="ot">&lt;-</span> <span class="fu">add_row</span>(samples, <span class="at">size =</span> <span class="dv">50</span>, <span class="at">mean_price =</span> <span class="fu">mean</span>(samp<span class="sc">$</span>price))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(samples, <span class="fu">aes</span>(mean_price)) <span class="sc">+</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samples<span class="sc">$</span>mean_price)</span></code></pre></div>
+<p>Here is the distribution. It is normal, with mean 180755.8. The true mean is 180796.1. Note: There is randomness involved here, so answers might differ slightly (but probably not a lot).</p>
+<p><img src="5-8.png" /></p></li>
+<li><p>We run the following:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">size =</span> <span class="fu">numeric</span>(), <span class="at">mean_price =</span> <span class="fu">numeric</span>())</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>) {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  samp <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(ames, <span class="at">n =</span> <span class="dv">150</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  samples <span class="ot">&lt;-</span> <span class="fu">add_row</span>(samples, <span class="at">size =</span> <span class="dv">150</span>, <span class="at">mean_price =</span> <span class="fu">mean</span>(samp<span class="sc">$</span>price))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(samples, <span class="fu">aes</span>(mean_price)) <span class="sc">+</span> </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(samples<span class="sc">$</span>mean_price)</span></code></pre></div>
+<p>Below is the distribution. It is also normal, with mean 180882. This is a little closer to the true mean. Note: There is randomness involved here, so answers might differ slightly (but probably not a lot).</p>
+<p><img src="5-9.png" /></p></li>
+<li><p>The distribution for sample sizes of 150 is narrower than the one for 50. This can be quantified by comparing the standard deviations. If we want to be more confident about our estimate, we should use a distribution with a narrower distribution (ie, we should take larger sample sizes).</p></li>
+</ol>
+<h2 id="six">Lab 6</h2>
+<ol type="1">
+<li><p>Sample statistics (they certainly didn’t talk to everyone in the world!).</p></li>
+<li><p>The study needs to have been a simple random sample. It’s fairly unlikely that this is the case on the nose. A large portion of the global population is not easy to communicate with (living in remote locations, lack of access to communications technology, etc), but it seems that the study did try to minimize bias, so we can probably assume that the sample was “simple random” enough.</p>
+<p>Note: Exact answers might differ from the above. This might be one of those questions where almost any (reasonable?) response will get full credit.</p></li>
+<li><p>Each row in Table 6 corresponds to a country. Each row in <code>atheist</code> corresponds to a person.</p></li>
+<li><p>We run the following code:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>us12 <span class="ot">&lt;-</span> <span class="fu">filter</span>(atheism, nationality <span class="sc">==</span> <span class="st">&quot;United States&quot;</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">&quot;2012&quot;</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(us12, response)</span></code></pre></div>
+<p>This shows that 50 out of 1002 US respondents reported being an atheist, and 50/1002 = 0.0499002, which is basically 5% up to minor rounding.</p></li>
+<li><p>We need the sample to be independent: as noted earlier in question 2, this is a bit unlikely, but maybe it’s close enough. We also need the sample size to be large enough that the success-failure condition is satisfied. The success-failure condition requires checking that <span class="math inline">\(1002 \cdot 0.05\)</span> and <span class="math inline">\(1002 \cdot 0.95\)</span> are both bigger than 10, which is true.</p></li>
+<li><p>The margin of error is about 0.014. The 95% confidence interval is (0.0364 , 0.0634).</p></li>
+<li><p>The 90% confidence interval is (0.03858586 , 0.06121454). This interval is narrower. This makes sense because, to be more confident that our interval captures the true proportion, we’ll need the interval to be wider.</p></li>
+<li><p>In India, 33 out of 1092 respondents reported being atheist, which is about 3%. The success-failure condition is satisfied (because both the atheist and non-atheist numbers are larger than 10), but it’s likely that the sample isn’t that great. The 95% confidence interval is (0.0201 , 0.0404), and the margin of error is about 0.0102.</p>
+<p>In Japan, 372 out of 1212 respondents reported being atheist. Same comments about applicability of confidence interval methods. The 95% confidence interval is (0.281 , 0.3329), which has margin of error about 0.0259.</p>
+<p>Note: Students might choose different countries here.</p></li>
+<li><p>The graph is shaped like the top half of an ellipse. Note: Students might say something like “semicircle” or “parabolic” or something, and that’s okay too.</p>
+<p><img src="6-9.png" /></p></li>
+<li><p>The distribution is roughly normal, with mean at 0.09969.</p>
+<p><img src="6-10.png" /></p>
+<p>Note: Randomness is involved here, so students’ means might differ slightly.</p></li>
+<li><p>The plots are displayed below. Increasing <span class="math inline">\(n\)</span> seems to make the plot narrower. Changing <span class="math inline">\(p\)</span> seems to move the center of the plot. All four are roughly normal, except for the very last one which is a little cut off towards the bottom, making it right skewed.</p>
+<p><img src="6-11.png" /></p></li>
+<li><p>For Australia, we have <span class="math inline">\(np \approx n\hat{p} = 1040 \cdot 0.1 = 104 \geq 10\)</span> and <span class="math inline">\(n(1-p) \approx n(1-\hat{p}) = 1040 \cdot 0.9 \geq 10\)</span>, so it is reasonable to proceed with inference.</p>
+<p>For Ecuador, we have <span class="math inline">\(np \approx n\hat{p} = 200 \cdot 0.02 = 4 &lt; 10\)</span>, so it is not a great idea to proceed with inference on Ecuador’s data. The sampling distribution is likely not normal in this case.</p></li>
+<li><p>For Spain, the success-failure condition is satisfied, though I have the same concerns about randomness of the sample that I’ve mentioned above. The 2005 confidence interval is (0.083 , 0.1177), and the 2012 confidence interval is (0.0734 , 0.1065). These overlap, so we do not have convincing evidence of chance.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>es05 <span class="ot">&lt;-</span> <span class="fu">filter</span>(atheism, nationality <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">&quot;2005&quot;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>es12 <span class="ot">&lt;-</span> <span class="fu">filter</span>(atheism, nationality <span class="sc">==</span> <span class="st">&quot;Spain&quot;</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">&quot;2012&quot;</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">proportion_ci</span>(es05<span class="sc">$</span>response <span class="sc">==</span> <span class="st">&quot;atheist&quot;</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">proportion_ci</span>(es12<span class="sc">$</span>response <span class="sc">==</span> <span class="st">&quot;atheist&quot;</span>)</span></code></pre></div>
+<p>In the US, the intervals are (0.0038 , 0.0161) and (0.0364, 0.0634), which do not overlap. This does provide some evidence of change.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>us05 <span class="ot">&lt;-</span> <span class="fu">filter</span>(atheism, nationality <span class="sc">==</span> <span class="st">&quot;United States&quot;</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">&quot;2005&quot;</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>us12 <span class="ot">&lt;-</span> <span class="fu">filter</span>(atheism, nationality <span class="sc">==</span> <span class="st">&quot;United States&quot;</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="st">&quot;2012&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">proportion_ci</span>(us05<span class="sc">$</span>response <span class="sc">==</span> <span class="st">&quot;atheist&quot;</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">proportion_ci</span>(us12<span class="sc">$</span>response <span class="sc">==</span> <span class="st">&quot;atheist&quot;</span>)</span></code></pre></div></li>
+<li><p>We’d expect to detect a change in 5% of the countries in which there has been no change.</p></li>
+<li><p>The point here is to look at the inequality <span class="math display">\[2 \sqrt{\frac{p(1-p)}{n}} \leq 0.01\]</span> and solve it for <span class="math inline">\(n\)</span>. Simplifying this gives <span class="math inline">\(n \geq 40000p(1-p)\)</span>. The largest possible value of <span class="math inline">\(p(1-p)\)</span> happens when <span class="math inline">\(p = 0.5\)</span>. When <span class="math inline">\(p = 0.5\)</span>, we have <span class="math inline">\(40000p(1-p) = 10000\)</span>. So we should sample at least 10000 people.</p></li>
+</ol>
+<h2 id="seven">Lab 7</h2>
+<ol type="1">
+<li><p>The distribution is right skewed. If “typical” size means mean, then the mean is 1500.967, though perhaps the median is a better estimate since the data is skewed. The median is 1456. Note: It’s fine if they interpret “typical” to mean either mean or median.</p>
+<p><img src="7-1.png" /></p></li>
+<li><p>Other peoples’ should be similar, but not identical. Different people will have different samples of 60.</p></li>
+<li><p>The observations need to be independent and the sample size needs to be at least 30.</p></li>
+<li><p>“95% confidence interval” means that, 95% of the confidence intervals constructed in this way will contain the true mean.</p></li>
+<li><p>Yes, my confidence interval does contain the true mean.</p></li>
+<li><p>One would expect that 95% of confidence intervals constructed in this way will contain the true mean.</p></li>
+<li><p>47/50 contain the true mean, which is about 94%. This is approximately equal to the confidence level, but not quite. This makes sense because we’d only expect 95% of confidence intervals to contain the true mean in the limit (eg, if we took 50000000 samples instead of just 50).</p>
+<p><img src="7-7.png" /></p></li>
+<li><p>The critical value for 50% confidence interval can be calculated as <code>qt(0.75, 59)</code>, or by using a normal approximation as <code>qnorm(0.75)</code>, both of which yield 0.674. Note: Students might choose different confidence levels here, so their computation of the critical value will also be different.</p></li>
+<li><p>Constructing 50% confidence intervals (which are much narrower than 95% confidence intervals), 23 of them do not contain the true mean. Thus 27/50 = 54% of them do, which is pretty close. Note: Again, students might have chosen a different confidence level in the question above, so their answer here might be different.</p>
+<p><img src="7-9.png" /></p></li>
+</ol>
+<!--
+## Lab 8 {#eight}
+
+1. Each observation is a birth. There are 1000 cases. 
+
+2. The side-by-side box plot (a non-`ggplot` version of which can be created using `boxplot(nc$weight ~ nc$habit)`) is displayed below. It seems that babies born from mothers who smoke tend to weigh less, though there are more outlying weights on both ends for women who don't smoke. 
+
+    ![](8-2.png)
+
+3. Each group has more than 30 observations (one has 126, the other has 873), so conditions for inference should be satisfied. 
+
+4. Let $\mu_1$ be the average weight of babies born to mothers who smoke, and $\mu_2$ the average weight of babies born to mothers who don't smoke. Then $H_0$ is the statement that $\mu_1 - \mu_2 = 0$, while $H_A$ is the statement that $\mu_1 - \mu_2 \neq 0$. 
+
+5. The $p$-value is 0.01945. This means that, if $H_0$ is true, there is a 1.95% chance of seeing data that's at least as favorable for $H_A$ as the data that we actually saw. 
+
+6. The confidence interval for $\mu_1 - \mu_2$ is (-0.58, -0.05). 
+
+7. The 95% confidence interval is (38.15, 38.52). 
+
+    ```R    
+    t.test(nc$weeks)
+    ```
+
+8. The 90% confidence interval is (38.18, 38.49).
+
+   ```R
+   t.test(nc$weeks, conf.level = 0.9)
+   ```
+
+9. The t-value is -1.38 with 175.45 degrees of freedom, and p-value 0.1704. This is not sufficient evidence to reject the null hypothesis that the average weight gained by the two groups is the same.
+
+    ~~~R
+    t.test(nc$gained ~ nc$mature
+    ~~~ 
+
+10. It seems that mothers 34 and under are classified as "younger" while those 35 and older are "mature." This can be checked by running either of the following. 
+
+    ~~~R
+    max(subset(nc, mature == "younger mom")$mage)
+    min(subset(nc, mature == "mature mom")$mage)
+    ~~~
+
+11. Let $\mu_1$ be the average weight of babies born to younger moms and $\mu_2$ the average weight born to mature moms. Let $H_0$ be the hypothesis that these means are the same, and $H_A$ that they are different. A boxplot of the distributions is displayed below. Running a t-test gives us a p-value of 0.85, so we fail to reject the hypothesis that these two means are different. 
+
+    ![](8-11.png)
+
+    ~~~R
+    ggplot(nc, aes(mature, weight)) + geom_boxplot()
+    younger = subset(nc, mature=="younger mom")
+    mature = subset(nc, mature=="mature mom")
+    t.test(younger$weight, mature$weight)
+    ~~~
+
+## Lab 9 {#nine}
+
+1. We'd use a scatterplot. It's not a great linear relationship, but does look generally positive. It might be reasonable to use `at_bats` to predict `runs`, but we couldn't be very confident in our prediction. 
+
+    ![](9-1.png)
+
+2. (More or less the same as exercise 1) There's an increasing relationship, but the linear fit doesn't appear to be very great. The Boston Red Sox observation, with more than 5700 `at_bats` is fairly unusual. The Yankees observation, with 5518 `at_bats` and 867 `runs` is also somewhat unusual. 
+
+    Note: Students might not identify both of those "unusual" observations, but they should at least identify one. 
+
+3. The equation is $y = 1.83x + 415.24$. The slope tells us that, for each additional `at_bat`, a team is expected to make 1.83 additional `runs`. 
+
+    ![](9-3.png)
+
+    ~~~R
+    ggplot(mlb11, aes(homeruns, runs)) + geom_point() + geom_smooth(method="lm")
+    m2 = lm(runs ~ homeruns, data = mlb11)
+    summary(m2)
+    ~~~
+
+4. The model would predict 728.32. The actual runs were 713, so the model overestimates. The residual is -15.32. 
+
+5. There's not a clear pattern in the residuals. 
+
+    ![](9-5.png)
+
+6. The residuals are sort of normal, but not very normal --- there seems to be a slight right skew in the histogram. 
+
+    ![](9-6a.png)
+    ![](9-6b.png)
+
+7. The variability seems close to being constant. Perhaps it decreases slightly as `at_bats` increases. (See the plot from exercise 6 above)
+
+8. The relationship between `runs` and `bat_avg` seems sort of linear. 
+
+    ![](9-8.png)
+    
+    Note: In this problem and the next, students have a choice about what variables they choose to analyze. You don't need to go through and check that their numbers are actually correct. Just make sure that they've answered everything and their interpretations are correct based on the numbers they've given. 
+
+9. The $R^2$ is 0.65, compared to 0.37 for `runs` against `at_bats`, so the linear fit is better in this situation. 
+
+10. `bat_avg` is the best predictor for `runs`. 
+
+    ~~~R
+    > cor(mlb11$runs, mlb11$at_bats)^2
+    [1] 0.3728654
+    > cor(mlb11$runs, mlb11$hits)^2
+    [1] 0.6419388
+    > cor(mlb11$runs, mlb11$homeruns)^2
+    [1] 0.6265636
+    > cor(mlb11$runs, mlb11$bat_avg)^2
+    [1] 0.6560771
+    > cor(mlb11$runs, mlb11$strikeouts)^2
+    [1] 0.1693579
+    > cor(mlb11$runs, mlb11$stolen_bases)^2
+    [1] 0.002913993
+    > cor(mlb11$runs, mlb11$wins)^2
+    [1] 0.3609712
+    ~~~
+
+11. All of these new ones are better; the best is `new_obs`. 
+
+    ~~~R
+    > cor(mlb11$runs, mlb11$new_onbase)^2
+    [1] 0.8491053
+    > cor(mlb11$runs, mlb11$new_slug)^2
+    [1] 0.8968704
+    > cor(mlb11$runs, mlb11$new_obs)^2
+    [1] 0.9349271
+    ~~~
+
+    ![](9-11.png) 
+    
+12. There does appear to be no pattern in the residual plot, and the residuals are relatively normal (certainly more normal than they were for `at_bats`!). 
+
+    ![](9-12a.png)
+    ![](9-12b.png)
+    
+-->
+
+</main>
+
+</body>
+
+</html>
