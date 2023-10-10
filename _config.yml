@@ -16,7 +16,6 @@ defaults:
         layout: default
         
 exclude:
-    - _sections
     - LICENSE
     - README.md
     - pull.sh
