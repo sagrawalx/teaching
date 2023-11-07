@@ -61,7 +61,7 @@ I was not lead instructor for this course, so there is no syllabus or anything t
 <td style="text-align: center;">6</th>
 <td>[Slides](06-1.pdf)</th>
 <td>[Slides](06-2.pdf)</th>
-<td>[Slides](06-3.pdf)</th>
+<td>Veteran's Day</th>
 </tr>
 
 <tr>
@@ -75,7 +75,7 @@ I was not lead instructor for this course, so there is no syllabus or anything t
 <td style="text-align: center;">8</th>
 <td>[Slides](08-1.pdf)</th>
 <td>[Slides](08-2.pdf)</th>
-<td>[Slides](08-3.pdf)</th>
+<td>Thanksgiving</th>
 </tr>
 
 <tr>
