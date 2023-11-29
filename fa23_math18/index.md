@@ -16,9 +16,9 @@ I was not lead instructor for this course, so there is no syllabus or anything t
 </tr>
 
 <tr>
-<td style="text-align: center;">0</th>
-<td></th>
-<td></th>
+<td style="text-align: center;">0</td>
+<td></td>
+<td></td>
 <td>[Slides](00-3.pdf)</th>
 </tr>
 
@@ -88,8 +88,8 @@ I was not lead instructor for this course, so there is no syllabus or anything t
 <tr>
 <td style="text-align: center;">10</th>
 <td>[Slides](10-1.pdf)</th>
-<td>[Slides](10-2.pdf)</th>
-<td>[Slides](10-3.pdf)</th>
+<td>Office Hours</th>
+<td>Office Hours</th>
 </tr>
 
 </table>
