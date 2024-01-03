@@ -26,27 +26,124 @@ Fall 2019, Block 3 — MA315 — SIR Project Comments
 
 <main>
 <h1 id="sir-project-comments">SIR Project Comments</h1>
-<p>Here are some of the common mistakes I noticed when going through the SIR projects.</p>
+<p>Here are some of the common mistakes I noticed when going through the
+SIR projects.</p>
 <ul>
 <li>Part I
 <ul>
-<li><p>Question 2. I was looking for the observation that b and c are both forced to be between 0 and 1, since they are both fractions.</p></li>
-<li><p>Question 3. I was looking for something along the lines of the following: Since <span class="math inline">\(S + I + R = N\)</span> is constant, we have <span class="math display">\[0 = (S + I + R)&#39; = S&#39; + I&#39; + R&#39;,\]</span> which means that <span class="math inline">\(I&#39; = - S&#39; - R&#39;\)</span>.</p></li>
-<li><p>Question 5. All of you said that <span class="math inline">\(S \to 0\)</span> as <span class="math inline">\(t \to \infty\)</span>. That’s fine, and I didn’t take off points for this, but this is not quite true: all that we know is that <span class="math inline">\(S\)</span> must stabilize at some value between 0 and <span class="math inline">\(N\)</span> (because it’s monotonically decreasing and bounded), but there is no guarantee that that value be 0. This will happen when the disease is not very virulent: recovery happens quickly (ie, <span class="math inline">\(c\)</span> is large), and the disease speads slowly (ie, <span class="math inline">\(b\)</span> is small). Here is a picture of this kind of situation. In this plot, we have <span class="math inline">\(c = 0.5\)</span>, <span class="math inline">\(b = 0.01\)</span>, <span class="math inline">\(R(0) = 0\)</span>, and <span class="math inline">\(I(0) = 1\)</span>. <img src="sir-sample-3.png" style="width: 80%;"/></p>
-<p>Here’s a question I have: must it be the case that <span class="math inline">\(I \to 0\)</span> as <span class="math inline">\(t \to \infty\)</span>? It seems like this should be true, and I haven’t been able to come up with a counterexample, but I don’t know how to prove this directly from the differential equations…</p></li>
-<li><p>Question 6. I was looking for something along the following lines: Observe that <span class="math display">\[ \frac{dI}{dt} = bSI - cI = b\left(S - \frac{c}{b} \right)I.\]</span> We know that <span class="math inline">\(b &gt; 0\)</span>, so the sign of <span class="math inline">\(dI/dt\)</span> matches the sign of <span class="math inline">\(S - c/b\)</span>. Suppose <span class="math inline">\(S(0) &lt; c/b\)</span>. Since <span class="math inline">\(dS/dt &lt; 0\)</span>, we know that <span class="math inline">\(S\)</span> is monotonically decreasing, so <span class="math inline">\(S(t) &lt; c/b\)</span> for all <span class="math inline">\(t\)</span>. Thus <span class="math inline">\(dI/dt &lt; 0\)</span>, which means that <span class="math inline">\(I\)</span> is monotonically decreasing.</p>
-<p>This analysis also tells us that, even if <span class="math inline">\(S(0) \geq c/b\)</span>, as soon as we hit a time <span class="math inline">\(t_0\)</span> such that <span class="math inline">\(S(t_0) &lt; c/b\)</span>, the infected population will decrease after <span class="math inline">\(t_0\)</span>.</p>
-<p>It is also worth pointing out that you <em>cannot</em> conclude that <span class="math inline">\(I = e^{(bS - c)t}\)</span>, since <span class="math inline">\(S\)</span> is itself varying with time! If you differentiate <span class="math inline">\(e^{(bS-c)t}\)</span> with respect to time, keeping in mind the chain and product rules, you find that <span class="math display">\[ \frac{d}{dt}e^{(bS-c)t} = \left(b \frac{dS}{dt} + (bS-c) \right) e^{(bS-c)t} \]</span> which shows that <span class="math inline">\(I = e^{(bS-c)t}\)</span> does not satisfy the differential equation that <span class="math inline">\(I\)</span> needs to satisfy.</p></li>
-<li><p>Question 7. This is very confusing, so I didn’t take off any points here no matter what you said. Probably when I revise this project for the next time I teach ODEs I’ll add some hints about this. That said, here are some thoughts.</p>
-<p>First of all, notice that, in order for the units on the equation for <span class="math inline">\(dS/dt\)</span> to work out, <span class="math inline">\(b\)</span> needs to have units <span class="math inline">\(1/(\text{people} \cdot \text{days})\)</span>. Then, in order for the units on the equation for <span class="math inline">\(dR/dt\)</span> to work out, <span class="math inline">\(c\)</span> needs to have units <span class="math inline">\(1/\text{days}\)</span>. This means that the units on the quantity <span class="math inline">\(c/b\)</span> is people. (This makes some sense, since in the previous problem, we were comparing <span class="math inline">\(S\)</span> and <span class="math inline">\(c/b\)</span>. We know that <span class="math inline">\(S\)</span> has units people, and a comparison between two quantities only makes sense if the two have the same units.)</p>
-<p>But what number of people is <span class="math inline">\(c/b\)</span>? Well, on a particular day, we have <span class="math display">\[ c = \frac{\text{new recoveries}}{\text{infected}} \]</span> and <span class="math display">\[ b = \frac{ \frac{\text{new infections}}{\text{susceptible}} }{\text{infected}} \]</span> which means that <span class="math display">\[ \frac{c}{b} = \frac{ \text{new recoveries} }{ \text{new infections} } \cdot \text{susceptible}. \]</span> In other words, <span class="math inline">\(c/b\)</span> is the answer to the following question: if all of the susceptible people become newly infected on a particular day, how many people would recover on that day?</p>
-<p>Another interpretation for <span class="math inline">\(c/b\)</span> falls out of the analysis we did in the previous question. More specifically, <span class="math inline">\(c/b\)</span> marks a “critical population” of susceptibles: the pointn when <span class="math inline">\(S = c/b\)</span> is the point when the infected population will start decreasing.</p>
-<p>One final interpretation is that <span class="math inline">\(c/b\)</span> is that this is some kind of a measure of the virulence of the disease (or rather, non-virulence): as <span class="math inline">\(c/b\)</span> decreases towards 0, the infection spreads more and more rapidly. This is probably the easiest interpretation to see, but it’s a little vague and the units of <span class="math inline">\(c/b\)</span> are completely opaque in this interpretation.</p></li>
+<li><p>Question 2. I was looking for the observation that b and c are
+both forced to be between 0 and 1, since they are both
+fractions.</p></li>
+<li><p>Question 3. I was looking for something along the lines of the
+following: Since <span class="math inline">\(S + I + R = N\)</span> is
+constant, we have <span class="math display">\[0 = (S + I + R)&#39; =
+S&#39; + I&#39; + R&#39;,\]</span> which means that <span
+class="math inline">\(I&#39; = - S&#39; - R&#39;\)</span>.</p></li>
+<li><p>Question 5. All of you said that <span class="math inline">\(S
+\to 0\)</span> as <span class="math inline">\(t \to \infty\)</span>.
+That’s fine, and I didn’t take off points for this, but this is not
+quite true: all that we know is that <span
+class="math inline">\(S\)</span> must stabilize at some value between 0
+and <span class="math inline">\(N\)</span> (because it’s monotonically
+decreasing and bounded), but there is no guarantee that that value be 0.
+This will happen when the disease is not very virulent: recovery happens
+quickly (ie, <span class="math inline">\(c\)</span> is large), and the
+disease speads slowly (ie, <span class="math inline">\(b\)</span> is
+small). Here is a picture of this kind of situation. In this plot, we
+have <span class="math inline">\(c = 0.5\)</span>, <span
+class="math inline">\(b = 0.01\)</span>, <span
+class="math inline">\(R(0) = 0\)</span>, and <span
+class="math inline">\(I(0) = 1\)</span>.
+<img src="sir-sample-3.png" style="width: 80%;"/></p>
+<p>Here’s a question I have: must it be the case that <span
+class="math inline">\(I \to 0\)</span> as <span class="math inline">\(t
+\to \infty\)</span>? It seems like this should be true, and I haven’t
+been able to come up with a counterexample, but I don’t know how to
+prove this directly from the differential equations…</p></li>
+<li><p>Question 6. I was looking for something along the following
+lines: Observe that <span class="math display">\[ \frac{dI}{dt} = bSI -
+cI = b\left(S - \frac{c}{b} \right)I.\]</span> We know that <span
+class="math inline">\(b &gt; 0\)</span>, so the sign of <span
+class="math inline">\(dI/dt\)</span> matches the sign of <span
+class="math inline">\(S - c/b\)</span>. Suppose <span
+class="math inline">\(S(0) &lt; c/b\)</span>. Since <span
+class="math inline">\(dS/dt &lt; 0\)</span>, we know that <span
+class="math inline">\(S\)</span> is monotonically decreasing, so <span
+class="math inline">\(S(t) &lt; c/b\)</span> for all <span
+class="math inline">\(t\)</span>. Thus <span class="math inline">\(dI/dt
+&lt; 0\)</span>, which means that <span class="math inline">\(I\)</span>
+is monotonically decreasing.</p>
+<p>This analysis also tells us that, even if <span
+class="math inline">\(S(0) \geq c/b\)</span>, as soon as we hit a time
+<span class="math inline">\(t_0\)</span> such that <span
+class="math inline">\(S(t_0) &lt; c/b\)</span>, the infected population
+will decrease after <span class="math inline">\(t_0\)</span>.</p>
+<p>It is also worth pointing out that you <em>cannot</em> conclude that
+<span class="math inline">\(I = e^{(bS - c)t}\)</span>, since <span
+class="math inline">\(S\)</span> is itself varying with time! If you
+differentiate <span class="math inline">\(e^{(bS-c)t}\)</span> with
+respect to time, keeping in mind the chain and product rules, you find
+that <span class="math display">\[ \frac{d}{dt}e^{(bS-c)t} = \left(b
+\frac{dS}{dt} + (bS-c) \right) e^{(bS-c)t} \]</span> which shows that
+<span class="math inline">\(I = e^{(bS-c)t}\)</span> does not satisfy
+the differential equation that <span class="math inline">\(I\)</span>
+needs to satisfy.</p></li>
+<li><p>Question 7. This is very confusing, so I didn’t take off any
+points here no matter what you said. Probably when I revise this project
+for the next time I teach ODEs I’ll add some hints about this. That
+said, here are some thoughts.</p>
+<p>First of all, notice that, in order for the units on the equation for
+<span class="math inline">\(dS/dt\)</span> to work out, <span
+class="math inline">\(b\)</span> needs to have units <span
+class="math inline">\(1/(\text{people} \cdot \text{days})\)</span>.
+Then, in order for the units on the equation for <span
+class="math inline">\(dR/dt\)</span> to work out, <span
+class="math inline">\(c\)</span> needs to have units <span
+class="math inline">\(1/\text{days}\)</span>. This means that the units
+on the quantity <span class="math inline">\(c/b\)</span> is people.
+(This makes some sense, since in the previous problem, we were comparing
+<span class="math inline">\(S\)</span> and <span
+class="math inline">\(c/b\)</span>. We know that <span
+class="math inline">\(S\)</span> has units people, and a comparison
+between two quantities only makes sense if the two have the same
+units.)</p>
+<p>But what number of people is <span
+class="math inline">\(c/b\)</span>? Well, on a particular day, we have
+<span class="math display">\[ c = \frac{\text{new
+recoveries}}{\text{infected}} \]</span> and <span
+class="math display">\[ b = \frac{ \frac{\text{new
+infections}}{\text{susceptible}} }{\text{infected}} \]</span> which
+means that <span class="math display">\[ \frac{c}{b} = \frac{ \text{new
+recoveries} }{ \text{new infections} } \cdot \text{susceptible}.
+\]</span> In other words, <span class="math inline">\(c/b\)</span> is
+the answer to the following question: if all of the susceptible people
+become newly infected on a particular day, how many people would recover
+on that day?</p>
+<p>Another interpretation for <span class="math inline">\(c/b\)</span>
+falls out of the analysis we did in the previous question. More
+specifically, <span class="math inline">\(c/b\)</span> marks a “critical
+population” of susceptibles: the pointn when <span
+class="math inline">\(S = c/b\)</span> is the point when the infected
+population will start decreasing.</p>
+<p>One final interpretation is that <span
+class="math inline">\(c/b\)</span> is that this is some kind of a
+measure of the virulence of the disease (or rather, non-virulence): as
+<span class="math inline">\(c/b\)</span> decreases towards 0, the
+infection spreads more and more rapidly. This is probably the easiest
+interpretation to see, but it’s a little vague and the units of <span
+class="math inline">\(c/b\)</span> are completely opaque in this
+interpretation.</p></li>
 </ul></li>
 <li>Part II
 <ul>
-<li><p>Question 3. The maximum infected population happens around <span class="math inline">\(t = 7.1\)</span>, when the infected population is about 273335. In other words, I was looking for something along the lines of “around day 7.”</p></li>
-<li><p>Question 6. 90% recovery happens somewhere between <span class="math inline">\(t = 17.1\)</span> and <span class="math inline">\(t = 17.2\)</span>. In other words, I was looking for something like “around day 17.”</p></li>
+<li><p>Question 3. The maximum infected population happens around <span
+class="math inline">\(t = 7.1\)</span>, when the infected population is
+about 273335. In other words, I was looking for something along the
+lines of “around day 7.”</p></li>
+<li><p>Question 6. 90% recovery happens somewhere between <span
+class="math inline">\(t = 17.1\)</span> and <span
+class="math inline">\(t = 17.2\)</span>. In other words, I was looking
+for something like “around day 17.”</p></li>
 </ul></li>
 </ul>
 

@@ -26,29 +26,67 @@ Spring 2020, Block 8 — MA220 — Population Project Grading
 
 <main>
 <h1 id="population-project-grading">Population Project Grading</h1>
-<p>Overall, I was very impressed with everyone’s reports for the <a href="population">population project</a>! It seemed to me like you all thought deeply about this population model and developed good intuition about it.</p>
-<p>The population project was graded out of 15 points. Here were the common mistakes I noticed, together with how many points were deducted for each of these mistakes. If you made a mistake that’s not on this list, I’ll let you know specifically.</p>
+<p>Overall, I was very impressed with everyone’s reports for the <a
+href="population">population project</a>! It seemed to me like you all
+thought deeply about this population model and developed good intuition
+about it.</p>
+<p>The population project was graded out of 15 points. Here were the
+common mistakes I noticed, together with how many points were deducted
+for each of these mistakes. If you made a mistake that’s not on this
+list, I’ll let you know specifically.</p>
 <ul>
 <li>2.1. There were two common mistakes here:
 <ul>
-<li>“Decline by 35%” means that the number gets multiplied by 0.65. If you subtracted 0.35 instead of multiplying by 0.65, 0.5 points were deducted.</li>
-<li>If you noticed that <span class="math inline">\(A\)</span> was not invertible and used that to decide that <span class="math inline">\(D\)</span> cannot exist, 0.5 points were deducted. Note that just because <span class="math inline">\(A\)</span> is not invertible doesn’t mean that <span class="math inline">\(D\)</span> cannot exist! It just means that there isn’t a unique solution for <span class="math inline">\(D\)</span>.</li>
+<li>“Decline by 35%” means that the number gets multiplied by 0.65. If
+you subtracted 0.35 instead of multiplying by 0.65, 0.5 points were
+deducted.</li>
+<li>If you noticed that <span class="math inline">\(A\)</span> was not
+invertible and used that to decide that <span
+class="math inline">\(D\)</span> cannot exist, 0.5 points were deducted.
+Note that just because <span class="math inline">\(A\)</span> is not
+invertible doesn’t mean that <span class="math inline">\(D\)</span>
+cannot exist! It just means that there isn’t a unique solution for <span
+class="math inline">\(D\)</span>.</li>
 </ul></li>
-<li>2.5. I was looking for something about how a dominant eigenvalue greater than 1 result in growth (with faster growth as the eigenvalue tends to infinity) and a dominant eigenvalue less than 1 results in decline (with faster decline as the eigenvalue gets closer to 0). If you didn’t say something along these lines, either 0.5 points or 1 points were deducted (depending on how close you were).</li>
-<li>3.1. It’s very tempting to decide that the first row of <span class="math inline">\(B\)</span> should be the same as the first row of <span class="math inline">\(A\)</span>, and all entries of <span class="math inline">\(B\)</span> below the first row should be 50% of the corresponding entries of <span class="math inline">\(A\)</span>. This is incorrect, and can be demonstrated to be incorrect by playing with some examples. The correct answer is that all entries of <span class="math inline">\(B\)</span> are 50% of the corresponding entries of <span class="math inline">\(A\)</span>, <em>even the entries in the first row</em>. If you made this mistake, 1 point was deducted.</li>
-<li>3.3. The correct answer is roughly 23%. If you got something like 35%, you probably made the above-described mistake in Question 1, and no further points were deducted.</li>
+<li>2.5. I was looking for something about how a dominant eigenvalue
+greater than 1 result in growth (with faster growth as the eigenvalue
+tends to infinity) and a dominant eigenvalue less than 1 results in
+decline (with faster decline as the eigenvalue gets closer to 0). If you
+didn’t say something along these lines, either 0.5 points or 1 points
+were deducted (depending on how close you were).</li>
+<li>3.1. It’s very tempting to decide that the first row of <span
+class="math inline">\(B\)</span> should be the same as the first row of
+<span class="math inline">\(A\)</span>, and all entries of <span
+class="math inline">\(B\)</span> below the first row should be 50% of
+the corresponding entries of <span class="math inline">\(A\)</span>.
+This is incorrect, and can be demonstrated to be incorrect by playing
+with some examples. The correct answer is that all entries of <span
+class="math inline">\(B\)</span> are 50% of the corresponding entries of
+<span class="math inline">\(A\)</span>, <em>even the entries in the
+first row</em>. If you made this mistake, 1 point was deducted.</li>
+<li>3.3. The correct answer is roughly 23%. If you got something like
+35%, you probably made the above-described mistake in Question 1, and no
+further points were deducted.</li>
 <li><ol start="4" type="1">
-<li>I was just looking for some indication that you tried to play with the simulation.</li>
+<li>I was just looking for some indication that you tried to play with
+the simulation.</li>
 </ol>
 <ul>
-<li><p>If you only gave me code and didn’t describe in words how the harvesting scheme works, 2 points were deducted.</p></li>
-<li><p>If you’re curious about the harvesting scheme I came up with that got me to retirement in 12 years, it’s the following: harvest 3% of 2-year-old fish and 100% of 3-year-old fish until I hit the point where selling all my fish would allow me to retire, at which point I close up shop by selling all my fish. To accomplish this, I replaced the “part you want to edit” with the following:</p>
+<li><p>If you only gave me code and didn’t describe in words how the
+harvesting scheme works, 2 points were deducted.</p></li>
+<li><p>If you’re curious about the harvesting scheme I came up with that
+got me to retirement in 12 years, it’s the following: harvest 3% of
+2-year-old fish and 100% of 3-year-old fish until I hit the point where
+selling all my fish would allow me to retire, at which point I close up
+shop by selling all my fish. To accomplish this, I replaced the “part
+you want to edit” with the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> money[t<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> population.dot_product(prices) <span class="op">&gt;</span> retirement:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    current_harvest <span class="op">=</span> population</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    harvest_rate <span class="op">=</span> diagonal_matrix([<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.03</span>,<span class="dv">1</span>])</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    current_harvest <span class="op">=</span> harvest_rate <span class="op">*</span> population</span></code></pre></div>
-<p>However, this is not necessarily the best harvesting scheme out there.</p></li>
+<p>However, this is not necessarily the best harvesting scheme out
+there.</p></li>
 </ul></li>
 </ul>
 
