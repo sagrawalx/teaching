@@ -27,47 +27,143 @@ Winter 2023 — Math 187A — Syllabus
 <main>
 <h1 id="syllabus">Syllabus</h1>
 <blockquote>
-<p>A little bit of math can accomplish what all the guns and barbed wire can’t: a little bit of math can keep a secret. <span class="blockquote-attribution">—Edward Snowden, <em>Permanent Record</em> (2019)</span></p>
+<p>A little bit of math can accomplish what all the guns and barbed wire
+can’t: a little bit of math can keep a secret. <span
+class="blockquote-attribution">—Edward Snowden, <em>Permanent
+Record</em> (2019)</span></p>
 </blockquote>
 <h2 id="course-overview">Course Overview</h2>
 <h3 id="content">Content</h3>
-<p>This course is an introduction to <em>cryptography</em>, the art and science of secure communication. We’ll study some classical cryptosystems, such as rectangular transposition, the Caesar cipher, the Polybius square, and the Vignère cipher, as well as methods for breaking these cryptosystems. We’ll also study some modern cryptosystems, such as RSA, ElGamal, Diffie-Hellman key exchange, and elliptic curve cryptography. Along the way, we’ll encounter a wide array of mathematics useful in cryptography, including some number theory, probability theory, information theory, and algebraic geometry.</p>
+<p>This course is an introduction to <em>cryptography</em>, the art and
+science of secure communication. We’ll study some classical
+cryptosystems, such as rectangular transposition, the Caesar cipher, the
+Polybius square, and the Vignère cipher, as well as methods for breaking
+these cryptosystems. We’ll also study some modern cryptosystems, such as
+RSA, ElGamal, Diffie-Hellman key exchange, and elliptic curve
+cryptography. Along the way, we’ll encounter a wide array of mathematics
+useful in cryptography, including some number theory, probability
+theory, information theory, and algebraic geometry.</p>
 <h3 id="non-content">Non-Content</h3>
 <p>This course is <em>not</em> about cryptocurrencies like Bitcoin ☺</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Formally, the only prerequisite for the course is Math 10A or 20A, but we won’t make much use of calculus. Some basic programming experience could be useful, but it’s also not required. An eagerness to learn is sufficient!</p>
+<p>Formally, the only prerequisite for the course is Math 10A or 20A,
+but we won’t make much use of calculus. Some basic programming
+experience could be useful, but it’s also not required. An eagerness to
+learn is sufficient!</p>
 <h2 id="course-materials">Course Materials</h2>
 <h3 id="textbook">Textbook</h3>
-<p>No textbook exists that contains all of the material that we will discuss in this class. Your primary reference will be the “<a href="/assets/crypt">Introduction to Cryptography</a>” notes that I’ll be working on as we go along. You are welcome (and encouraged) to supplement with <a href="resources">other resources</a> as you go along.</p>
+<p>No textbook exists that contains all of the material that we will
+discuss in this class. Your primary reference will be the “<a
+href="/assets/crypt">Introduction to Cryptography</a>” notes that I’ll
+be working on as we go along. You are welcome (and encouraged) to
+supplement with <a href="resources">other resources</a> as you go
+along.</p>
 <h3 id="zulip">Zulip</h3>
-<p>Zulip is chat software (a bit like Discord, Slack, or Piazza), and it will be our primary means of communication for this class. It is open source and you can use it either in a browser or by installing an app on any platform. I’ve set up a <a href="https://sunnysclasses.zulipchat.com/">Zulip organization</a> with a dedicated stream for everyone in our class. You can get an invite link to join the Zulip stream through <a href="https://canvas.ucsd.edu/courses/42571">Canvas</a>. You can register using any name you’d prefer to use for the class, but you must use your official <code>@ucsd.edu</code> email address as it appears on the class roster. (If you don’t have access to Canvas or you don’t have a <code>@ucsd.edu</code> email address, just reach out to me explaining the situation!)</p>
-<p>You should use the class stream to ask any content- and logistics-related questions you have. Certain assignments for the course will ask you to post things to our class stream regularly. The TAs and I will also use it to make class-related announcements. If you have private questions about a situation specific to you, please use Zulip to send a private message (instead of sending an email).</p>
+<p>Zulip is chat software (a bit like Discord, Slack, or Piazza), and it
+will be our primary means of communication for this class. It is open
+source and you can use it either in a browser or by installing an app on
+any platform. I’ve set up a <a
+href="https://sunnysclasses.zulipchat.com/">Zulip organization</a> with
+a dedicated stream for everyone in our class. You can get an invite link
+to join the Zulip stream through <a
+href="https://canvas.ucsd.edu/courses/42571">Canvas</a>. You can
+register using any name you’d prefer to use for the class, but you must
+use your official <code>@ucsd.edu</code> email address as it appears on
+the class roster. (If you don’t have access to Canvas or you don’t have
+a <code>@ucsd.edu</code> email address, just reach out to me explaining
+the situation!)</p>
+<p>You should use the class stream to ask any content- and
+logistics-related questions you have. Certain assignments for the course
+will ask you to post things to our class stream regularly. The TAs and I
+will also use it to make class-related announcements. If you have
+private questions about a situation specific to you, please use Zulip to
+send a private message (instead of sending an email).</p>
 <h3 id="sagemath">SageMath</h3>
-<p>SageMath (or just Sage for short) is a thin wrapper for the popular programming language Python. It makes mathematical computations especially convenient, and you’ll be encouraged to play with Sage during this course.</p>
-<p>You can run Sage in many ways. The “<a href="/assets/crypt">Introduction to Cryptography</a>” notes contains numerous SageCells with some pre-written code. You can modify the code in any of those SageCells, or you can even clear it out completely and start from scratch. You can also start from a <a href="https://sagecell.sagemath.org/">blank SageCell</a>, or you can use <a href="https://cocalc.com">CoCalc</a>. Your can also <a href="https://doc.sagemath.org/html/en/installation/index.html">install Sage</a> and run the code locally on your computer; your code will run fastest if you do this, but it will require some setup on your part.</p>
+<p>SageMath (or just Sage for short) is a thin wrapper for the popular
+programming language Python. It makes mathematical computations
+especially convenient, and you’ll be encouraged to play with Sage during
+this course.</p>
+<p>You can run Sage in many ways. The “<a
+href="/assets/crypt">Introduction to Cryptography</a>” notes contains
+numerous SageCells with some pre-written code. You can modify the code
+in any of those SageCells, or you can even clear it out completely and
+start from scratch. You can also start from a <a
+href="https://sagecell.sagemath.org/">blank SageCell</a>, or you can use
+<a href="https://cocalc.com">CoCalc</a>. Your can also <a
+href="https://doc.sagemath.org/html/en/installation/index.html">install
+Sage</a> and run the code locally on your computer; your code will run
+fastest if you do this, but it will require some setup on your part.</p>
 <h2 id="course-structure">Course Structure</h2>
 <h3 id="philosophy">Philosophy</h3>
-<p>No class (or classes) can ever teach you everything you might need to know about a topic, so, in the long run, the most important thing to learn is how to learn independently: in pedagogical jargon, that’s “how to be a <em>self-regulated learner</em>.” Research suggests that the following three things are key aspects of learning how to be a self-regulated learner of math:</p>
+<p>No class (or classes) can ever teach you everything you might need to
+know about a topic, so, in the long run, the most important thing to
+learn is how to learn independently: in pedagogical jargon, that’s “how
+to be a <em>self-regulated learner</em>.” Research suggests that the
+following three things are key aspects of learning how to be a
+self-regulated learner of math:</p>
 <ol type="1">
-<li><p><em>Active reading</em>. Reading math is very different from other kinds of reading. You can’t read a math textbook the same way you’d read a novel for pleasure if you’re hoping to get anything out of it. You have to stop constantly as you’re reading math. Try to work out exercises and examples yourself, instead of just reading through them. Doodle pictures to make sure you have some kind of an image in your head of what’s going on. Try to formulate <em>precise</em> questions about things you don’t understand.</p></li>
-<li><p><em>Reciprocal teaching</em>. Talking to your peers about math is incredibly important. If you don’t understand a particular concept and ask your peers, you’re much more likely to get an explanation that you actually find helpful. If you think you do understand a particular concept and help a peer who’s struggling, you’ll almost certainly find that the process of explaining the concept to your peer will solidify your own understanding of it. Learning happens best in community.</p></li>
-<li><p><em>Metacognition</em>. A key part of learning how to learn is reflecting on your learning and taking the time to ask yourself questions about your learning. What parts of your study habits are working well for you? What parts aren’t working and how can you change these parts? What kind of a mindset do you have towards math, and what can you be doing to help cultivate a growth mindset in yourself?</p></li>
+<li><p><em>Active reading</em>. Reading math is very different from
+other kinds of reading. You can’t read a math textbook the same way
+you’d read a novel for pleasure if you’re hoping to get anything out of
+it. You have to stop constantly as you’re reading math. Try to work out
+exercises and examples yourself, instead of just reading through them.
+Doodle pictures to make sure you have some kind of an image in your head
+of what’s going on. Try to formulate <em>precise</em> questions about
+things you don’t understand.</p></li>
+<li><p><em>Reciprocal teaching</em>. Talking to your peers about math is
+incredibly important. If you don’t understand a particular concept and
+ask your peers, you’re much more likely to get an explanation that you
+actually find helpful. If you think you do understand a particular
+concept and help a peer who’s struggling, you’ll almost certainly find
+that the process of explaining the concept to your peer will solidify
+your own understanding of it. Learning happens best in
+community.</p></li>
+<li><p><em>Metacognition</em>. A key part of learning how to learn is
+reflecting on your learning and taking the time to ask yourself
+questions about your learning. What parts of your study habits are
+working well for you? What parts aren’t working and how can you change
+these parts? What kind of a mindset do you have towards math, and what
+can you be doing to help cultivate a growth mindset in
+yourself?</p></li>
 </ol>
-<p>Evidence-based methods for accomplishing all three of these are built into course structure. It would benefit you to bear these three things in mind as you go through the course.</p>
+<p>Evidence-based methods for accomplishing all three of these are built
+into course structure. It would benefit you to bear these three things
+in mind as you go through the course.</p>
 <h3 id="class">Class</h3>
-<p>This class will be mostly “flipped.” You’ll be expected to read and make a preliminary attempt to understand material on your own before coming to class. I’ll typically start class off with a brief summary of your latest reading. It will not be a substitute for having done the reading, and you shouldn’t expect “lectures.” We’ll usually spend most of our time working on problems together.</p>
-<p>The class will be podcasted, but you are strongly advised to attend class and only use the podcasts in unusual situations, not as your primary means of engaging with the class. The flipped format means that you’ll likely miss out on a lot of learning if you just watch the video by yourself.</p>
+<p>This class will be mostly “flipped.” You’ll be expected to read and
+make a preliminary attempt to understand material on your own before
+coming to class. I’ll typically start class off with a brief summary of
+your latest reading. It will not be a substitute for having done the
+reading, and you shouldn’t expect “lectures.” We’ll usually spend most
+of our time working on problems together.</p>
+<p>The class will be podcasted, but you are strongly advised to attend
+class and only use the podcasts in unusual situations, not as your
+primary means of engaging with the class. The flipped format means that
+you’ll likely miss out on a lot of learning if you just watch the video
+by yourself.</p>
 <h3 id="assignments">Assignments</h3>
-<p>There will be a couple of different types of assignments in the course:</p>
+<p>There will be a couple of different types of assignments in the
+course:</p>
 <ul>
-<li><p><a href="read">Reading Assignments</a>: These involve reading something, attempting some exercises, and formulating a question about the reading. One of these will be due before most class sessions.</p></li>
-<li><p><a href="reflect">Reflection Assignments</a>: These ask you to reflect on various aspects of your relationship with mathematics, your mathematical learning, etc. You’ll have about 1 of these due every week.</p></li>
+<li><p><a href="read">Reading Assignments</a>: These involve reading
+something, attempting some exercises, and formulating a question about
+the reading. One of these will be due before most class
+sessions.</p></li>
+<li><p><a href="reflect">Reflection Assignments</a>: These ask you to
+reflect on various aspects of your relationship with mathematics, your
+mathematical learning, etc. You’ll have about 1 of these due every
+week.</p></li>
 </ul>
-<p>All assignments are due at 4pm on the day indicated on the calendar. Deadlines are strict and late assignments will not be accepted.</p>
+<p>All assignments are due at 4pm on the day indicated on the calendar.
+Deadlines are strict and late assignments will not be accepted.</p>
 <h3 id="quizzes">Quizzes</h3>
-<p>There will be <a href="quiz">quizzes</a> every Monday (except on the first day of class and on holidays). There will be no make-up quizzes.</p>
+<p>There will be <a href="quiz">quizzes</a> every Monday (except on the
+first day of class and on holidays). There will be no make-up
+quizzes.</p>
 <h3 id="final-exam">Final Exam</h3>
-<p>The <a href="quiz#final">final exam</a> will be held on Wednesday, March 22, 8–11am. You must take the final exam at the scheduled day and time in order to pass the class.</p>
+<p>The <a href="quiz#final">final exam</a> will be held on Wednesday,
+March 22, 8–11am. You must take the final exam at the scheduled day and
+time in order to pass the class.</p>
 <h2 id="assessment">Assessment</h2>
 <p>Scores will be calculated as follows:</p>
 <table width="100%">
@@ -90,7 +186,13 @@ Reading Assignments
 15%
 </td>
 <td>
-You get 1 point for each <a href="read">Reading Assignment</a> for which you post a Reading Question, up to a maximum of <span class="math inline">\(n-4\)</span>, where <span class="math inline">\(n\)</span> is the total number of Reading Assignments. In other words, you don’t need to post a Reading Question for every Reading Assignment to get full credit (and there’s no extra credit for doing so).
+You get 1 point for each <a href="read">Reading Assignment</a> for which
+you post a Reading Question, up to a maximum of <span
+class="math inline">\(n-4\)</span>, where <span
+class="math inline">\(n\)</span> is the total number of Reading
+Assignments. In other words, you don’t need to post a Reading Question
+for every Reading Assignment to get full credit (and there’s no extra
+credit for doing so).
 </td>
 </tr>
 <tr>
@@ -101,7 +203,11 @@ Reflection Assignments
 10%
 </td>
 <td>
-Half of this score is allocated to the “<a href="reflect#weekly">Weekly Reflections</a>,” with one point for each on-time submission. The remaining half is split evenly between the “<a href="reflect#autobio">Mathematical Autobiography</a>” and the “<a href="reflect#final">Final Reflection</a>.”
+Half of this score is allocated to the “<a href="reflect#weekly">Weekly
+Reflections</a>,” with one point for each on-time submission. The
+remaining half is split evenly between the “<a
+href="reflect#autobio">Mathematical Autobiography</a>” and the “<a
+href="reflect#final">Final Reflection</a>.”
 </td>
 </tr>
 <tr>
@@ -112,7 +218,10 @@ Quizzes
 50%
 </td>
 <td>
-Each quiz has equal weight. Your two lowest quiz scores can each be replaced by your final exam score if your final exam score is higher. There are no make-up quizzes and this policy automatically comes into effect if you miss up to two quizzes.
+Each quiz has equal weight. Your two lowest quiz scores can each be
+replaced by your final exam score if your final exam score is higher.
+There are no make-up quizzes and this policy automatically comes into
+effect if you miss up to two quizzes.
 </td>
 </tr>
 <tr>
@@ -123,11 +232,13 @@ Final Exam
 25%
 </td>
 <td>
-You must take the final exam at the scheduled day and time in order to pass the class.
+You must take the final exam at the scheduled day and time in order to
+pass the class.
 </td>
 </tr>
 </table>
-<p>Your score will be then converted to a letter grade using the following cutoffs:</p>
+<p>Your score will be then converted to a letter grade using the
+following cutoffs:</p>
 <table width="100%" style="text-align: center;">
 <tr>
 <th>
@@ -188,13 +299,36 @@ C-
 </td>
 </tr>
 </table>
-<p>At the end of the quarter, I may decide to lower some of the above cutoffs, but I will not increase them.</p>
+<p>At the end of the quarter, I may decide to lower some of the above
+cutoffs, but I will not increase them.</p>
 <h2 id="accommodations">Accommodations</h2>
-<p>If you experience any disability-related barriers to your learning, please contact the <a href="https://osd.ucsd.edu/">Office for Students with Disabilities</a> right away to have them provide a current Authorization for Accommodation (AFA). The AFA should be received at least one week in advance of the requested accommodations; we might be unable to accommodate late requests. If your accommodations that compel you to take a quiz or exam at a different time than the rest of the class, you may be given a different quiz or exam of equivalent difficulty.</p>
+<p>If you experience any disability-related barriers to your learning,
+please contact the <a href="https://osd.ucsd.edu/">Office for Students
+with Disabilities</a> right away to have them provide a current
+Authorization for Accommodation (AFA). The AFA should be received at
+least one week in advance of the requested accommodations; we might be
+unable to accommodate late requests. If your accommodations that compel
+you to take a quiz or exam at a different time than the rest of the
+class, you may be given a different quiz or exam of equivalent
+difficulty.</p>
 <h2 id="integrity">Integrity</h2>
-<p>Act with integrity. You’ll learn more, and you’ll be practicing good habits for ethical decisions that you’ll have to make for the rest of your life. If you have a question about whether something class-related is integrous, just ask first. Academic integrity violations have to be reported to university authorities and result in <em>serious consequences</em>, ranging from failing the course to expulsion from the university. None of that is any fun for anyone, so please, just don’t do it.</p>
+<p>Act with integrity. You’ll learn more, and you’ll be practicing good
+habits for ethical decisions that you’ll have to make for the rest of
+your life. If you have a question about whether something class-related
+is integrous, just ask first. Academic integrity violations have to be
+reported to university authorities and result in <em>serious
+consequences</em>, ranging from failing the course to expulsion from the
+university. None of that is any fun for anyone, so please, just don’t do
+it.</p>
 <h2 id="diversity">Diversity</h2>
-<p>The pursuit of knowledge thrives in diverse and inclusive environments. I expect that all of us, myself included, will work towards making our class a welcoming space for everyone, no matter how we might identify on race, ethnicity, nationality, socioeconomic background, gender, sexual orientation, ability, age, and the many other dimensions of identity. I also encourage you to reach out if there are ways to have our space be more comfortable for you. If anyone says anything in class that makes you feel unwelcome, please let me know.</p>
+<p>The pursuit of knowledge thrives in diverse and inclusive
+environments. I expect that all of us, myself included, will work
+towards making our class a welcoming space for everyone, no matter how
+we might identify on race, ethnicity, nationality, socioeconomic
+background, gender, sexual orientation, ability, age, and the many other
+dimensions of identity. I also encourage you to reach out if there are
+ways to have our space be more comfortable for you. If anyone says
+anything in class that makes you feel unwelcome, please let me know.</p>
 
 </main>
 
