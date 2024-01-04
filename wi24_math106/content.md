@@ -32,17 +32,17 @@ Each section below has a list of "Core Ideas" and a list of "Exercises."
 The "Core Ideas" are a list of important definitions, theorems, etc, that you should know: 
 
 * I've suggested possible readings for learning about these ideas. You can use the list of "Core Ideas" as a checklist as you do the reading. Feel free to supplement with other resources you find.
-* For some of the sections, the relevant content can be found in either of our primary references. For some, it can only be found in one. 
-* When a term doesn't have a completely standard definition (eg, if the definition varies between our two primary references), I've listed the definition I'd like to use for the purposes of our class. Same with notation. 
+* Some of the content can be found in one of our [primary references](references). Some of it can be found in both, in which case you are welcome to read whichever you like better. 
+* When a term doesn't have a completely standard definition (eg, if the definition varies between our two primary references), I've listed the definition I'd like to use for the purposes of our class and/or made notes about any possible discrepancies I could think of. Same with notation. 
 
 The "Exercises" are for practice: 
 
 * You are encouraged to do as many of the exercises as you can. 
-* Give formal proofs whenever possible. For example, if an exercise asks you to "give a example" of something, make sure you include a proof that your example is in fact an example of that thing. 
+* Give formal proofs whenever possible! For example, if an exercise asks you to "give a example" of something, make sure you include a proof that your example is in fact an example of that thing. 
 * Sometimes, exercises define important concepts and develop further theory that will be used in the future. This means that, even if you don't do all of the exercises, you should at least read through all of them. 
 * Sometimes, exercises ask you to state a definition of a term in italics. You may have to look this up. Use any resource: one of the books, the internet, whatever. 
-* Sometimes, you might find the proof for an exercise as a proposition somewhere in one of the two primary references. This is meant to indicate to you that you should understand the core ideas well enough that you can come up with that proof on your own. 
-* The first few exercises in each section are usually the easiest. After the first few exercises, there's no particular order to the exercises and you don't need to do them linearly. Sometimes, doing later problems might give you ideas about earlier problems. Sometimes, it may even help to come back to problems you didn't figure out after you've seen later material.
+* Sometimes, you might find the solution to an exercise as a proof of a proposition somewhere in one of the two primary references. This is meant to indicate to you that you should understand the core ideas well enough that you can come up with that proof on your own. 
+* The first few exercises in each section are usually the easiest. After the first few exercises, there's no particular order to the exercises and you don't need to do them linearly. Sometimes, doing later problems might give you ideas or tools that are helpful for earlier problems. Sometimes, it may even help to come back to problems you didn't figure out before after you've seen later material.
 
 # Ring Theory Basics
 

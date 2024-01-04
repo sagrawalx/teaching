@@ -15,7 +15,7 @@ The primary references for the class are:
 
 We won't follow either book linearly: we'll jump around within and between these two books. 
 
-{{ clo15 }} is available freely to everyone in the UCSD community thanks to an institutional subscription to Springer Link (if you are off-campus, you may have to use [VPN](https://library.ucsd.edu/computing-and-technology/connect-from-off-campus/index.html)). {{ ful08 }} is made available freely to everyone on the internet by the author. 
+{{ clo15 }} is available freely to everyone in the UCSD community thanks to an institutional subscription to Springer Link. If you are off-campus, you may have to use [VPN](https://library.ucsd.edu/computing-and-technology/connect-from-off-campus/index.html) for access. {{ ful08 }} went out of print and is now made available freely to everyone on the internet by the author. 
 
 # Other References
 

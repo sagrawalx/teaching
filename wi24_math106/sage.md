@@ -7,7 +7,7 @@ banner: Winter 2024 — Math 106
 
 Sage is a thin wrapper on Python that makes it convenient to do a lot of mathematical computations. You can use Sage in a [SageCell](https://sagecell.sagemath.org/) in browser, or you can install it on your machine. 
 
-Computations in algebraic geometry can get tedious to do by hand. If you find yourself feeling tired of tedious calculations, here's some information about how to get Sage to do some of these calculations. 
+Computations in algebraic geometry can get tedious to do by hand. If you find yourself feeling tired of calculations, here's some information about how to get Sage to do some of these calculations. If you figure out how to do something that's not listed on this page, please share and I'll add it here for everyone's reference!
 
 ## Fields
 

@@ -62,7 +62,7 @@ There will be a few different types of assignments in the course:
 
 Assignment deadlines are indicated on the [schedule](index#schedule). Late assignments will not be accepted.[^exception]
 
-[^exception]: The only exception to the "no late assignments" policy is the reflection assignments, all of which have an automatic 48-hour penalty-free grace period. After that grace period expires, there will be no credit. 
+[^exception]: The only exception to the "no late assignments" policy is the Reflection Assignments, all of which have an automatic 48-hour penalty-free grace period. After that grace period expires, there will be no credit. 
 
 ### Quizzes
 

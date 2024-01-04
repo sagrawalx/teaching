@@ -7,11 +7,11 @@ banner: Winter 2024 — Math 106
 
 # Reflection Assignments
 
-Here are some assignments whose goal is to get you to reflect on your mathematical learning and on your attitude towards mathematical learning. 
+Here are some assignments whose goal is to get you to reflect on your mathematical learning, your attitude towards mathematical learning, and so forth. 
 
 *But why?!?* You might not have been expecting writing in a math class. There are two reasons for doing this. First, we'd like to learn something about your relationship with math. Second, there's research in pedagogy suggesting that reflecting on your learning experiences can be very beneficial to learning.
 	
-*Grading.* We want to be able to understand what you've written, but we won't be marking you off for your spelling or grammar or anything of the sort. All we're looking for is evidence of genuine reflection and visible effort into organizing your thoughts into writing. 
+*Grading.* What's important is just that you demonstrate (a) that you did some genuine reflection, and (b) that you've tried to organize your thoughts clearly into writing. You won't be marked off for spelling or grammar or anything of the sort.
 
 ## Mathematical Autobiography {#autobio}
 
@@ -21,7 +21,7 @@ Here are some assignments whose goal is to get you to reflect on your mathematic
 
     In case you haven't heard the terms "fixed mindset" or "growth mindset" before, here's a quick summary. A person has *fixed mindset* in an area if they believe their intelligence or abilities in that area are fixed traits that cannot change. Characteristics of having a fixed mindset include: avoiding challenges, giving up easily, ignoring useful criticism, feeling threatened by others, etc. In contrast, a *growth mindset* is the belief that your intelligence and abilities in that area can grow with time, effort, and persistence. Characteristics of a having a growth mindset include: embracing challenges, persisting through obstacles, learning from feedback, feeling inspired by others' successes, etc. 
     
-* If you feel that you tend towards having a fixed mindset in math, what is another area in which you feel that you have a growth mindset? How do the feelings you associate with engaging in that activity differ from the feelings you associate with engaging with math? What experiences do you think led you to have a growth mindset in that other area? How do you think you might work on transfering that growth mindset to math?
+* If you feel that you tend towards having a fixed mindset in math, what is another area in which you feel that you have a growth mindset? How do the feelings you associate with engaging in that activity differ from the feelings you associate with engaging with math? What experiences do you think led you to have a growth mindset in that other area? How do you think you might work on transferring that growth mindset to math?
 
 * How does math as a whole, or this math class in particular, fit into your life? How does it contribute towards your goals, towards making you who you want to be? Even if you don't intend to pursue math as career, in what ways do you expect to grow as a person by studying math broadly, or by studying the content of this course more specifically? 
 
