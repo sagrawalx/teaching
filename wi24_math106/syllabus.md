@@ -24,13 +24,13 @@ See [here](references).
 
 ### Zulip
 
-Zulip is chat software (a bit like Discord, Slack, or Piazza), and it will be our primary means of communication for this class. It's open-source and you can use it in a browser (or by installing an app on any platform). I've set up a [Zulip organization](https://sunnysclasses.zulipchat.com/) with a dedicated stream for our class. You can find an invite link on Canvas. Register using any name you'd like to use for this class, but you *must* use your official `...@ucsd.edu` email address as it appears on the class roster. If you don't have access to the invite link or you don't have a `...@ucsd.edu` email address, please reach out to me to explain the situation. 
+Zulip is chat software (a bit like Discord, Slack, or Piazza), and it will be our primary means of communication for this class. It's open-source and you can use it in a browser or by installing an app on any platform. I've set up a [Zulip organization](https://sunnysclasses.zulipchat.com/) with a dedicated stream for our class. You can find an invite link on Canvas. Register using any name you'd like to use for this class, but you *must* use your official `...@ucsd.edu` email address as it appears on the class roster. If you don't have access to the invite link or you don't have a `...@ucsd.edu` email address, please reach out to me to explain the situation. 
 
 Use the Zulip class stream to ask any content-related and logistics-related questions you have. Certain assignments for the course will ask you to post things to our class stream regularly. I will also use Zulip to make class-related announcements. If you have private questions about situations specific to you, please use Zulip to send direct messages (instead of emails or Canvas messages, which I may not respond to).
 
 ### Sage
 
-At a few points in the quarter, you may find that computations get tedious or uninteresting to do by hand. If you find yourself in this position, I suggest playing around with [Sage](sage). 
+At a few points in the quarter, you may find that you would prefer not to do certain computations by hand. If you find yourself in this position, I suggest playing around with [Sage](sage). 
 
 ## Course Structure 
 
@@ -148,11 +148,11 @@ At the end of the quarter, I may decide to lower some of the above cutoffs, but 
 
 ## Accommodations 
 
-If you experience disability-related barriers to your learning, please contact the [Office for Students with Disabilities](https://osd.ucsd.edu/) right away to have them provide a current Authorization for Accommodation (AFA). The AFA should be received at least one week in advance of the requested accommodations. We might be unable to accommodate late requests. 
+If you experience disability-related barriers to your learning, please contact the [Office for Students with Disabilities](https://osd.ucsd.edu/) right away to have them provide a current Authorization for Accommodation (AFA). The AFA should be received at least one week in advance of the requested accommodations, and ideally by the end of the first week of classes. We may be unable to accommodate late requests. 
 
 ## Integrity
 
-Act with integrity. You'll learn more, and you'll be practicing good habits for ethical decisions that you'll have to make for the rest of your life. If you have a question about whether something class-related is integrous, just ask first. Academic integrity violations have to be reported and result in serious consequences, none of which is any fun for anyone involved, so please, just don't do it.
+Act with integrity. You'll learn more, and you'll be practicing good habits for ethical decisions that you'll have to make for the rest of your life. If you have a question about whether something class-related is integrous, just ask first. Academic integrity violations have to be reported and result in serious consequences, none of which is any fun for anyone involved --- so please, just don't do it.
 
 ## Diversity
 
