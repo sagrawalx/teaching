@@ -46,10 +46,13 @@ schedule:
 <td style="text-align: center;">1</td>
 <td>
 Introduction
+
+Class: [Slides](slides/w1mon.pdf)
 </td>
 <td>
 Ring Theory Basics
 
+Class: [Slides](slides/w1wed.pdf)  
 Due: {{ ra | replace: "x", "w1wed" | replace: "y", "ring-theory-basics" }}
 </td>
 <td>
