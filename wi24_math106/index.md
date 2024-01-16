@@ -58,6 +58,7 @@ Due: {{ ra | replace: "x", "w1wed" | replace: "y", "ring-theory-basics" }}
 <td>
 Single Variable Polynomials
 
+Class: [Slides](slides/w1fri.pdf)  
 Due: {{ ra | replace: "x", "w1fri" | replace: "y", "single-variable-polynomials" }}, [MA](reflect#autobio)
 </td>
 </tr>
