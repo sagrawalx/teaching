@@ -71,6 +71,7 @@ Due: {{ ra | replace: "x", "w1fri" | replace: "y", "single-variable-polynomials"
 <td>
 Multivariable Polynomials
 
+Class: [Slides](slides/w2wed.pdf)  
 Due: {{ ra | replace: "x", "w2wed" | replace: "y", "multivariable-polynomials" }}
 </td>
 <td>
