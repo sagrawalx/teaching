@@ -77,6 +77,7 @@ Due: {{ ra | replace: "x", "w2wed" | replace: "y", "multivariable-polynomials" }
 <td>
 Affine and Projective Spaces
 
+Class: [Slides](slides/w2fri.pdf)  
 Due: {{ ra | replace: "x", "w2fri" | replace: "y", "affine-and-projective-spaces" }}, [WR]({{ wr }})
 </td>
 </tr>
@@ -121,9 +122,14 @@ Due: {{ ra | replace: "x", "w4fri" | replace: "y", "multivariable-division" }}, 
 [Quiz 2](quiz)
 </td>
 <td>
+Monomial Ideals
+
+Due: {{ ra | replace: "x", "w5wed" | replace: "y", "monomial-ideals" }}
 </td>
 <td>
-Due: [WR]({{ wr }})
+Gröbner Bases
+
+Due: {{ ra | replace: "x", "w5fri" | replace: "y", "gröbner-bases" }}, [WR]({{ wr }})
 </td>
 </tr>
 
@@ -133,8 +139,11 @@ Due: [WR]({{ wr }})
 [Quiz 3](quiz)
 </td>
 <td>
+Buchberger's Algorithm
+
 </td>
 <td>
+<!--Affine Nullstellensatz-->
 Due: [WR]({{ wr }})
 </td>
 </tr>
@@ -145,8 +154,10 @@ Due: [WR]({{ wr }})
 [(Presidents' Day)](https://en.wikipedia.org/wiki/Presidents%27_Day)
 </td>
 <td>
+<!--Affine Hilbert Function-->
 </td>
 <td>
+<!--Projective Varieties-->
 Due: [WR]({{ wr }})
 </td>
 </tr>
@@ -154,10 +165,13 @@ Due: [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">8</td>
 <td>
+<!--Catch-up-->
 </td>
 <td>
+<!--Homogenization and Dehomogenization-->
 </td>
 <td>
+<!--Projective Nullstellensatz-->
 Due: [WR]({{ wr }})
 </td>
 </tr>
@@ -168,8 +182,10 @@ Due: [WR]({{ wr }})
 [Quiz 4](quiz)
 </td>
 <td>
+<!--Projective Hilbert Function-->
 </td>
 <td>
+
 Due: [WR]({{ wr }})
 </td>
 </tr>
