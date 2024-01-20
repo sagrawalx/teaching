@@ -394,10 +394,16 @@ let <span class="math inline">\(I = \langle x_1 - a_1, \dotsc, x_n - a_n
 \rangle \subseteq k[x_1, \dotsc, x_n]\)</span>. Prove that <span
 class="math inline">\(I\)</span> is a maximal ideal. Hint: What is the
 quotient ring?</li>
+<li><ol type="a">
 <li>Prove that the number of monomials in <span
-class="math inline">\(k[x_0, \dotsc, x_n]\)</span> of total degree <span
-class="math inline">\(d\)</span> is <span
+class="math inline">\(k[x_0, x_1, \dotsc, x_n]\)</span> of total degree
+<span class="math inline">\(d\)</span> is <span
 class="math inline">\(\binom{n+d}{d}\)</span>.</li>
+<li>Prove that the number of monomials in <span
+class="math inline">\(k[x_1, \dotsc, x_n]\)</span> of total degree
+<em>at most</em> <span class="math inline">\(d\)</span> is <span
+class="math inline">\(\binom{n+d}{d}\)</span>.</li>
+</ol></li>
 <li>Let <span class="math inline">\(R\)</span> be a ring and let <span
 class="math inline">\(I \subseteq R[x]\)</span> be an ideal in a single
 variable polynomial ring over <span class="math inline">\(R\)</span>.
@@ -818,6 +824,14 @@ k[\mathbb{A}^n] = k[x_1, \dotsc, x_n]\]</span> that corresponds to <span
 class="math inline">\(\pi_i\)</span>. What is <span
 class="math inline">\(\pi_i^\sharp(y)\)</span>?</li>
 </ol></li>
+<li>Let <span class="math inline">\(k\)</span> be an infinite field.
+Consider the map <span class="math inline">\(f : \mathbb{A}^1 \to
+\mathbb{A}^1\)</span> given by <span class="math inline">\(t \mapsto
+t^2\)</span>. Prove that <span class="math inline">\(f\)</span> is a
+polynomial map, and describe the corresponding homomorphism <span
+class="math inline">\(f^\sharp : k[x] = k[\mathbb{A}^1] \to
+k[\mathbb{A}^1] = k[y]\)</span> by saying what <span
+class="math inline">\(f^\sharp(x)\)</span> is.</li>
 <li>For each of the following functions <span class="math inline">\(\phi
 : \mathbb{A}^1(\mathbb{R}) \to \mathbb{A}^2(\mathbb{R})\)</span>,
 determine whether or not (i) <span class="math inline">\(\phi\)</span>
@@ -880,7 +894,12 @@ V_2\)</span> where <span class="math inline">\(V_1, V_2\)</span> are
 both proper algebraic subsets of <span class="math inline">\(V\)</span>.
 <ol type="a">
 <li>Prove that <span class="math inline">\(V(xz, yz)\)</span> is
-reducible (ie, not irreducible).</li>
+reducible (ie, not irreducible). What does <span
+class="math inline">\(V(I)\)</span> look like when <span
+class="math inline">\(k = \mathbb{R}\)</span>?</li>
+<li>Prove that <span class="math inline">\(V(x^2 + y^2 - z^2)\)</span>
+is irreducible. What does <span class="math inline">\(V(I)\)</span> look
+like when <span class="math inline">\(k = \mathbb{R}\)</span>?</li>
 <li>Prove that <span class="math inline">\(V\)</span> is irreducible if
 and only if <span class="math inline">\(I(V) \subseteq k[x_1, \dotsc,
 x_n]\)</span> is a prime ideal.</li>
@@ -1022,14 +1041,19 @@ and <span class="math inline">\(F = (x - y^3, xy^2 - x)\)</span>.</li>
 <span class="math inline">\(f \in \langle f_1, f_2 \rangle\)</span> such
 that <span class="math inline">\(\bar{f}^F \neq 0\)</span>.</li>
 <li>Let <span class="math inline">\(I = \langle y - x^2, z - x^3 \rangle
-\subseteq k[x, y, z]\)</span>. Prove that <span class="math inline">\(I
-= I(V(I))\)</span>. Hint: Suppose <span class="math inline">\(f \in
-I(V(I))\)</span>. On the one hand, consider <span
-class="math inline">\(f(t, t^2, t^3)\)</span> for any <span
-class="math inline">\(t\)</span>. On the other hand, consider dividing
-<span class="math inline">\(f\)</span> by the generators of <span
-class="math inline">\(I\)</span> with respect to colexicographic
+\subseteq k[x, y, z]\)</span>.
+<ol type="a">
+<li>Prove that <span class="math inline">\(I = I(V(I))\)</span>. Hint:
+Suppose <span class="math inline">\(f \in I(V(I))\)</span>. On the one
+hand, consider <span class="math inline">\(f(t, t^2, t^3)\)</span> for
+any <span class="math inline">\(t\)</span>. On the other hand, consider
+dividing <span class="math inline">\(f\)</span> by the generators of
+<span class="math inline">\(I\)</span> with respect to colexicographic
 order.</li>
+<li>Prove that <span class="math inline">\(I\)</span> is a prime ideal.
+Note: Thus, <span class="math inline">\(V(I)\)</span> is an irreducible
+affine variety. It is called the (affine) <em>twisted cubic</em>.</li>
+</ol></li>
 <li>Do [<a href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>,
 Exercise 2.3.11].</li>
 <li>For any list <span class="math inline">\(F = (f_1, \dotsc,
@@ -1048,10 +1072,14 @@ contained in a given monomial ideal.</li>
 of monomials.</li>
 <li>Definition of the <em>minimal basis</em> of a monomial ideal, and
 the fact that it exists and is unique.</li>
+<li>The fact that the variety of a monomial ideal is a finite union of
+coordinate subspaces.</li>
+<li>Definition of dimension for the variety of a monomial ideal.</li>
 </ul>
 <p>Possible reading: [<a
-href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section
-2.4].</p>
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 2.4]
+and [<a href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>,
+Section 9.1].</p>
 <h2 id="exercises-8">Exercises</h2>
 <ol type="1">
 <li>Let <span class="math inline">\(I = \langle x^6, x^2y^3, xy^7
@@ -1061,6 +1089,18 @@ class="math inline">\(x^a y^b\)</span> appearing in elements of <span
 class="math inline">\(I\)</span>.</li>
 <li>Do [<a href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>,
 Exercise 2.4.4].</li>
+<li>Find the dimension of <span class="math inline">\(V(I)\)</span> for
+each of the following monomial ideals <span
+class="math inline">\(I\)</span>.
+<ol type="a">
+<li><span class="math inline">\(I = \langle xy, yz, xz \rangle \subseteq
+k[x, y, z]\)</span>.</li>
+<li><span class="math inline">\(I = \langle wx^2z, w^3y, wxyz, x^5y^5
+\rangle \subseteq k[w,x,y,z]\)</span>.</li>
+</ol></li>
+<li>Prove that, if <span class="math inline">\(I \subseteq k[x_1,
+\dotsc, x_n]\)</span> is a monomial ideal, then so is its radical <span
+class="math inline">\(\sqrt{I}\)</span>.</li>
 <li>Use the Hilbert basis theorem to provide an alternative proof of
 Dickson’s lemma. Note: The proof of the Hilbert basis theorem in [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 2.5]
@@ -1069,9 +1109,30 @@ proof of the Hilbert basis theorem in [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Section 1.4] that didn’t use Dickson’s lemma, so there is no logical
 circularity here!</li>
-<li>Prove that, if <span class="math inline">\(I \subseteq k[x_1,
-\dotsc, x_n]\)</span> is a monomial ideal, then so is its radical <span
-class="math inline">\(\sqrt{I}\)</span>.</li>
+<li>Let <span class="math inline">\(I\)</span> be a monomial ideal in
+<span class="math inline">\(k[x_1, \dotsc, x_n]\)</span>. Prove that the
+following statements are equivalent:
+<ol type="a">
+<li><span class="math inline">\(V(I) = \{(0, \dotsc, 0)\}\)</span>.</li>
+<li><span class="math inline">\(\dim V(I) = 0\)</span>.</li>
+<li>For each <span class="math inline">\(i = 1, \dotsc, n\)</span>,
+there exists a positive integer <span class="math inline">\(\ell \geq
+1\)</span> (possibly depending on <span
+class="math inline">\(i\)</span>) such that <span
+class="math inline">\(x_i^\ell \in I\)</span>.</li>
+</ol></li>
+<li>In Ravi Vakil’s game of Chomp, a cookie is placed at every integer
+point <span class="math inline">\((n, m)\)</span> in the first quadrant
+of the plane (ie, with <span class="math inline">\(n, m \geq
+0\)</span>). Two players take turns choosing a point <span
+class="math inline">\((n, m)\)</span> that still has a cookie on it, and
+eating that cookie and all of the cookies above or to the right of that
+cookie (ie, every cookie <span class="math inline">\((n&#39;,
+m&#39;)\)</span> with <span class="math inline">\(n&#39; \geq n\)</span>
+and <span class="math inline">\(m&#39; \geq m\)</span>). The <span
+class="math inline">\((0,0)\)</span> cookie is poisoned, and the player
+who eats it loses. Use the Hilbert basis theorem to prove that any game
+of Chomp ends after finitely many moves.</li>
 </ol>
 <h1 id="gröbner-bases">Gröbner Bases</h1>
 <h2 id="core-ideas-9">Core Ideas</h2>
@@ -1127,7 +1188,20 @@ r\)</span>, <span class="math inline">\(g \in I\)</span>, and no term of
 <li>The set <span class="math inline">\(G = \{y - x^2, z -
 x^3\}\)</span> is a Gröbner basis for the ideal <span
 class="math inline">\(I = \langle G \rangle\)</span> for some monomial
-order. Which monomial order?</li>
+order. Which monomial order? Note: <span
+class="math inline">\(V(I)\)</span> is the (affine) <em>twisted
+cubic</em>.</li>
+<li>Let <span class="math inline">\(I = \langle wz - xy, wy - x^2, xz -
+y^2 \rangle \subseteq k[w, x, y, z]\)</span>. Note: The affine variety
+<span class="math inline">\(V(I)\)</span> is the “cone of the projective
+twisted cubic.”
+<ol type="a">
+<li>Let <span class="math inline">\(\phi : k[w, x, y, z] \to k[s,
+t]\)</span> be the homomorphism given by <span class="math inline">\(w
+\mapsto s^3, x \mapsto s^2 t, y \mapsto st^2, z \mapsto t^3\)</span>.
+Prove that <span class="math inline">\(I = \ker \phi\)</span>.</li>
+<li>Prove that <span class="math inline">\(I\)</span> is prime.</li>
+</ol></li>
 <li>Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
 x_n]\)</span> be an ideal and suppose that <span
 class="math inline">\(I\)</span> has a Gröbner basis (with respect to
@@ -1234,15 +1308,54 @@ href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section
 2.7].</p>
 <h2 id="exercises-10">Exercises</h2>
 <ol type="1">
-<li>…</li>
-<li>…</li>
+<li>Let <span class="math inline">\(I = \langle x^2 - y, y + x^2 - 4
+\rangle\)</span> in <span class="math inline">\(\mathbb{R}[x,
+y]\)</span>.
+<ol type="a">
+<li>Find a Gröbner basis for <span class="math inline">\(I\)</span> with
+respect to lexicographic order.</li>
+<li>Enumerate the points of <span
+class="math inline">\(V(I)\)</span>.</li>
+</ol></li>
+<li>Let <span class="math inline">\(I = \langle x^2 + y^2 + z^2 - 1, x^2
++ z^2 = y, x = z \rangle\)</span> in <span
+class="math inline">\(\mathbb{C}[x, y, z]\)</span>.
+<ol type="a">
+<li>Find a Gröbner basis for <span class="math inline">\(I\)</span> with
+respect to lexicographic order.</li>
+<li>Enumerate the points of <span
+class="math inline">\(V(I)\)</span>.</li>
+</ol></li>
+<li>Enumerate the points of <span class="math inline">\(V(x^2 + y^2 +
+z^2 - 1, x^2 + y^2 + z^2 - 2x, 2x - 3y - z)\)</span>.</li>
+<li>Let <span class="math inline">\(I = \langle y - x^2 , xz - y^2
+\rangle\)</span> in <span class="math inline">\(\mathbb{R}[x, y,
+z]\)</span>.
+<ol type="a">
+<li>Find a Gröbner basis for <span class="math inline">\(I\)</span> with
+respect to colexicographic order.</li>
+<li>Sketch a picture of <span class="math inline">\(V(I)\)</span>.</li>
+</ol></li>
+<li>Suppose <span class="math inline">\(a, b, c\)</span> are real
+numbers satisfying the following equations. <span
+class="math display">\[ \begin{aligned} a + b + c &amp;= 3 \\ a^2 + b^2
++ c^3 &amp;= 5 \\ a^3 + b^3 + c^3 &amp;= 7 \end{aligned} \]</span>
+<ol type="a">
+<li>What is <span class="math inline">\(a^4 + b^4 + c^4\)</span>?</li>
+<li>What is <span class="math inline">\(a^5 + b^5 + c^5\)</span>?</li>
+<li>Can you find a formula for <span class="math inline">\(a^k + b^k +
+c^k\)</span> for any positive integer <span
+class="math inline">\(k\)</span>? (I haven’t yet figured out how to do
+this.)</li>
+</ol></li>
 <li>Explain in your own words why it makes sense to say that
-Buchberger’s algorithm simultaneously generalizes both (i) the euclidean
-algorithm for finding greatest common divisors of single variable
-polynomials, and (ii) the row reduction algorithm for solving
-homogeneous linear systems of equations. Hint: You might find it helpful
-to read through the exercises <a href="#gröbner-bases">above</a>, even
-if you haven’t finished doing all of them yet.</li>
+Buchberger’s algorithm for finding reduced Gröbner bases simultaneously
+generalizes both (i) the euclidean algorithm for finding greatest common
+divisors of single variable polynomials, and (ii) the row reduction
+algorithm for solving homogeneous linear systems of equations. Hint: You
+might find it helpful to read through the exercises <a
+href="#gröbner-bases">above</a>, even if you haven’t finished doing all
+of them yet.</li>
 </ol>
 <h1 id="affine-nullstellensatz">Affine Nullstellensatz</h1>
 <h2 id="core-ideas-11">Core Ideas</h2>
@@ -1259,11 +1372,11 @@ set of radical ideals in <span class="math inline">\(k[x_1, \dotsc,
 x_n]\)</span> and the set of algebraic subsets of <span
 class="math inline">\(\mathbb{A}^n(k)\)</span>.</li>
 </ul>
-<p>Possible reading: [<a
+<p>Possible reading: Either [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections
 3.1–2 through Theorem 3.2.7] or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
-Sections 1.7–10].</p>
+Sections 1.7–10], you can choose!</p>
 <h2 id="exercises-11">Exercises</h2>
 <ol type="1">
 <li>Suppose <span class="math inline">\(k\)</span> is algebraically
@@ -1297,21 +1410,19 @@ polynomial <span class="math display">\[f_i = \prod_{(a_1, \dotsc, a_n)
 monomials that are not contained in <span class="math inline">\(\langle
 \LT(I) \rangle\)</span>?</li>
 </ol>
-<h1 id="dimension-of-monomial-varieties">Dimension of Monomial
-Varieties</h1>
+<h1 id="affine-hilbert-function">Affine Hilbert Function</h1>
+<ul>
+<li></li>
+</ul>
 <h2 id="core-ideas-12">Core Ideas</h2>
 <p>Possible reading: [<a
-href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections
-9.1–2 through Proposition 9.2.7].</p>
-<h2 id="exercises-12">Exercises</h2>
-<h1 id="affine-hilbert-function">Affine Hilbert Function</h1>
-<h2 id="core-ideas-13">Core Ideas</h2>
-<p>Possible reading: [<a
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections 9.2
+through Proposition 9.2.7] and [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 9.3
 through Theorem 9.3.8].</p>
-<h2 id="exercises-13">Exercises</h2>
+<h2 id="exercises-12">Exercises</h2>
 <h1 id="projective-varieties">Projective Varieties</h1>
-<h2 id="core-ideas-14">Core Ideas</h2>
+<h2 id="core-ideas-13">Core Ideas</h2>
 <p>Assume throughout that <span class="math inline">\(k\)</span> is
 infinite.</p>
 <ul>
@@ -1355,7 +1466,7 @@ href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Section 4.2, first page] and [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Proposition
 8.2.4, Definition 8.2.5, and Section 8.3 through Theorem 8.3.5].</p>
-<h2 id="exercises-14">Exercises</h2>
+<h2 id="exercises-13">Exercises</h2>
 <ol type="1">
 <li><ol type="a">
 <li>Explain why the empty set and all of <span
@@ -1392,7 +1503,7 @@ radical.</li>
 </ol>
 <h1 id="homogenization-and-dehomogenization">Homogenization and
 Dehomogenization</h1>
-<h2 id="core-ideas-15">Core Ideas</h2>
+<h2 id="core-ideas-14">Core Ideas</h2>
 <ul>
 <li>Definition of <em>dehomogenization</em> of a homogeneous polynomial
 <span class="math inline">\(f \in k[x_0, \dotsc, x_n]\)</span> with
@@ -1431,19 +1542,19 @@ starting from Proposition 8.2.6, and Section 8.4] or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Sections 2.6 and 4.3].</p>
 <h1 id="projective-nullstellensatz">Projective Nullstellensatz</h1>
-<h2 id="core-ideas-16">Core Ideas</h2>
+<h2 id="core-ideas-15">Core Ideas</h2>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 8.3
 starting from Theorem 8.3.8] or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Section 4.2].</p>
-<h2 id="exercises-15">Exercises</h2>
+<h2 id="exercises-14">Exercises</h2>
 <h1 id="projective-hilbert-function">Projective Hilbert Function</h1>
-<h2 id="core-ideas-17">Core Ideas</h2>
+<h2 id="core-ideas-16">Core Ideas</h2>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 9.3
 starting from page 492].</p>
-<h2 id="exercises-16">Exercises</h2>
+<h2 id="exercises-15">Exercises</h2>
 
 </main>
 
