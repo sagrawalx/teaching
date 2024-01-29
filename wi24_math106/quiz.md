@@ -19,7 +19,7 @@ It'll cover everything up through [Multivariable Polynomials](content#multivaria
 
 ## Quiz 2
 
-Details TBA
+It'll cover everything up through [Polynomial Maps](content#polynomial-maps). Same format as last time. 
 
 ## Quiz 3
 

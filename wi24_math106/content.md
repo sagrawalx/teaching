@@ -239,10 +239,10 @@ Possible reading: {{ clo15 | replace: "x", "Sections 1.2 and 1.4" }} and {{ ful0
 * The fact that the set of polynomial functions on an affine variety $V$ is a ring, and that is naturally isomorphic to $k[V]$.
 * The fact that, if $k$ is infinite, then two polynomials $f, g \in k[x_1, \dotsc, x_n]$ define the same polynomial function on $\mathbb{A}^n$ if and only if $f = g$.
 * Definition of a *polynomial map* $\phi : V \to W$ between two affine varieties $V$ and $W$. 
-* The fact that the set of polynomial maps $V \to W$ is in bijection with the set of $k$-algebra homomorphisms $k[W] \to k[V]$. 
+* The fact that the set of polynomial maps $\phi : V \to W$ is in bijection with the set of $k$-algebra homomorphisms $\phi^\sharp : k[W] \to k[V]$. 
     - Note: It's important to be able to go back and forth through this construction. In other words, you should be able to write down what the polynomial map $V \to W$ corresponding to a given homomorphism $k[W] \to k[V]$, and write down what the homomorphism $k[W] \to k[V]$ corresponding to a given polynomial map $V \to W$ is. 
 * Definition of an *isomorphism* of affine varieties.
-* The fact that a polynomial map $\phi : V \to W$ is an isomorphism if and only if the corresponding homomorphism $k[W] \to k[V]$ is an isomorphism. 
+* The fact that a polynomial map $\phi : V \to W$ is an isomorphism if and only if the corresponding homomorphism $\phi^\sharp : k[W] \to k[V]$ is an isomorphism. 
 
 Possible reading: {{ clo15 | replace: "x", "Theorem 1.1.5 and Corollary 1.1.6" }}, {{ clo15 | replace: "x", "Section 5.1 through Definition 1.1.3, Section 5.2, and Definition 5.4.1" }}, and {{ ful08 | replace: "x", "Sections 2.1--2" }}. 
 
@@ -261,13 +261,13 @@ Possible reading: {{ clo15 | replace: "x", "Theorem 1.1.5 and Corollary 1.1.6" }
 1. Let $V = V(y - x^2) \subseteq \mathbb{A}^2$ and let $\phi : \mathbb{A}^1 \to V$ be the polynomial map $\phi(t) = (t, t^2)$. Prove that $\phi$ is an isomorphism of affine varieties. 
 1. Let $V = V(y^2 - x^3) \subseteq \mathbb{A}^2$ and let $\phi : \mathbb{A}^1 \to V$ be the polynomial map $\phi(t) = (t^2, t^3)$. 
     a. Prove that $\phi$ is *not* an isomorphism of affine varieties.
-    a. Prove that $\phi$ is an bijective function.
+    a. Prove that $\phi$ is a bijective function.
 1. Let $V$ be an affine variety. An *algebraic subset* of $V$ is a subset of $V$ that is simultaneously an algebraic subset of $\mathbb{A}^n$, where $V$ is an algebraic subset of $\mathbb{A}^n$. 
     a. Explain how an ideal $J \subseteq k[V]$ corresponds to an algebraic subset of $V$.
     a. Suppose $U$ is also an affine variety and $\phi : U \to V$ is a polynomial map. If $W \subseteq V$ is an algebraic subset of $V$, prove that $\phi^{-1}(W)$ is an algebraic subset of $U$. 
 1. Suppose $V \subseteq \mathbb{A}^n$ is an algebraic subset. Then $V$ is said to be *irreducible* if it cannot be written as a union $V = V_1 \cup V_2$ where $V_1, V_2$ are both proper algebraic subsets of $V$. 
-    a. Prove that $V(xz, yz)$ is reducible (ie, not irreducible). What does $V(I)$ look like when $k = \mathbb{R}$?
-    a. Prove that $V(x^2 + y^2 - z^2)$ is irreducible. What does $V(I)$ look like when $k = \mathbb{R}$?
+    a. Prove that $V(xz, yz)$ is reducible (ie, not irreducible). What does $V(xz, yz)$ look like when $k = \mathbb{R}$?
+    a. Let $k = \mathbb{R}$. Prove that $V(x^2 + y^2 - z^2)$ is irreducible. What does $V(x^2 + y^2 - z^2)$ look like?
     a. Prove that $V$ is irreducible if and only if $I(V) \subseteq k[x_1, \dotsc, x_n]$ is a prime ideal.
     a. Prove that every affine variety can be written as a finite union of irreducible algebraic subsets. 
 1. Suppose $U, V, W$ are varieties and $\phi : U \to V$ and $\psi : V \to W$ are both polynomial maps. Prove that $\psi \circ \phi : U \to W$ is also a polynomial map. 

@@ -90,10 +90,11 @@ Due: {{ ra | replace: "x", "w2fri" | replace: "y", "affine-and-projective-spaces
 <td>
 Affine Varieties
 
+Class: [Slides](slides/w3wed.pdf)  
 Due: {{ ra | replace: "x", "w3wed" | replace: "y", "affine-varieties" }}
 </td>
 <td>
-Polynomial Maps
+(Class Canceled)
 
 Due: {{ ra | replace: "x", "w3fri" | replace: "y", "polynomial-maps" }}, [WR]({{ wr }})
 </td>
@@ -102,17 +103,15 @@ Due: {{ ra | replace: "x", "w3fri" | replace: "y", "polynomial-maps" }}, [WR]({{
 <tr>
 <td style="text-align: center;">4</td>
 <td>
-Catch-up
+Polynomial Maps
+</td>
+<td>
+Catch Up
 </td>
 <td>
 Monomial Orders
 
-Due: {{ ra | replace: "x", "w4wed" | replace: "y", "monomial-orders" }}
-</td>
-<td>
-Multivariable Division
-
-Due: {{ ra | replace: "x", "w4fri" | replace: "y", "multivariable-division" }}, [WR]({{ wr }})
+Due: {{ ra | replace: "x", "w4fri" | replace: "y", "monomial-orders" }}, [WR]({{ wr }})
 </td>
 </tr>
 
@@ -122,14 +121,14 @@ Due: {{ ra | replace: "x", "w4fri" | replace: "y", "multivariable-division" }}, 
 [Quiz 2](quiz)
 </td>
 <td>
-Monomial Ideals
+Multivariable Division
 
-Due: {{ ra | replace: "x", "w5wed" | replace: "y", "monomial-ideals" }}
+Due: {{ ra | replace: "x", "w5wed" | replace: "y", "multivariable-division" }}
 </td>
 <td>
-Gröbner Bases
+Monomial Ideals
 
-Due: {{ ra | replace: "x", "w5fri" | replace: "y", "gröbner-bases" }}, [WR]({{ wr }})
+Due: {{ ra | replace: "x", "w5fri" | replace: "y", "monomial-ideals" }}, [WR]({{ wr }})
 </td>
 </tr>
 
@@ -139,12 +138,14 @@ Due: {{ ra | replace: "x", "w5fri" | replace: "y", "gröbner-bases" }}, [WR]({{ 
 [Quiz 3](quiz)
 </td>
 <td>
-Buchberger's Algorithm
+Gröbner Bases
 
+Due: {{ ra | replace: "x", "w6wed" | replace: "y", "gröbner-bases" }}
 </td>
 <td>
-<!--Affine Nullstellensatz-->
-Due: [WR]({{ wr }})
+Buchberger's Algorithm
+
+Due: {{ ra | replace: "x", "w6fri" | replace: "y", "buchbergers-algorithm" }}, [WR]({{ wr }})
 </td>
 </tr>
 
@@ -154,6 +155,7 @@ Due: [WR]({{ wr }})
 [(Presidents' Day)](https://en.wikipedia.org/wiki/Presidents%27_Day)
 </td>
 <td>
+<!--Affine Nullstellensatz-->
 <!--Affine Hilbert Function-->
 </td>
 <td>
