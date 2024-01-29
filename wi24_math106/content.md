@@ -258,9 +258,9 @@ Possible reading: {{ clo15 | replace: "x", "Theorem 1.1.5 and Corollary 1.1.6" }
     a. $\phi(t) = (t^2, t^2)$. 
     a. $\phi(t) = (\cos t, \sin t)$.
 1. For each of the functions in the previous exercise that is in fact a polynomial map, describe the corresponding $\mathbb{R}$-algebra homomorphism $$ \phi^\sharp : \mathbb{R}[x, y] = \mathbb{R}[\mathbb{A}^2] \to \mathbb{R}[\mathbb{A}^1] = \mathbb{R}[t] $$ by stating what the values of $\phi^\sharp(x)$ and $\phi^\sharp(y)$ are. 
-1. Let $V = V(y - x^2) \subseteq \mathbb{A}^2$ and let $\phi : \mathbb{A}^1 \to V$ be the polynomial map $\phi(t) = (t, t^2)$. Prove that $\phi$ is an isomorphism of affine varieties. 
+1. Let $V = V(y - x^2) \subseteq \mathbb{A}^2$ and let $\phi : \mathbb{A}^1 \to V$ be the polynomial map $\phi(t) = (t, t^2)$. Prove that $\phi$ is an isomorphism of affine varieties. <!-- add another part asking to prove that phi^sharp is iso --> 
 1. Let $V = V(y^2 - x^3) \subseteq \mathbb{A}^2$ and let $\phi : \mathbb{A}^1 \to V$ be the polynomial map $\phi(t) = (t^2, t^3)$. 
-    a. Prove that $\phi$ is *not* an isomorphism of affine varieties.
+    a. Prove that $\phi$ is *not* an isomorphism of affine varieties. <!-- add another part asking to prove that phi^sharp is not an iso --> 
     a. Prove that $\phi$ is a bijective function.
 1. Let $V$ be an affine variety. An *algebraic subset* of $V$ is a subset of $V$ that is simultaneously an algebraic subset of $\mathbb{A}^n$, where $V$ is an algebraic subset of $\mathbb{A}^n$. 
     a. Explain how an ideal $J \subseteq k[V]$ corresponds to an algebraic subset of $V$.
@@ -431,6 +431,9 @@ Possible reading: Either {{ clo15 | replace: "x", "Sections 3.1--2 through Theor
 
 ## Exercises
 
+1. Suppose $k$ is algebraically closed and suppose $f \in k[x_1, \dotsc, x_n]$ is a irreducible polynomial. 
+    a. Prove that $I(V(f)) = \langle f \rangle$. 
+    a. Prove that $V(f)$ is irreducible affine variety. 
 1. Suppose $k$ is algebraically closed. Prove that irreducible algebraic subsets of $\mathbb{A}^n$ are in bijection with prime ideals in $k[x_1, \dotsc, x_n]$. 
 1. Suppose $k$ is algebraically closed. Prove that every maximal ideal in $k[x_1, \dotsc, x_n]$ is of the form $\langle x_1 - a_1, \dotsc, x_n - a_n \rangle$ for some $a_1, \dotsc, a_n \in k$. 
 1. Suppose $k$ is algebraically closed. Prove that algebraic subsets of any affine variety $V$ are in bijection with radical ideals in $k[V]$.

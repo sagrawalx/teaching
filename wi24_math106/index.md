@@ -104,6 +104,8 @@ Due: {{ ra | replace: "x", "w3fri" | replace: "y", "polynomial-maps" }}, [WR]({{
 <td style="text-align: center;">4</td>
 <td>
 Polynomial Maps
+
+Class: [Slides](slides/w4mon.pdf)  
 </td>
 <td>
 Catch Up
