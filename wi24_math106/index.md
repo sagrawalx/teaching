@@ -109,6 +109,8 @@ Class: [Slides](slides/w4mon.pdf)
 </td>
 <td>
 Catch Up
+
+Class: [Slides](slides/w4wed.pdf)  
 </td>
 <td>
 Monomial Orders
