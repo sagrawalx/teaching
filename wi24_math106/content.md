@@ -296,7 +296,10 @@ Possible reading: {{ clo15 | replace: "x", "Section 2.2" }}. I also strongly sug
     a. Suppose that $>$ only satisfies conditions (i) and (ii) in the definition of a monomial order. Prove that $>^{\mathrm{gr}}$ is still a monomial order. 
 1. Suppose $>$ is a monomial order and $\sigma \in S_n$ is a permutation of $\{1, \dotsc, n\}$. Define $>^\sigma$ by declaring that $x_1^{a_1} \cdots x_n^{a_n} \mathbin{>^\sigma} x_1^{b_1} \cdots x_n^{b_n}$ if and only if $x_1^{a_{\sigma(1)}} \cdots x_n^{a_{\sigma(n)}} > x_1^{b_{\sigma(1)}} \cdots x_n^{b_{\sigma(n)}}$. 
     a. Prove that $>^\sigma$ is a monomial order. 
-    b. *Colexicographic order* (sometimes called *inverse lexicographical order*) is the monomial order $>_{\mathrm{colex}}$ where $x^{a_1} \cdots x^{a_n} \mathbin{>_{\mathrm{colex}}} x^{b_1} \cdots x^{b_n}$ if and only if the rightmost nonzero entry of $(a_1 - b_1, \dotsc, a_n - b_n)$ is strictly positive. Prove that $>_{\mathrm{colex}}$ is equal to $(>_{\mathrm{lex}})^\sigma$ for some $\sigma \in S_n$. 
+    a. *Colexicographic order* (sometimes called *inverse lexicographical order*) is the monomial order $>_{\mathrm{colex}}$ where $x^{a_1} \cdots x^{a_n} \mathbin{>_{\mathrm{colex}}} x^{b_1} \cdots x^{b_n}$ if and only if the rightmost nonzero entry of $(a_1 - b_1, \dotsc, a_n - b_n)$ is strictly positive. Prove that $>_{\mathrm{colex}}$ is equal to $(>_{\mathrm{lex}})^\sigma$ for some $\sigma \in S_n$. 
+    a. State the definition of a *left (resp. right) group action* of a group on a set. Then prove that the $>^\sigma$ construction defines an action of $S_n$ on the set of monomial orders. Is it a left action or a right action? 
+    a. State the definition of *faithful* and *free* group actions. Is this group action faithful? Is it free? 
+    a. State the definition of a *transitive* group action. Is this group action transitive? 
 1. Do {{ clo15 | replace: "x", "Exercise 2.4.9" }}.
 
 # Multivariable Division

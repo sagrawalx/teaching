@@ -105,12 +105,12 @@ Due: {{ ra | replace: "x", "w3fri" | replace: "y", "polynomial-maps" }}, [WR]({{
 <td>
 Polynomial Maps
 
-Class: [Slides](slides/w4mon.pdf)  
+Class: [Slides](slides/w4mon.pdf)
 </td>
 <td>
 Catch Up
 
-Class: [Slides](slides/w4wed.pdf)  
+Class: [Slides](slides/w4wed.pdf)
 </td>
 <td>
 Monomial Orders
