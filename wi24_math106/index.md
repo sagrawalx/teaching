@@ -115,6 +115,7 @@ Class: [Slides](slides/w4wed.pdf)
 <td>
 Monomial Orders
 
+Class: [Slides](slides/w4fri.pdf)  
 Due: {{ ra | replace: "x", "w4fri" | replace: "y", "monomial-orders" }}, [WR]({{ wr }})
 </td>
 </tr>
@@ -159,18 +160,21 @@ Due: {{ ra | replace: "x", "w6fri" | replace: "y", "buchbergers-algorithm" }}, [
 [(Presidents' Day)](https://en.wikipedia.org/wiki/Presidents%27_Day)
 </td>
 <td>
-<!--Affine Nullstellensatz-->
-<!--Affine Hilbert Function-->
+Affine Nullstellensatz
+
+Due: {{ ra | replace: "x", "w7wed" | replace: "y", "affine-nullstellensatz" }}
 </td>
 <td>
-<!--Projective Varieties-->
-Due: [WR]({{ wr }})
+Affine Hilbert Function
+
+Due: {{ ra | replace: "x", "w7fri" | replace: "y", "affine-hilbert-function" }}, [WR]({{ wr }})
 </td>
 </tr>
 
 <tr>
 <td style="text-align: center;">8</td>
 <td>
+<!--Projective Varieties-->
 <!--Catch-up-->
 </td>
 <td>

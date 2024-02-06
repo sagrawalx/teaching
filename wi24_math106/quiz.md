@@ -23,7 +23,7 @@ It'll cover everything up through [Polynomial Maps](content#polynomial-maps). Sa
 
 ## Quiz 3
 
-Details TBA
+It'll cover everything up through [Multivariable Division](content#multivariable-division). Same format as last time. 
 
 ## Quiz 4
 

@@ -1071,8 +1071,20 @@ Exercise 2.3.11].</li>
 <li>For any list <span class="math inline">\(F = (f_1, \dotsc,
 f_s)\)</span> of polynomials in <span class="math inline">\(k[x_1,
 \dotsc, x_n]\)</span>, prove that the remainder function <span
-class="math inline">\(f \mapsto \bar{f}^F\)</span> is a linear function
-on <span class="math inline">\(k[x_1, \dotsc, x_n]\)</span>.</li>
+class="math inline">\(f \mapsto \bar{f}^F\)</span> is a <span
+class="math inline">\(k\)</span>-linear function on <span
+class="math inline">\(k[x_1, \dotsc, x_n]\)</span>.</li>
+<li>Fix integers <span class="math inline">\(m, n \geq 2\)</span> and
+let <span class="math inline">\(\phi : \mathbb{A}^1 \to
+\mathbb{A}^3\)</span> be the polynomial map given by <span
+class="math inline">\(\phi(t) = (t, t^m, t^n)\)</span> and let <span
+class="math inline">\(V\)</span> be its image.
+<ol type="a">
+<li>Prove that <span class="math inline">\(V\)</span> is an algebraic
+subset of <span class="math inline">\(\mathbb{A}^3\)</span>.</li>
+<li>What is <span class="math inline">\(I(V)\)</span>? Find a finite set
+of generators.</li>
+</ol></li>
 </ol>
 <h1 id="monomial-ideals">Monomial Ideals</h1>
 <h2 id="core-ideas-8">Core Ideas</h2>
@@ -1084,9 +1096,10 @@ contained in a given monomial ideal.</li>
 of monomials.</li>
 <li>Definition of the <em>minimal basis</em> of a monomial ideal, and
 the fact that it exists and is unique.</li>
-<li>The fact that the variety of a monomial ideal is a finite union of
-coordinate subspaces.</li>
-<li>Definition of dimension for the variety of a monomial ideal.</li>
+<li>The fact that the affine variety corresponding to a monomial ideal
+is a finite union of coordinate subspaces.</li>
+<li>Definition of <em>dimension</em> for the affine variety
+corresponding to a monomial ideal.</li>
 </ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 2.4]
@@ -1114,13 +1127,16 @@ k[x, y, z]\)</span>.</li>
 \dotsc, x_n]\)</span> is a monomial ideal, then so is its radical <span
 class="math inline">\(\sqrt{I}\)</span>.</li>
 <li>Use the Hilbert basis theorem to provide an alternative proof of
-Dickson’s lemma. Note: The proof of the Hilbert basis theorem in [<a
+Dickson’s lemma.
+<ul>
+<li>Note: The proof of the Hilbert basis theorem in [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 2.5]
 makes use of Dickson’s lemma. However, you’ve already read through a
 proof of the Hilbert basis theorem in [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Section 1.4] that didn’t use Dickson’s lemma, so there is no logical
 circularity here!</li>
+</ul></li>
 <li>Let <span class="math inline">\(I\)</span> be a monomial ideal in
 <span class="math inline">\(k[x_1, \dotsc, x_n]\)</span>. Prove that the
 following statements are equivalent:
@@ -1128,10 +1144,9 @@ following statements are equivalent:
 <li><span class="math inline">\(V(I) = \{(0, \dotsc, 0)\}\)</span>.</li>
 <li><span class="math inline">\(\dim V(I) = 0\)</span>.</li>
 <li>For each <span class="math inline">\(i = 1, \dotsc, n\)</span>,
-there exists a positive integer <span class="math inline">\(\ell \geq
-1\)</span> (possibly depending on <span
-class="math inline">\(i\)</span>) such that <span
-class="math inline">\(x_i^\ell \in I\)</span>.</li>
+there exists an integer <span class="math inline">\(\ell_i \geq
+1\)</span> such that <span class="math inline">\(x_i^{\ell_i} \in
+I\)</span>.</li>
 </ol></li>
 <li>In Ravi Vakil’s game of Chomp, a cookie is placed at every integer
 point <span class="math inline">\((n, m)\)</span> in the first quadrant
@@ -1143,8 +1158,8 @@ cookie (ie, every cookie <span class="math inline">\((n&#39;,
 m&#39;)\)</span> with <span class="math inline">\(n&#39; \geq n\)</span>
 and <span class="math inline">\(m&#39; \geq m\)</span>). The <span
 class="math inline">\((0,0)\)</span> cookie is poisoned, and the player
-who eats it loses. Use the Hilbert basis theorem to prove that any game
-of Chomp ends after finitely many moves.</li>
+who eats it loses. Use the Hilbert basis theorem and/or Dickson’s lemma
+to prove that any game of Chomp ends after finitely many moves.</li>
 </ol>
 <h1 id="gröbner-bases">Gröbner Bases</h1>
 <h2 id="core-ideas-9">Core Ideas</h2>
@@ -1214,6 +1229,11 @@ t]\)</span> be the homomorphism given by <span class="math inline">\(w
 Prove that <span class="math inline">\(I = \ker \phi\)</span>.</li>
 <li>Prove that <span class="math inline">\(I\)</span> is prime.</li>
 </ol></li>
+<li>Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
+x_n]\)</span> be a monomial ideal. Show that the minimal basis of <span
+class="math inline">\(I\)</span> is the reduced Gröbner basis for <span
+class="math inline">\(I\)</span> with respect to any monomial
+order.</li>
 <li>Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
 x_n]\)</span> be an ideal and suppose that <span
 class="math inline">\(I\)</span> has a Gröbner basis (with respect to
@@ -1390,9 +1410,10 @@ href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Sections 1.7–10], you can choose!</p>
 <h2 id="exercises-11">Exercises</h2>
+<p>Note: For all of the following exercises, assume that <span
+class="math inline">\(k\)</span> is algebraically closed.</p>
 <ol type="1">
-<li>Suppose <span class="math inline">\(k\)</span> is algebraically
-closed and suppose <span class="math inline">\(f \in k[x_1, \dotsc,
+<li>Suppose <span class="math inline">\(f \in k[x_1, \dotsc,
 x_n]\)</span> is a irreducible polynomial.
 <ol type="a">
 <li>Prove that <span class="math inline">\(I(V(f)) = \langle f
@@ -1400,22 +1421,17 @@ x_n]\)</span> is a irreducible polynomial.
 <li>Prove that <span class="math inline">\(V(f)\)</span> is irreducible
 affine variety.</li>
 </ol></li>
-<li>Suppose <span class="math inline">\(k\)</span> is algebraically
-closed. Prove that irreducible algebraic subsets of <span
+<li>Prove that irreducible algebraic subsets of <span
 class="math inline">\(\mathbb{A}^n\)</span> are in bijection with prime
 ideals in <span class="math inline">\(k[x_1, \dotsc, x_n]\)</span>.</li>
-<li>Suppose <span class="math inline">\(k\)</span> is algebraically
-closed. Prove that every maximal ideal in <span
-class="math inline">\(k[x_1, \dotsc, x_n]\)</span> is of the form <span
-class="math inline">\(\langle x_1 - a_1, \dotsc, x_n - a_n
-\rangle\)</span> for some <span class="math inline">\(a_1, \dotsc, a_n
-\in k\)</span>.</li>
-<li>Suppose <span class="math inline">\(k\)</span> is algebraically
-closed. Prove that algebraic subsets of any affine variety <span
+<li>Prove that every maximal ideal in <span class="math inline">\(k[x_1,
+\dotsc, x_n]\)</span> is of the form <span class="math inline">\(\langle
+x_1 - a_1, \dotsc, x_n - a_n \rangle\)</span> for some <span
+class="math inline">\(a_1, \dotsc, a_n \in k\)</span>.</li>
+<li>Prove that algebraic subsets of any affine variety <span
 class="math inline">\(V\)</span> are in bijection with radical ideals in
 <span class="math inline">\(k[V]\)</span>.</li>
-<li>Suppose <span class="math inline">\(k\)</span> is algebraically
-closed. Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
+<li>Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
 x_n]\)</span> is an ideal. Prove that <span
 class="math inline">\(V(I)\)</span> is a finite set if and only if the
 quotient ring <span class="math inline">\(k[x_1, \dotsc, x_n]/I\)</span>
@@ -1432,16 +1448,169 @@ monomials that are not contained in <span class="math inline">\(\langle
 \LT(I) \rangle\)</span>?</li>
 </ol>
 <h1 id="affine-hilbert-function">Affine Hilbert Function</h1>
-<ul>
-<li></li>
-</ul>
 <h2 id="core-ideas-12">Core Ideas</h2>
+<ul>
+<li>Definition of the <em>Hilbert function</em> <span
+class="math inline">\(\mathrm{HF}_I\)</span> of an ideal <span
+class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span>.</li>
+<li>The fact that <span class="math inline">\(\mathrm{HF}_I(s)\)</span>
+is equal to the number of monomials of degree at most <span
+class="math inline">\(s\)</span> that are <em>not</em> in <span
+class="math inline">\(I\)</span> whenever <span
+class="math inline">\(I\)</span> is a monomial ideal.</li>
+<li>The fact that any ideal <span class="math inline">\(I\)</span> has
+the same Hilbert function as its ideal of leading terms <span
+class="math inline">\(\langle \mathrm{LT}(I) \rangle\)</span> with
+respect to any graded monomial order.</li>
+<li>Definition: The <em>Hilbert series</em> <span
+class="math inline">\(\mathrm{HS}_I\)</span> of an ideal <span
+class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is the
+formal series defined by <span class="math display">\[\mathrm{HS}_I(z) =
+\sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.\]</span></li>
+<li>The fact that the Hilbert function of an ideal <span
+class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is
+eventually a polynomial, called the <em>Hilbert polynomial</em> <span
+class="math inline">\(\mathrm{HP}_I\)</span>.</li>
+<li>Definitions of <em>dimension</em> and <em>index of regularity</em>
+of an ideal.</li>
+</ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections 9.2
 through Proposition 9.2.7] and [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 9.3
 through Theorem 9.3.8].</p>
 <h2 id="exercises-12">Exercises</h2>
+<ol type="1">
+<li>Let <span class="math inline">\(I = \langle xy \rangle \subseteq
+k[x, y]\)</span>. For any integer <span class="math inline">\(s \geq
+0\)</span>, give explicit bases for the finite dimensional <span
+class="math inline">\(k\)</span>-vector spaces <span
+class="math inline">\(I_{\leq s} = I \cap k[x, y]_{\leq s}\)</span> and
+<span class="math inline">\(k[x, y]_{\leq s} / I_{\leq s}\)</span>.</li>
+<li>Suppose <span class="math inline">\(I \subseteq k[x_1, \dotsc,
+x_n]\)</span> is an ideal whose Hilbert polynomial <span
+class="math inline">\(\mathrm{HP}_I\)</span> has degree <span
+class="math inline">\(d \geq 0\)</span>. Prove that the leading
+coefficient of <span class="math inline">\(\mathrm{HP}_I(s)\)</span> is
+<span class="math inline">\(g/d!\)</span> for some positive integer
+<span class="math inline">\(g\)</span>. This integer is called the
+<em>degree</em> of <span class="math inline">\(I\)</span> (or of <span
+class="math inline">\(V(I)\)</span>). Hint: Explain why it suffices to
+consider the case when <span class="math inline">\(I\)</span> is a
+monomial ideal, and then consider [<a
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Proposition
+9.2.7].
+<ul>
+<li>Note: The word “degree” is overloaded: the degree of <span
+class="math inline">\(I\)</span> is distinct from the degree of <span
+class="math inline">\(\mathrm{HP}_I\)</span>! Make sure you’re using the
+correct definition of degree in the following exercises.</li>
+</ul></li>
+<li>For each of the following ideals <span class="math inline">\(I
+\subseteq k[x, y]\)</span>, (i) compute <span
+class="math inline">\(\mathrm{HF}_I(s)\)</span> for all integers <span
+class="math inline">\(s \geq 0\)</span>, (ii) compute <span
+class="math inline">\(\mathrm{HP}_I\)</span>, (iii) compute the index of
+regularity of <span class="math inline">\(I\)</span>, and (iv) compute
+the degree of <span class="math inline">\(I\)</span>. Note: See exercise
+2 for the relevant definition of degree.
+<ol type="a">
+<li><span class="math inline">\(I = \langle xy - 1 \rangle\)</span> (ie,
+the ideal of the hyperbola).</li>
+<li><span class="math inline">\(I = \langle x^2 + y^2 - 1
+\rangle\)</span> (ie, the ideal of the circle).</li>
+<li><span class="math inline">\(I = \langle y - x^4 \rangle\)</span>
+(ie, the ideal of the graph of a quartic).</li>
+</ol></li>
+<li><ol type="a">
+<li>Let <span class="math inline">\(f \in k[x, y]\)</span> be a
+polynomial of total degree <span class="math inline">\(d \geq
+0\)</span>. Prove that the degree of the ideal <span
+class="math inline">\(\langle f \rangle \subseteq k[x, y]\)</span> is
+equal to <span class="math inline">\(d\)</span>. Note: See exercise 2
+for the relevant definition of degree.</li>
+<li>Can you generalize the result of the previous part for <span
+class="math inline">\(f \in k[x_1, \dotsc, x_n]\)</span>?</li>
+</ol></li>
+<li>Suppose <span class="math inline">\(I, J \subseteq k[x_1, \dotsc,
+x_n]\)</span> are ideals such that <span class="math inline">\(V(I) =
+V(J)\)</span>. Is it true that <span class="math inline">\(\mathrm{HF}_I
+= \mathrm{HF}_J\)</span>? Is it true that <span
+class="math inline">\(\mathrm{HP}_I = \mathrm{HP}_J\)</span>?</li>
+<li>Let <span class="math inline">\(I = \langle y - x^2, z - x^3 \rangle
+\subseteq k[x, y, z]\)</span> be the ideal of the affine twisted cubic.
+<ol type="a">
+<li>Find <span class="math inline">\(\mathrm{HF}_I(s)\)</span> for all
+integers <span class="math inline">\(s \geq 0\)</span>. Hint: The given
+set of generators for <span class="math inline">\(I\)</span> is a
+Gröbner basis with respect to a lexicographic order, but that is not a
+graded order! You might find it convenient to start by computing a
+Gröbner basis with respect to graded reverse lexicographic order.</li>
+<li>What is the index of regularity of <span
+class="math inline">\(I\)</span>?</li>
+<li>What is the degree of <span class="math inline">\(I\)</span>? Note:
+See exercise 2 for the relevant definition of degree.</li>
+</ol></li>
+<li>This problem is about the zero ideal <span
+class="math inline">\(\{0\} \subseteq k[x_1, \dotsc, x_n]\)</span>.
+<ol type="a">
+<li>Prove that the Hilbert function is given by <span
+class="math inline">\(\displaystyle \mathrm{HF}_{\{0\}}(s) =
+\binom{n+s}{s}\)</span>.</li>
+<li>Explain in your own words why the index of regularity of <span
+class="math inline">\(\{0\}\)</span> is 0.</li>
+<li>Prove that the Hilbert series has the property that <span
+class="math inline">\(\displaystyle \mathrm{HS}_{\{0\}}(z) =
+\frac{1}{(1-z)^{n+1}}\)</span> whenever <span class="math inline">\(|z|
+&lt; 1\)</span>.</li>
+</ol></li>
+<li>This problem is about the ideal <span class="math inline">\(I =
+\langle x^\alpha \rangle \subseteq k[x_1, \dotsc, x_n]\)</span>
+generated by a single monomial <span
+class="math inline">\(x^\alpha\)</span> of total degree <span
+class="math inline">\(d\)</span>.
+<ol type="a">
+<li>Prove that the Hilbert function is given by <span
+class="math display">\[\mathrm{HF}_I(s) = \binom{n+s}{n}
+-  \binom{n+s-d}{s-d},\]</span> where the second binomial coefficient is
+defined to be 0 when <span class="math inline">\(s &lt; d\)</span>.</li>
+<li>What is the index of regularity of <span
+class="math inline">\(I\)</span>?</li>
+<li>Prove that <span class="math inline">\(\displaystyle
+\mathrm{HS}_I(z) = \frac{1-z^d}{(1-z)^{n+1}}\)</span> whenever <span
+class="math inline">\(|z| &lt; 1\)</span>.</li>
+</ol></li>
+<li>Let <span class="math inline">\(I = \langle x_1 - a_1, \dotsc, x_n -
+a_n \rangle\)</span>. Prove that <span
+class="math inline">\(\mathrm{HF}_I(s) = 1\)</span> for all integers
+<span class="math inline">\(s \geq 0\)</span>.</li>
+<li>Let <span class="math inline">\(V = \{a_1, a_2, a_3\} \subseteq
+\mathbb{A}^n(k)\)</span> be the affine variety consisting of three
+distinct points in affine space and let <span class="math inline">\(I =
+I(V)\)</span>.
+<ol type="a">
+<li>Prove that <span class="math inline">\(\mathrm{HP}_I(s) =
+3\)</span>.</li>
+<li>What is the index of regularity of <span
+class="math inline">\(I\)</span>? Hint: The answer depends on whether or
+not the three points <span class="math inline">\(a_1, a_2, a_3\)</span>
+are colinear in <span
+class="math inline">\(\mathbb{A}^n(k)\)</span>.</li>
+</ol></li>
+<li>Fix a graded monomial order <span
+class="math inline">\(&gt;\)</span> and let <span
+class="math inline">\(I\)</span> be an ideal in <span
+class="math inline">\(k[x_1, \dotsc, x_n]\)</span>. Recall that any
+<span class="math inline">\(f \in k[x_1, \dotsc, x_n]\)</span> can be
+written uniquely in the form <span class="math inline">\(f = g +
+r\)</span> where <span class="math inline">\(g \in I\)</span> and no
+term of <span class="math inline">\(r\)</span> is in <span
+class="math inline">\(\langle \mathrm{LT}(I) \rangle\)</span>. Is it
+true that <span class="math inline">\(f\)</span> having total degree at
+most <span class="math inline">\(s\)</span> implies that <span
+class="math inline">\(r\)</span> has total degree at most <span
+class="math inline">\(s\)</span>? What about the converse?</li>
+</ol>
 <h1 id="projective-varieties">Projective Varieties</h1>
 <h2 id="core-ideas-13">Core Ideas</h2>
 <p>Assume throughout that <span class="math inline">\(k\)</span> is
@@ -1450,8 +1619,13 @@ infinite.</p>
 <li>Definition of “<span class="math inline">\(f(P) = 0\)</span>” for
 <span class="math inline">\(f \in k[x_0, \dotsc, x_n]\)</span> and <span
 class="math inline">\(P = (a_0 : \cdots : a_n) \in
-\mathbb{P}^n\)</span>.</li>
-<li>Definition of a <em>homogeneal ideal</em> in <span
+\mathbb{P}^n\)</span>. Namely, we say that <span
+class="math inline">\(f(P) = 0\)</span> if and only if <span
+class="math inline">\(f(a_0, \dotsc, a_n) = 0\)</span> for
+<em>every</em> coordinate representation <span
+class="math inline">\((a_0 : \cdots : a_n)\)</span> of <span
+class="math inline">\(P\)</span>.</li>
+<li>Definition of a <em>homogeneous ideal</em> in <span
 class="math inline">\(k[x_0, \dotsc, x_n]\)</span>, and the fact that
 homogeneous ideals are precisely the ideals that are generated by sets
 of homogeneous polynomials.</li>
