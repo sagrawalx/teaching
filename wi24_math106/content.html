@@ -946,7 +946,8 @@ x^3\)</span>.</li>
 xy^4\)</span>.</li>
 </ol></li>
 <li>Is it true for any monomial order that there are only a finite
-number of monomials between any fixed pair of monomials?</li>
+number of monomials between any fixed pair of monomials?
+<!-- Is it true for any monomial order that there are only a finite number of monomials less than any fixed monomial? ---></li>
 <li>Prove that <span class="math inline">\(\cdots &gt; x^2 &gt; x &gt;
 1\)</span> is the unique monomial order on <span
 class="math inline">\(k[x]\)</span>.</li>
@@ -1010,7 +1011,7 @@ actions. Is this group action faithful? Is it free?</li>
 group action transitive?</li>
 </ol></li>
 <li>Do [<a href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>,
-Exercise 2.4.9].</li>
+Exercise 2.4.9]. <!-- LM(sum) and LM(product) --></li>
 </ol>
 <h1 id="multivariable-division">Multivariable Division</h1>
 <h2 id="core-ideas-7">Core Ideas</h2>
@@ -1051,8 +1052,11 @@ and <span class="math inline">\(F = (x - y^3, xy^2 - x)\)</span>.</li>
 2xy^2 - x, \\ f_2 &amp;= 3x^2 y - y - 1, \end{aligned} \]</span> and let
 <span class="math inline">\(F = (f_1, f_2)\)</span>. Find an element
 <span class="math inline">\(f \in \langle f_1, f_2 \rangle\)</span> such
-that <span class="math inline">\(\bar{f}^F \neq 0\)</span>.</li>
-<li>Let <span class="math inline">\(I = \langle y - x^2, z - x^3 \rangle
+that <span class="math inline">\(\bar{f}^F \neq 0\)</span>. Make sure to
+specify what monomial order you are using in order for <span
+class="math inline">\(\bar{f}^F\)</span>.</li>
+<li>Let <span class="math inline">\(k\)</span> be an infinite field and
+let <span class="math inline">\(I = \langle y - x^2, z - x^3 \rangle
 \subseteq k[x, y, z]\)</span>.
 <ol type="a">
 <li>Prove that <span class="math inline">\(I = I(V(I))\)</span>. Hint:
@@ -1074,16 +1078,20 @@ f_s)\)</span> of polynomials in <span class="math inline">\(k[x_1,
 class="math inline">\(f \mapsto \bar{f}^F\)</span> is a <span
 class="math inline">\(k\)</span>-linear function on <span
 class="math inline">\(k[x_1, \dotsc, x_n]\)</span>.</li>
-<li>Fix integers <span class="math inline">\(m, n \geq 2\)</span> and
-let <span class="math inline">\(\phi : \mathbb{A}^1 \to
-\mathbb{A}^3\)</span> be the polynomial map given by <span
-class="math inline">\(\phi(t) = (t, t^m, t^n)\)</span> and let <span
-class="math inline">\(V\)</span> be its image.
+<li>Let <span class="math inline">\(k\)</span> be an infinite field. Fix
+integers <span class="math inline">\(m, n \geq 2\)</span>, let <span
+class="math inline">\(\phi : \mathbb{A}^1 \to \mathbb{A}^3\)</span> be
+the polynomial map given by <span class="math inline">\(\phi(t) = (t,
+t^m, t^n)\)</span>, and let <span class="math inline">\(V\)</span> be
+its image.
 <ol type="a">
 <li>Prove that <span class="math inline">\(V\)</span> is an algebraic
 subset of <span class="math inline">\(\mathbb{A}^3\)</span>.</li>
 <li>What is <span class="math inline">\(I(V)\)</span>? Find a finite set
 of generators.</li>
+<li>Prove that <span class="math inline">\(V\)</span> is an irreducible
+affine variety.
+<!-- 1. Find dimension as a vector space using division. --></li>
 </ol></li>
 </ol>
 <h1 id="monomial-ideals">Monomial Ideals</h1>
@@ -1188,7 +1196,9 @@ class="math inline">\(i \neq j\)</span>.</li>
 </ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections
-2.5–6, Definition 2.7.4, and Theorem 2.7.5].</p>
+2.5–6, Definition 2.7.4, and Theorem 2.7.5]. My suggestion is that you
+black-box Buchberger’s criterion at first pass (ie, familiarize yourself
+with using the statement before returning to the proof).</p>
 <h2 id="exercises-9">Exercises</h2>
 <ol type="1">
 <li>Let <span class="math inline">\(f_1 = xy^2 - xz + y, f_2 = xy -
@@ -1333,7 +1343,8 @@ respect to lexicographic order.</li>
 <h1 id="buchbergers-algorithm">Buchberger’s Algorithm</h1>
 <h2 id="core-ideas-10">Core Ideas</h2>
 <ul>
-<li>Buchberger’s algorithm for computing Gröbner bases.</li>
+<li>Buchberger’s algorithm for computing the reduced Gröbner basis for
+an ideal.</li>
 </ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section
@@ -1368,6 +1379,16 @@ z]\)</span>.
 respect to colexicographic order.</li>
 <li>Sketch a picture of <span class="math inline">\(V(I)\)</span>.</li>
 </ol></li>
+<li>Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
+x_n]\)</span> be an ideal. Let <span
+class="math inline">\(G_{\mathrm{grlex}}\)</span> and <span
+class="math inline">\(G_{\mathrm{grevlex}}\)</span> be the reduced
+Gröbner bases of <span class="math inline">\(I\)</span> with respect to
+graded lexicographic order and graded reverse lexicographic order,
+respectively. Must <span
+class="math inline">\(G_{\mathrm{grlex}}\)</span> and <span
+class="math inline">\(G_{\mathrm{grevlex}}\)</span> have the same number
+of elements?</li>
 <li>Suppose <span class="math inline">\(a, b, c\)</span> are real
 numbers satisfying the following equations. <span
 class="math display">\[ \begin{aligned} a + b + c &amp;= 3 \\ a^2 + b^2
@@ -1408,11 +1429,35 @@ class="math inline">\(\mathbb{A}^n(k)\)</span>.</li>
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections
 3.1–2 through Theorem 3.2.7] or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
-Sections 1.7–10], you can choose!</p>
+Sections 1.7–10], you can choose! My suggestion is that you black-box
+the nullstellensatz at first pass (ie, familiarize yourself with using
+the statement before returning to the proof).</p>
 <h2 id="exercises-11">Exercises</h2>
 <p>Note: For all of the following exercises, assume that <span
 class="math inline">\(k\)</span> is algebraically closed.</p>
 <ol type="1">
+<li>The “strong” nullstellensatz says that <span
+class="math inline">\(I(V(I)) = \sqrt{I}\)</span> for any ideal <span
+class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span>. The
+“weak” nullstellensatz says that <span class="math inline">\(V(I) =
+\emptyset\)</span> implies <span class="math inline">\(I = k[x_1,
+\dotsc, x_n]\)</span>. The reading shows that, with some work, the
+“weak” nullstellensatz implies the “strong” one. Prove the other
+direction. In other words, use the statement of the “strong”
+nullstellensatz to prove the “weak” one.</li>
+<li>Suppose <span class="math inline">\(I, J \subseteq k[x_1, \dotsc,
+x_n]\)</span> are ideals. Prove that <span class="math inline">\(I + J =
+k[x_1, \dotsc, x_n]\)</span> if and only if <span
+class="math inline">\(V(I) \cap V(J) = \emptyset\)</span>.</li>
+<li>Let <span class="math inline">\(V = V(x^2 + 1, x^2 - 2xy +
+y^2)\)</span>. Determine whether or not each of the following
+polynomials is contained in the ideal <span class="math inline">\(I(V)
+\subseteq k[x, y]\)</span>.
+<ol type="a">
+<li><span class="math inline">\(y^2 + 1\)</span></li>
+<li><span class="math inline">\(x - y\)</span></li>
+<li><span class="math inline">\(y^2 - 1\)</span></li>
+</ol></li>
 <li>Suppose <span class="math inline">\(f \in k[x_1, \dotsc,
 x_n]\)</span> is a irreducible polynomial.
 <ol type="a">
@@ -1613,8 +1658,8 @@ class="math inline">\(s\)</span>? What about the converse?</li>
 </ol>
 <h1 id="projective-varieties">Projective Varieties</h1>
 <h2 id="core-ideas-13">Core Ideas</h2>
-<p>Assume throughout that <span class="math inline">\(k\)</span> is
-infinite.</p>
+<p>Note: Assume throughout that <span class="math inline">\(k\)</span>
+is infinite.</p>
 <ul>
 <li>Definition of “<span class="math inline">\(f(P) = 0\)</span>” for
 <span class="math inline">\(f \in k[x_0, \dotsc, x_n]\)</span> and <span
@@ -1624,7 +1669,9 @@ class="math inline">\(f(P) = 0\)</span> if and only if <span
 class="math inline">\(f(a_0, \dotsc, a_n) = 0\)</span> for
 <em>every</em> coordinate representation <span
 class="math inline">\((a_0 : \cdots : a_n)\)</span> of <span
-class="math inline">\(P\)</span>.</li>
+class="math inline">\(P\)</span> [<a
+href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
+Section 4.2, page 45].</li>
 <li>Definition of a <em>homogeneous ideal</em> in <span
 class="math inline">\(k[x_0, \dotsc, x_n]\)</span>, and the fact that
 homogeneous ideals are precisely the ideals that are generated by sets
@@ -1639,7 +1686,14 @@ class="math inline">\(S\)</span>. A <em>projective variety</em> is an
 algebraic subset of <span class="math inline">\(\mathbb{P}^n\)</span>
 for some <span class="math inline">\(n\)</span>.
 <ul>
-<li>Note: If ambiguity can arise between the projective and affine
+<li>Note 1: Typically, one only considers sets <span
+class="math inline">\(S\)</span> of homogeneous polynomials, but the
+definition of <span class="math inline">\(f(P) = 0\)</span> given in [<a
+href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
+Section 4.2, page 45] lets us make sense of this for any subset. If
+you’re curious, the exercises below ask you to explore what this means
+in this generality.</li>
+<li>Note 2: If ambiguity can arise between the projective and affine
 versions of this construction, we write <span
 class="math inline">\(V_p(S)\)</span> and <span
 class="math inline">\(V_a(S)\)</span>, respectively, to
@@ -1662,6 +1716,9 @@ Section 4.2, first page] and [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Proposition
 8.2.4, Definition 8.2.5, and Section 8.3 through Theorem 8.3.5].</p>
 <h2 id="exercises-13">Exercises</h2>
+<p>Note: For all of the following exercises, assume that <span
+class="math inline">\(k\)</span> is infinite, and that <span
+class="math inline">\(V = V_p\)</span>.</p>
 <ol type="1">
 <li><ol type="a">
 <li>Explain why the empty set and all of <span
@@ -1676,17 +1733,86 @@ class="math inline">\(\mathbb{P}^n\)</span> containing just one element
 is algebraic.</li>
 </ol></li>
 <li>What are the algebraic subsets of <span
-class="math inline">\(\mathbb{P}^1\)</span>?</li>
-<li>What is <span class="math inline">\(V(f)\)</span> if <span
-class="math inline">\(f \in k[x_0, \dotsc, x_n]\)</span> is <em>not</em>
-homogeneous?</li>
+class="math inline">\(\mathbb{P}^1(k)\)</span>?</li>
+<li>Using homogeneous coordinates <span class="math inline">\((x : y :
+z)\)</span> for <span
+class="math inline">\(\mathbb{P}^2(\mathbb{C})\)</span>, list all of the
+points of each of the following intersections.
+<ol type="a">
+<li><span class="math inline">\(V(y^2z - x(x-2z)(x+z)) \cap V(y^2 + x^2
+- 3xz)\)</span>.</li>
+<li><span class="math inline">\(V(y^2z - x(x-2z)(x+z)) \cap V(y^2 + x^2
+- 2xz)\)</span>.</li>
+</ol></li>
+<li><ol type="a">
+<li>Show that the formula <span class="math display">\[ \phi(a : b) =
+(a^2 : ab : b^2) \]</span> gives a well-defined function <span
+class="math inline">\(\phi : \mathbb{P}^1 \to \mathbb{P}^2\)</span>.
+Note: What you’re being asked to show is that the output point in <span
+class="math inline">\(\mathbb{P}^2\)</span> does not depend on the
+choice of homogeneous coordinates for the input point in <span
+class="math inline">\(\mathbb{P}^1\)</span>.</li>
+<li>Prove that <span class="math inline">\(\phi\)</span> is an injective
+function and that its image is equal to <span class="math inline">\(V(xz
+- y^2) = \{ (x : y : z) \mid xz = y^2 \} \subseteq
+\mathbb{P}^2\)</span>.</li>
+<li>If <span class="math inline">\(k = \mathbb{R}\)</span>, draw a
+picture of the image of <span class="math inline">\(\phi\)</span>.</li>
+<li>Explain why the formula <span class="math inline">\(\psi(x : y : z)
+= (y : z)\)</span> does not define an inverse function <span
+class="math inline">\(\psi : V(xz - y^2) \to \mathbb{P}^1\)</span> for
+<span class="math inline">\(\phi\)</span>.</li>
+</ol></li>
+<li><ol type="a">
+<li>Show that the formula <span class="math display">\[ \sigma((x_1 :
+x_2), (y_1 : y_2)) = (x_1y_1 : x_1y_2 : x_2y_1 : y_1y_2) \]</span> gives
+a well-defined function <span class="math inline">\(\sigma :
+\mathbb{P}^1 \times \mathbb{P}^1 \to \mathbb{P}^3\)</span>.</li>
+<li>Prove that <span class="math inline">\(\sigma\)</span> is
+injective.</li>
+<li>Prove that the image of <span class="math inline">\(\sigma\)</span>
+is equal to <span class="math inline">\(V(ad - bc) = \{ (a : b : c : d)
+\mid ad = bc \} \subseteq \mathbb{P}^3\)</span>. Note: The image of
+<span class="math inline">\(\sigma\)</span> is a <em>Segre variety</em>.
+It is also a <em>determinantal variety</em>, for reasons that may be
+apparent from the appearance of the determinant formula “<span
+class="math inline">\(ad - bc\)</span>” above!</li>
+</ol></li>
+<li><ol type="a">
+<li>Show that <span class="math display">\[ \phi(a : b) = (a^3 : a^2b :
+ab^2 : b^3) \]</span> is a well-defined function <span
+class="math inline">\(\phi : \mathbb{P}^1 \to
+\mathbb{P}^3\)</span>.</li>
+<li>Prove that <span class="math inline">\(\phi\)</span> is
+injective.</li>
+<li>Let <span class="math inline">\(C\)</span> be the image of <span
+class="math inline">\(\phi\)</span>. Using homogeneous coordinates <span
+class="math inline">\((w : x : y : z)\)</span> for <span
+class="math inline">\(\mathbb{P}^3\)</span>, prove that <span
+class="math inline">\(C\)</span> is equal to <span
+class="math inline">\(V(S)\)</span> for <span class="math inline">\(S =
+\{wy - x^2, wz - xy, xz - y^2\}\)</span>. Note: <span
+class="math inline">\(C\)</span> is the (projective) <em>twisted
+cubic</em>.</li>
+<li>Prove that, for any two-element subset <span
+class="math inline">\(S&#39; \subsetneq S\)</span>, the algebraic subset
+<span class="math inline">\(V(S&#39;) \subseteq \mathbb{P}^3\)</span> is
+the union of <span class="math inline">\(C\)</span> with a line. Note:
+In other words, you are showing that all three polynomials in <span
+class="math inline">\(S\)</span> are in fact needed to cut out <span
+class="math inline">\(C\)</span>.</li>
+</ol></li>
+<li>Suppose <span class="math inline">\(f \in k[x_0, \dotsc,
+x_n]\)</span> and <span class="math inline">\(f = f_0 + \cdots +
+f_d\)</span> where each <span class="math inline">\(f_i\)</span> is
+homogeneous of degree <span class="math inline">\(i\)</span>. Prove that
+<span class="math inline">\(V(f) = V(f_0, \dotsc, f_d)\)</span>.</li>
 <li>Prove that, if an ideal <span class="math inline">\(I \subseteq
 k[x_0, \dotsc, x_n]\)</span> is homogeneous, then so is <span
 class="math inline">\(\sqrt{I}\)</span>.</li>
 <li>Let <span class="math inline">\(I = \langle S \rangle\)</span> be
-the homogeneous ideal generated by a subset <span
-class="math inline">\(S \subseteq k[x_0, \dotsc, x_n]\)</span> of
-homogeneous polynomials, and let <span
+the ideal generated by a set <span class="math inline">\(S \subseteq
+k[x_0, \dotsc, x_n]\)</span> of homogeneous polynomials, and let <span
 class="math inline">\(\sqrt{I}\)</span> be the radical of <span
 class="math inline">\(I\)</span>. Prove that <span
 class="math inline">\(V(S) = V(I) = V(\sqrt{I})\)</span>.</li>
@@ -1703,14 +1829,15 @@ Dehomogenization</h1>
 <li>Definition of <em>dehomogenization</em> of a homogeneous polynomial
 <span class="math inline">\(f \in k[x_0, \dotsc, x_n]\)</span> with
 respect to <span class="math inline">\(x_0\)</span>.</li>
-<li>The fact that, if we identify <span
+<li>The fact that, if <span class="math inline">\(f_1, \dotsc, f_r \in
+k[x_0, \dotsc, x_n]\)</span> are homogeneous and if we identify <span
 class="math inline">\(U_0\)</span> with <span
 class="math inline">\(\mathbb{A}^n\)</span>, then <span
 class="math inline">\(V_p(f_1, \dotsc, f_r) \cap U_0 = V_a(g_1, \dotsc,
 g_r)\)</span> where <span class="math inline">\(g_i \in k[x_1, \dotsc,
-x_n]\)</span> is the dehomogenization of the homogeneous <span
-class="math inline">\(f_i \in k[x_0, \dotsc, x_n]\)</span> with respect
-to <span class="math inline">\(x_0\)</span>.</li>
+x_n]\)</span> is the dehomogenization of <span
+class="math inline">\(f_i\)</span> with respect to <span
+class="math inline">\(x_0\)</span>.</li>
 <li>Definition of <em>homogenization</em> <span
 class="math inline">\(f^h \in k[x_0, \dotsc, x_n]\)</span> of a
 polynomial <span class="math inline">\(f \in k[x_1, \dotsc,
@@ -1719,6 +1846,10 @@ x_n]\)</span>.</li>
 class="math inline">\(I^h \subseteq k[x_0, \dotsc, x_n]\)</span> of an
 ideal <span class="math inline">\(I \subseteq k[x_1, \dotsc,
 x_n]\)</span>.</li>
+<li>The fact that the homogenization of a Gröbner basis for an ideal
+<span class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span>
+with respect to a graded monomial order yields a set of generators for
+<span class="math inline">\(I^h\)</span>.</li>
 <li>Definition of the <em>projective closure</em> of an algebraic subset
 <span class="math inline">\(V \subseteq \mathbb{A}^n\)</span>, and the
 fact that it is the smallest algebraic subset of <span
@@ -1736,20 +1867,151 @@ href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 8.2
 starting from Proposition 8.2.6, and Section 8.4] or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Sections 2.6 and 4.3].</p>
+<h2 id="exercises-14">Exercises</h2>
+<ol type="1">
+<li>Let <span class="math inline">\(I = \langle y - x^2, z - x^3 \rangle
+\subseteq k[x, y, z]\)</span>. In all of the parts below, homogenization
+refers to homogenizing with respect to <span
+class="math inline">\(w\)</span> to obtain polynomials in <span
+class="math inline">\(k[w, x, y, z]\)</span>.
+<ol type="a">
+<li>Prove that <span class="math inline">\(\langle wz - x^2, w^2z - x^3
+\rangle \subsetneq I^h\)</span> by exhibiting an explicit polynomial
+<span class="math inline">\(f \in I\)</span> such that <span
+class="math inline">\(f^h \notin \langle wz - x^2, w^2z - x^3
+\rangle\)</span>.</li>
+<li>Prove that <span class="math inline">\(G = \{y - x^2, z -
+x^3\}\)</span> is not a Gröbner basis for <span
+class="math inline">\(I\)</span> with respect to <em>any</em> graded
+monomial order. Possible hint: Use Buchberger’s criterion.</li>
+<li>Compute the reduced Gröbner basis <span
+class="math inline">\(G_{\mathrm{grevlex}}\)</span> for <span
+class="math inline">\(I\)</span> with respect to graded reverse
+lexicographic order. You should find that <span
+class="math inline">\(G_{\mathrm{grevlex}} = \{f_1, f_2, f_3\}\)</span>
+for three distinct polynomials <span class="math inline">\(f_1, f_2, f_3
+\in k[x, y, z]\)</span>.</li>
+<li>Compute the reduced Gröbner basis <span
+class="math inline">\(G_{\mathrm{grlex}}\)</span> for <span
+class="math inline">\(I\)</span> with respect to graded lexicographic
+order. You should find that <span
+class="math inline">\(G_{\mathrm{grlex}} = \{f_1, f_2, f_3,
+f_4\}\)</span>, where <span class="math inline">\(f_1, f_2, f_3\)</span>
+are the same polynomials you found in the previous part.</li>
+<li>With <span class="math inline">\(f_1, f_2, f_3, f_4\)</span> as
+above, find polynomials <span class="math inline">\(q_1, q_2, q_3 \in
+k[x, y, z]\)</span> such that <span class="math inline">\(f_4 = q_1 f_1
++ q_2 f_2 + q_3f_3\)</span>.</li>
+<li>For the polynomial <span class="math inline">\(f\)</span> you named
+in part (a), find polynomials <span class="math inline">\(q_1, q_2, q_3
+\in k[w, x, y, z]\)</span> such that <span class="math inline">\(f^h =
+q_1 f_1^h + q_2 f_2^h + q_3 f_3^h\)</span>.</li>
+</ol></li>
+<li>Construct an explicit example of an ideal <span
+class="math inline">\(I \subseteq \R[x_1, \dotsc, x_n]\)</span> such
+that <span class="math inline">\(V_a(I) = \emptyset\)</span> but <span
+class="math inline">\(V_p(I^h) \neq \emptyset\)</span>. Note: Do you see
+why it is crucial for constructing such an example that we be working
+over <span class="math inline">\(\mathbb{R}\)</span>?</li>
+<li><ol type="a">
+<li>Prove that <span class="math inline">\((fg)^h = f^h g^h\)</span> in
+<span class="math inline">\(k[x_0, \dotsc, x_n]\)</span> for any pair of
+polynomials <span class="math inline">\(f, g \in k[x_1, \dotsc,
+x_n]\)</span>.</li>
+<li>Suppose <span class="math inline">\(I \subseteq k[x_0, \dotsc,
+x_n]\)</span> is a homogeneous ideal. Prove that <span
+class="math inline">\(I\)</span> is prime ideal if and only <span
+class="math inline">\(fg \in I\)</span> for homogeneous <span
+class="math inline">\(f, g \in k[x_0, \dotsc, x_n]\)</span> implies that
+<span class="math inline">\(f \in I\)</span> or <span
+class="math inline">\(g \in I\)</span>.</li>
+<li>Suppose <span class="math inline">\(I \subseteq k[x_1, \dotsc,
+x_n]\)</span> is an ideal. Prove that <span
+class="math inline">\(I\)</span> is prime if and only if <span
+class="math inline">\(I^h \subseteq k[x_0, \dotsc, x_n]\)</span> is
+prime.</li>
+</ol></li>
+<li>Let <span class="math inline">\(k\)</span> be algebraically closed.
+Prove that the formula <span class="math display">\[ \phi(a : b) = (a^n
+: a^{n-1}b : a^{n-2}b^2 : \cdots : ab^{n-1} : b^n) \]</span> gives a
+well-defined injective function <span class="math inline">\(\phi :
+\mathbb{P}^1 \to \mathbb{P}^n\)</span> whose image is <span
+class="math inline">\(V(S)\)</span>, where <span class="math inline">\(S
+\subseteq k[x_0, \dotsc, x_n]\)</span> is the set of all of the <span
+class="math inline">\(2 \times 2\)</span> subdeterminants of the <span
+class="math inline">\(2 \times n\)</span> matrix <span
+class="math display">\[ \begin{pmatrix} x_0 &amp; x_1 &amp; x_2 &amp;
+\cdots &amp; x_{n-1} \\ x_1 &amp; x_2 &amp; x_3 &amp; \cdots &amp; x_n
+\end{pmatrix} \]</span> obtained by choosing any pair of columns of this
+matrix.</li>
+<li><ol type="a">
+<li>Show that the formula <span class="math display">\[\nu(x : y : z) =
+(x^2 : xy : y^2 : xz : yz : z^2)\]</span> gives a well-defined function
+<span class="math inline">\(\nu : \mathbb{P}^2 \to
+\mathbb{P}^5\)</span>.</li>
+<li>Is <span class="math inline">\(\nu\)</span> injective? Justify.</li>
+<li>Let <span class="math inline">\(k\)</span> be algebraically closed.
+Prove that the the image of <span class="math inline">\(\nu\)</span> is
+an algebraic subset of <span
+class="math inline">\(\mathbb{P}^5\)</span>. Note: This may be somewhat
+challenging. You first have to find a set <span
+class="math inline">\(S\)</span> of homogeneous polynomials such that
+the image of <span class="math inline">\(\nu\)</span> is <span
+class="math inline">\(V_p(S)\)</span>, and then prove that the image is
+in fact <span class="math inline">\(V_p(S)\)</span>. The image of <span
+class="math inline">\(\nu\)</span> is a <em>Veronese surface</em>.</li>
+</ol></li>
+</ol>
 <h1 id="projective-nullstellensatz">Projective Nullstellensatz</h1>
 <h2 id="core-ideas-15">Core Ideas</h2>
+<ul>
+<li>Nullstellensatz: If <span class="math inline">\(k\)</span> is
+algebraically closed, then <span class="math inline">\(I(V(I)) =
+\sqrt{I}\)</span> for any homogeneous ideal <span
+class="math inline">\(I \subseteq k[x_0, \dotsc, x_n]\)</span> such that
+<span class="math inline">\(V(I) \subseteq \mathbb{P}^n\)</span> is
+nonempty.</li>
+<li>The fact that, if <span class="math inline">\(k\)</span> is
+algebraically closed, then <span class="math inline">\(V(-)\)</span> and
+<span class="math inline">\(I(-)\)</span> are inclusion-reversing
+bijections between algebraic subsets of <span
+class="math inline">\(\mathbb{P}^n\)</span> and radical homogeneous
+ideals contained in <span class="math inline">\(\langle x_0, \dotsc, x_n
+\rangle \subseteq k[x_0, \dotsc, x_n]\)</span>.</li>
+</ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 8.3
-starting from Theorem 8.3.8] or [<a
+starting from Theorem 8.3.8] and/or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Section 4.2].</p>
-<h2 id="exercises-14">Exercises</h2>
+<h2 id="exercises-15">Exercises</h2>
+<p>Note: For all of the following exercises, assume that <span
+class="math inline">\(k\)</span> is algebraically closed, and that <span
+class="math inline">\(V = V_p\)</span> and <span class="math inline">\(I
+= I_p\)</span>.</p>
+<ol type="1">
+<li>Give an example of a homogeneous ideal <span class="math inline">\(I
+\subseteq k[x, y]\)</span> such that <span class="math inline">\(I(V(I))
+\neq \sqrt{I}\)</span>.</li>
+<li>Prove that the only two radical homogeneous ideals <span
+class="math inline">\(I \subseteq k[x_0, \dotsc, x_n]\)</span> such that
+<span class="math inline">\(V(I) = \emptyset\)</span> are <span
+class="math inline">\(I = \langle x_0, \dotsc, x_n \rangle\)</span> and
+<span class="math inline">\(I = k[x_0, \dotsc, x_n]\)</span>.</li>
+<li>A projective variety <span class="math inline">\(V\)</span> is
+<em>irreducible</em> if it cannot be written as a union <span
+class="math inline">\(V = V_1 \cup V_2\)</span> where <span
+class="math inline">\(V_1, V_2\)</span> are proper algebraic subsets of
+<span class="math inline">\(V\)</span>. Prove that, if <span
+class="math inline">\(I\)</span> is a prime homogeneous ideal, then
+<span class="math inline">\(V(I)\)</span> is irreducible.</li>
+</ol>
 <h1 id="projective-hilbert-function">Projective Hilbert Function</h1>
 <h2 id="core-ideas-16">Core Ideas</h2>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 9.3
 starting from page 492].</p>
-<h2 id="exercises-15">Exercises</h2>
+<h2 id="exercises-16">Exercises</h2>
 
 </main>
 
