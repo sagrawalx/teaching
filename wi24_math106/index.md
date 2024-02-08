@@ -128,6 +128,7 @@ Due: {{ ra | replace: "x", "w4fri" | replace: "y", "monomial-orders" }}, [WR]({{
 <td>
 Multivariable Division
 
+Class: [Slides](slides/w5wed.pdf)  
 Due: {{ ra | replace: "x", "w5wed" | replace: "y", "multivariable-division" }}
 </td>
 <td>
