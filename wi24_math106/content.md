@@ -356,7 +356,7 @@ Possible reading: {{ clo15 | replace: "x", "Section 2.4" }} and {{ clo15 | repla
     a. $V(I) = \{(0, \dotsc, 0)\}$. 
     a. $\dim V(I) = 0$.
     a. For each $i = 1, \dotsc, n$, there exists an integer $\ell_i \geq 1$ such that $x_i^{\ell_i} \in I$. 
-1. In Ravi Vakil's game of Chomp, a cookie is placed at every integer point $(n, m)$ in the first quadrant of the plane (ie, with $n, m \geq 0$). Two players take turns choosing a point $(n, m)$ that still has a cookie on it, and eating that cookie and all of the cookies above or to the right of that cookie (ie, every cookie $(n', m')$ with $n' \geq n$ and $m' \geq m$). The $(0,0)$ cookie is poisoned, and the player who eats it loses. Use the Hilbert basis theorem and/or Dickson's lemma to prove that any game of Chomp ends after finitely many moves.
+1. In Ravi Vakil's game of Chomp, a cookie is placed at every integer point $(m, n)$ in the first quadrant of the plane (ie, with $m, n \geq 0$). Two players take turns choosing a point $(m, n)$ that still has a cookie on it, and eating that cookie and all of the cookies above or to the right of that cookie (ie, every cookie $(m', n')$ with $m' \geq m$ and $n' \geq n$). The $(0,0)$ cookie is poisoned, and the player who eats it loses. Use the Hilbert basis theorem and/or Dickson's lemma to prove that any game of Chomp ends after finitely many moves.
 
 # Gröbner Bases
 

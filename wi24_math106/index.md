@@ -134,6 +134,7 @@ Due: {{ ra | replace: "x", "w5wed" | replace: "y", "multivariable-division" }}
 <td>
 Monomial Ideals
 
+Class: [Slides](slides/w5fri.pdf)  
 Due: {{ ra | replace: "x", "w5fri" | replace: "y", "monomial-ideals" }}, [WR]({{ wr }})
 </td>
 </tr>
