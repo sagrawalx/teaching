@@ -417,7 +417,7 @@ Possible reading: {{ clo15 | replace: "x", "Section 2.7" }}.
 1. Let $I = \langle x^2 - y, y + x^2 - 4 \rangle$ in $\mathbb{R}[x, y]$.
     a. Find a Gröbner basis for $I$ with respect to lexicographic order. 
     a. Enumerate the points of $V(I)$.
-1. Let $I = \langle x^2 + y^2 + z^2 - 1, x^2 + z^2 = y, x = z \rangle$ in $\mathbb{C}[x, y, z]$. 
+1. Let $I = \langle x^2 + y^2 + z^2 - 1, x^2 + z^2 - y, x - z \rangle$ in $\mathbb{C}[x, y, z]$. 
     a. Find a Gröbner basis for $I$ with respect to lexicographic order. 
     a. Enumerate the points of $V(I)$. 
 1. Enumerate the points of $V(x^2 + y^2 + z^2 - 1, x^2 + y^2 + z^2 - 2x, 2x - 3y - z)$. 
