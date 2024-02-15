@@ -44,6 +44,8 @@ The "Exercises" are for practice:
 * Sometimes, you might find the solution to an exercise as a proof of a proposition somewhere in one of the two primary references. This is meant to indicate to you that you should understand the core ideas well enough that you can come up with that proof on your own. 
 * The first few exercises in each section are usually the easiest. After the first few exercises, there's no particular order to the exercises and you don't need to do them linearly. Sometimes, doing later problems might give you ideas or tools that are helpful for earlier problems. Sometimes, it may even help to come back to problems you didn't figure out before after you've seen later material.
 
+Many of the exercises are stolen from [primary references](references), sometimes with a minimal amount of adaptation.
+
 # Ring Theory Basics
 
 ## Core Ideas
@@ -327,6 +329,9 @@ Possible reading: {{ clo15 | replace: "x", "Section 2.3" }}. Note that {{ clo15 
     a. Prove that $V$ is an algebraic subset of $\mathbb{A}^3$. 
     a. What is $I(V)$? Find a finite set of generators. 
     a. Prove that $V$ is an irreducible affine variety. 
+1. Suppose $F = (f_1, \dotsc, f_s)$ is a list of polynomials. 
+    a. Is it necessarily true that $\bar{f}_1^F = 0$? 
+    a. Is it necessarily true that $\bar{f}_i^F = 0$ for all $i = 1, \dotsc, s$? 
 <!-- 1. Find dimension as a vector space using division. -->
 
 # Monomial Ideals
@@ -373,7 +378,7 @@ Possible reading: {{ clo15 | replace: "x", "Sections 2.5--6, Definition 2.7.4, a
 
 ## Exercises
 
-1. Let $f_1 = xy^2 - xz + y, f_2 = xy - z^2$, and $f_3 = x - yz^4$ in $k[x, y, z]$. Find an example of a polynomial $f \in \langle f_1, f_2, f_3 \rangle$ such that $\LT(f) \notin \langle \LT(f_1), \LT(f_2), \LT(f_3) \rangle$. 
+1. Let $f_1 = xy^2 - xz + y, f_2 = xy - z^2$, and $f_3 = x - yz^4$ in $k[x, y, z]$. Using graded lexicographic order, find an example of a polynomial $f \in \langle f_1, f_2, f_3 \rangle$ such that $\LT(f) \notin \langle \LT(f_1), \LT(f_2), \LT(f_3) \rangle$. 
 1. Fix a monomial order and an ideal $I \subseteq k[x_1, \dotsc, x_n]$. Suppose $G$ and $G'$ are both Gröbner bases for $I$. Prove that $\bar{f}^G = \bar{f}^{G'}$ for all $f \in k[x_1, \dotsc, x_n]$. 
 1. Fix a monomial order and an ideal $I \subseteq k[x_1, \dotsc, x_n]$. Prove that, for any $f \in k[x_1, \dotsc, x_n]$, there exists a unique pair of polynomials $g, r \in k[x_1, \dotsc, x_n]$ such that $f = g + r$, $g \in I$, and no term of $r$ is divisible by any element of $\LT(I)$. 
 1. The set $G = \{y - x^2, z - x^3\}$ is a Gröbner basis for the ideal $I = \langle G \rangle$ for some monomial order. Which monomial order? Note: $V(I)$ is the (affine) *twisted cubic*. 

@@ -147,6 +147,7 @@ Due: {{ ra | replace: "x", "w5fri" | replace: "y", "monomial-ideals" }}, [WR]({{
 <td>
 Gröbner Bases
 
+Class: [Slides](slides/w6wed.pdf)  
 Due: {{ ra | replace: "x", "w6wed" | replace: "y", "gröbner-bases" }}
 </td>
 <td>
@@ -176,11 +177,10 @@ Due: {{ ra | replace: "x", "w7fri" | replace: "y", "affine-hilbert-function" }},
 <tr>
 <td style="text-align: center;">8</td>
 <td>
-<!--Projective Varieties-->
-<!--Catch-up-->
+Catch Up
 </td>
 <td>
-<!--Homogenization and Dehomogenization-->
+<!--Projective Varieties-->
 </td>
 <td>
 <!--Projective Nullstellensatz-->
@@ -194,9 +194,10 @@ Due: [WR]({{ wr }})
 [Quiz 4](quiz)
 </td>
 <td>
-<!--Projective Hilbert Function-->
+<!--Homogenization and Dehomogenization-->
 </td>
 <td>
+<!--Projective Hilbert Function-->
 
 Due: [WR]({{ wr }})
 </td>
