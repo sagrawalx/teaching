@@ -420,21 +420,21 @@ Possible reading: {{ clo15 | replace: "x", "Section 2.7" }}.
 ## Exercises
 
 1. Let $I = \langle x^2 - y, y + x^2 - 4 \rangle$ in $\mathbb{R}[x, y]$.
-    a. Find a Gröbner basis for $I$ with respect to lexicographic order. 
+    a. Find the reduced Gröbner basis for $I$ with respect to lexicographic order. 
     a. Enumerate the points of $V(I)$.
 1. Let $I = \langle x^2 + y^2 + z^2 - 1, x^2 + z^2 - y, x - z \rangle$ in $\mathbb{C}[x, y, z]$. 
-    a. Find a Gröbner basis for $I$ with respect to lexicographic order. 
+    a. Find the reduced Gröbner basis for $I$ with respect to lexicographic order. 
     a. Enumerate the points of $V(I)$. 
 1. Enumerate the points of $V(x^2 + y^2 + z^2 - 1, x^2 + y^2 + z^2 - 2x, 2x - 3y - z)$. 
 1. Let $I = \langle y - x^2 , xz - y^2 \rangle$ in $\mathbb{R}[x, y, z]$. 
-    a. Find a Gröbner basis for $I$ with respect to colexicographic order. 
+    a. Find the reduced Gröbner basis for $I$ with respect to colexicographic order. 
     a. Sketch a picture of $V(I)$. 
 1. Let $I \subseteq k[x_1, \dotsc, x_n]$ be an ideal. Let $G_{\mathrm{grlex}}$ and $G_{\mathrm{grevlex}}$ be the reduced Gröbner bases of $I$ with respect to graded lexicographic order and graded reverse lexicographic order, respectively. Must $G_{\mathrm{grlex}}$ and $G_{\mathrm{grevlex}}$ have the same number of elements? 
 1. Suppose $a, b, c$ are real numbers satisfying the following equations. 
     $$ \begin{aligned} a + b + c &= 3 \\ a^2 + b^2 + c^3 &= 5 \\ a^3 + b^3 + c^3 &= 7 \end{aligned} $$
     a. What is $a^4 + b^4 + c^4$? 
     a. What is $a^5 + b^5 + c^5$?
-    a. Can you find a formula for $a^k + b^k + c^k$ for any positive integer $k$? (I haven't yet figured out how to do this.)
+    a. Can you find a formula for $a^k + b^k + c^k$ for any positive integer $k$?
 1. Explain in your own words why it makes sense to say that Buchberger's algorithm for finding reduced Gröbner bases simultaneously generalizes both (i) the euclidean algorithm for finding greatest common divisors of single variable polynomials, and (ii) the row reduction algorithm for solving homogeneous linear systems of equations. Hint: You might find it helpful to read through the exercises [above](#gröbner-bases), even if you haven't finished doing all of them yet. 
 
 # Affine Nullstellensatz
@@ -459,8 +459,11 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 1. Suppose $f \in k[x_1, \dotsc, x_n]$ is a irreducible polynomial. 
     a. Prove that $I(V(f)) = \langle f \rangle$. 
     a. Prove that $V(f)$ is irreducible affine variety. 
-1. Prove that irreducible algebraic subsets of $\mathbb{A}^n$ are in bijection with prime ideals in $k[x_1, \dotsc, x_n]$. 
-1. Prove that every maximal ideal in $k[x_1, \dotsc, x_n]$ is of the form $\langle x_1 - a_1, \dotsc, x_n - a_n \rangle$ for some $a_1, \dotsc, a_n \in k$. 
+    a. Construct an explicit example of an irreducible $f \in \mathbb{R}[x_1, \dotsc, x_n]$ for some $n \geq 1$ such that $I(V(f)) \neq \langle f \rangle$. Can you construct an example where $V(f)$ is nonempty? 
+1.  a. Prove that irreducible algebraic subsets of $\mathbb{A}^n$ are in bijection with prime ideals in $k[x_1, \dotsc, x_n]$. 
+    a. Construct an explicit example of a prime ideal $I \subeteq \mathbb{R}[x_1, \dotsc, x_n]$ for some $n \geq 1$ such that $V(I)$ is nonempty and reducible. 
+1.  a. Prove that every maximal ideal in $k[x_1, \dotsc, x_n]$ is of the form $\langle x_1 - a_1, \dotsc, x_n - a_n \rangle$ for some $a_1, \dotsc, a_n \in k$. 
+    a. Give an explicit example of a maximal ideal in $\mathbb{R}[x_1, \dotsc, x_n]$ for some $n \geq 1$ that is not of the form $\langle x_1 - a_1, \dotsc, x_n - a_n \rangle$ for some $a_1, \dotsc, a_n \in \mathbb{R}$. 
 1. Prove that algebraic subsets of any affine variety $V$ are in bijection with radical ideals in $k[V]$.
 1. Let $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal. Prove that $V(I)$ is a finite set if and only if the quotient ring $k[x_1, \dotsc, x_n]/I$ is finite dimensional as a vector space over $k$. Hint: If $V(I)$ is finite, fix a monomial order and an index $i = 1, \dotsc, n$ and then prove that some sufficiently large power of $x_i$ is contained in $\langle \LT(I) \rangle$ by considering the polynomial $$f_i = \prod_{(a_1, \dotsc, a_n) \in V(I)} (x_i - a_i).$$ What does that tell you about the set of monomials that are not contained in $\langle \LT(I) \rangle$?
 
@@ -471,9 +474,9 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 * Definition of the *Hilbert function* $\mathrm{HF}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$. 
 * The fact that $\mathrm{HF}_I(s)$ is equal to the number of monomials of degree at most $s$ that are *not* in $I$ whenever $I$ is a monomial ideal. 
 * The fact that any ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ with respect to any graded monomial order.
-* Definition: The *Hilbert series* $\mathrm{HS}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is the formal series defined by $$\mathrm{HS}_I(z) = \sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.$$
 * The fact that the Hilbert function of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$.
 * Definitions of *dimension* and *index of regularity* of an ideal.
+* Definition: The *Hilbert series* $\mathrm{HS}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is the formal series defined by $$\mathrm{HS}_I(z) = \sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.$$
 
 Possible reading: {{ clo15 | replace: "x", "Sections 9.2 through Proposition 9.2.7" }} and {{ clo15 | replace: "x", "Section 9.3 through Theorem 9.3.8" }}.
 
@@ -519,6 +522,7 @@ Note: Assume throughout that $k$ is infinite.
 An *algebraic subset* of $\mathbb{P}^n$ is one that is of the form $V(S)$ for some $S$. A *projective variety* is an algebraic subset of $\mathbb{P}^n$ for some $n$. 
     - Note 1: Typically, one only considers sets $S$ of homogeneous polynomials, but the definition of $f(P) = 0$ given in {{ ful08 | replace: "x", "Section 4.2, page 45" }} lets us make sense of this for any subset. If you're curious, the exercises below ask you to explore what this means in this generality. 
     - Note 2: If ambiguity can arise between the projective and affine versions of this construction, we write $V_p(S)$ and $V_a(S)$, respectively, to disambiguate. 
+    - Note 3: When $S$ is a set of homogeneous polynomials, the affine variety $V_a(S)$ is called the *cone* of the projective variety $V_p(S)$. 
 * Definition: For a subset $X \subseteq \mathbb{P}^n$, let $$I(X) = \{ f \in k[x_0, \dotsc, x_n] \mid f(P) = 0 \text{ for all } P \in X \}. $$
     - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $I_p(X)$ and $I_a(X)$, respectively, to disambiguate. 
 

@@ -153,6 +153,7 @@ Due: {{ ra | replace: "x", "w6wed" | replace: "y", "gröbner-bases" }}
 <td>
 Buchberger's Algorithm
 
+Class: [Slides](slides/w6fri.pdf)  
 Due: {{ ra | replace: "x", "w6fri" | replace: "y", "buchbergers-algorithm" }}, [WR]({{ wr }})
 </td>
 </tr>
@@ -165,6 +166,7 @@ Due: {{ ra | replace: "x", "w6fri" | replace: "y", "buchbergers-algorithm" }}, [
 <td>
 Affine Nullstellensatz
 
+Class: [Slides](slides/w7wed.pdf)  
 Due: {{ ra | replace: "x", "w7wed" | replace: "y", "affine-nullstellensatz" }}
 </td>
 <td>
@@ -184,6 +186,7 @@ Catch Up
 </td>
 <td>
 <!--Projective Nullstellensatz-->
+
 Due: [WR]({{ wr }})
 </td>
 </tr>
