@@ -1368,8 +1368,9 @@ href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section
 \rangle\)</span> in <span class="math inline">\(\mathbb{R}[x,
 y]\)</span>.
 <ol type="a">
-<li>Find a Gröbner basis for <span class="math inline">\(I\)</span> with
-respect to lexicographic order.</li>
+<li>Find the reduced Gröbner basis for <span
+class="math inline">\(I\)</span> with respect to lexicographic
+order.</li>
 <li>Enumerate the points of <span
 class="math inline">\(V(I)\)</span>.</li>
 </ol></li>
@@ -1377,8 +1378,9 @@ class="math inline">\(V(I)\)</span>.</li>
 + z^2 - y, x - z \rangle\)</span> in <span
 class="math inline">\(\mathbb{C}[x, y, z]\)</span>.
 <ol type="a">
-<li>Find a Gröbner basis for <span class="math inline">\(I\)</span> with
-respect to lexicographic order.</li>
+<li>Find the reduced Gröbner basis for <span
+class="math inline">\(I\)</span> with respect to lexicographic
+order.</li>
 <li>Enumerate the points of <span
 class="math inline">\(V(I)\)</span>.</li>
 </ol></li>
@@ -1388,8 +1390,9 @@ z^2 - 1, x^2 + y^2 + z^2 - 2x, 2x - 3y - z)\)</span>.</li>
 \rangle\)</span> in <span class="math inline">\(\mathbb{R}[x, y,
 z]\)</span>.
 <ol type="a">
-<li>Find a Gröbner basis for <span class="math inline">\(I\)</span> with
-respect to colexicographic order.</li>
+<li>Find the reduced Gröbner basis for <span
+class="math inline">\(I\)</span> with respect to colexicographic
+order.</li>
 <li>Sketch a picture of <span class="math inline">\(V(I)\)</span>.</li>
 </ol></li>
 <li>Let <span class="math inline">\(I \subseteq k[x_1, \dotsc,
@@ -1411,8 +1414,7 @@ class="math display">\[ \begin{aligned} a + b + c &amp;= 3 \\ a^2 + b^2
 <li>What is <span class="math inline">\(a^5 + b^5 + c^5\)</span>?</li>
 <li>Can you find a formula for <span class="math inline">\(a^k + b^k +
 c^k\)</span> for any positive integer <span
-class="math inline">\(k\)</span>? (I haven’t yet figured out how to do
-this.)</li>
+class="math inline">\(k\)</span>?</li>
 </ol></li>
 <li>Explain in your own words why it makes sense to say that
 Buchberger’s algorithm for finding reduced Gröbner bases simultaneously
@@ -1478,14 +1480,34 @@ x_n]\)</span> is a irreducible polynomial.
 \rangle\)</span>.</li>
 <li>Prove that <span class="math inline">\(V(f)\)</span> is irreducible
 affine variety.</li>
+<li>Construct an explicit example of an irreducible <span
+class="math inline">\(f \in \mathbb{R}[x_1, \dotsc, x_n]\)</span> for
+some <span class="math inline">\(n \geq 1\)</span> such that <span
+class="math inline">\(I(V(f)) \neq \langle f \rangle\)</span>. Can you
+construct an example where <span class="math inline">\(V(f)\)</span> is
+nonempty?</li>
 </ol></li>
+<li><ol type="a">
 <li>Prove that irreducible algebraic subsets of <span
 class="math inline">\(\mathbb{A}^n\)</span> are in bijection with prime
 ideals in <span class="math inline">\(k[x_1, \dotsc, x_n]\)</span>.</li>
+<li>Construct an explicit example of a prime ideal <span
+class="math inline">\(I \subeteq \mathbb{R}[x_1, \dotsc, x_n]\)</span>
+for some <span class="math inline">\(n \geq 1\)</span> such that <span
+class="math inline">\(V(I)\)</span> is nonempty and reducible.</li>
+</ol></li>
+<li><ol type="a">
 <li>Prove that every maximal ideal in <span class="math inline">\(k[x_1,
 \dotsc, x_n]\)</span> is of the form <span class="math inline">\(\langle
 x_1 - a_1, \dotsc, x_n - a_n \rangle\)</span> for some <span
 class="math inline">\(a_1, \dotsc, a_n \in k\)</span>.</li>
+<li>Give an explicit example of a maximal ideal in <span
+class="math inline">\(\mathbb{R}[x_1, \dotsc, x_n]\)</span> for some
+<span class="math inline">\(n \geq 1\)</span> that is not of the form
+<span class="math inline">\(\langle x_1 - a_1, \dotsc, x_n - a_n
+\rangle\)</span> for some <span class="math inline">\(a_1, \dotsc, a_n
+\in \mathbb{R}\)</span>.</li>
+</ol></li>
 <li>Prove that algebraic subsets of any affine variety <span
 class="math inline">\(V\)</span> are in bijection with radical ideals in
 <span class="math inline">\(k[V]\)</span>.</li>
@@ -1520,17 +1542,17 @@ class="math inline">\(I\)</span> is a monomial ideal.</li>
 the same Hilbert function as its ideal of leading terms <span
 class="math inline">\(\langle \mathrm{LT}(I) \rangle\)</span> with
 respect to any graded monomial order.</li>
-<li>Definition: The <em>Hilbert series</em> <span
-class="math inline">\(\mathrm{HS}_I\)</span> of an ideal <span
-class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is the
-formal series defined by <span class="math display">\[\mathrm{HS}_I(z) =
-\sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.\]</span></li>
 <li>The fact that the Hilbert function of an ideal <span
 class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is
 eventually a polynomial, called the <em>Hilbert polynomial</em> <span
 class="math inline">\(\mathrm{HP}_I\)</span>.</li>
 <li>Definitions of <em>dimension</em> and <em>index of regularity</em>
 of an ideal.</li>
+<li>Definition: The <em>Hilbert series</em> <span
+class="math inline">\(\mathrm{HS}_I\)</span> of an ideal <span
+class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is the
+formal series defined by <span class="math display">\[\mathrm{HS}_I(z) =
+\sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.\]</span></li>
 </ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Sections 9.2
@@ -1711,6 +1733,10 @@ versions of this construction, we write <span
 class="math inline">\(V_p(S)\)</span> and <span
 class="math inline">\(V_a(S)\)</span>, respectively, to
 disambiguate.</li>
+<li>Note 3: When <span class="math inline">\(S\)</span> is a set of
+homogeneous polynomials, the affine variety <span
+class="math inline">\(V_a(S)\)</span> is called the <em>cone</em> of the
+projective variety <span class="math inline">\(V_p(S)\)</span>.</li>
 </ul></li>
 <li>Definition: For a subset <span class="math inline">\(X \subseteq
 \mathbb{P}^n\)</span>, let <span class="math display">\[I(X) = \{ f \in
