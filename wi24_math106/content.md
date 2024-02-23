@@ -474,7 +474,7 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 * Definition of the *Hilbert function* $\mathrm{HF}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$. 
 * The fact that $\mathrm{HF}_I(s)$ is equal to the number of monomials of degree at most $s$ that are *not* in $I$ whenever $I$ is a monomial ideal. 
 * The fact that any ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ with respect to any graded monomial order.
-* The fact that the Hilbert function of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$.
+* The fact that the Hilbert function of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$. 
 * Definitions of *dimension* and *index of regularity* of an ideal.
 * Definition: The *Hilbert series* $\mathrm{HS}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is the formal series defined by $$\mathrm{HS}_I(z) = \sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.$$
 
@@ -522,7 +522,7 @@ Note: Assume throughout that $k$ is infinite.
 An *algebraic subset* of $\mathbb{P}^n$ is one that is of the form $V(S)$ for some $S$. A *projective variety* is an algebraic subset of $\mathbb{P}^n$ for some $n$. 
     - Note 1: Typically, one only considers sets $S$ of homogeneous polynomials, but the definition of $f(P) = 0$ given in {{ ful08 | replace: "x", "Section 4.2, page 45" }} lets us make sense of this for any subset. If you're curious, the exercises below ask you to explore what this means in this generality. 
     - Note 2: If ambiguity can arise between the projective and affine versions of this construction, we write $V_p(S)$ and $V_a(S)$, respectively, to disambiguate. 
-    - Note 3: When $S$ is a set of homogeneous polynomials, the affine variety $V_a(S)$ is called the *cone* of the projective variety $V_p(S)$. 
+    - Note 3: When $S$ is either a set of homogeneous polynomials or a homogeneous ideal, the affine variety $V_a(S)$ is called the *cone* of the projective variety $V_p(S)$. 
 * Definition: For a subset $X \subseteq \mathbb{P}^n$, let $$I(X) = \{ f \in k[x_0, \dotsc, x_n] \mid f(P) = 0 \text{ for all } P \in X \}. $$
     - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $I_p(X)$ and $I_a(X)$, respectively, to disambiguate. 
 
@@ -602,11 +602,29 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 1. Give an example of a homogeneous ideal $I \subseteq k[x, y]$ such that $I(V(I)) \neq \sqrt{I}$. 
 1. Prove that the only two radical homogeneous ideals $I \subseteq k[x_0, \dotsc, x_n]$ such that $V(I) = \emptyset$ are $I = \langle x_0, \dotsc, x_n \rangle$ and $I = k[x_0, \dotsc, x_n]$. 
 1. A projective variety $V$ is *irreducible* if it cannot be written as a union $V = V_1 \cup V_2$ where $V_1, V_2$ are proper algebraic subsets of $V$. Prove that, if $I$ is a prime homogeneous ideal, then $V(I)$ is irreducible. 
+1. ...
 
 # Projective Hilbert Function
 
 ## Core Ideas
 
+* Definition of the *Hilbert function* of a homogeneous ideal.
+    - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathm{HF}^p_I$ and $mathrm{HF}^a_I$, respectively, to disambiguate. 
+* The fact that any homogeneous ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ for any monomial order. 
+* The fact that the Hilbert function of a homogeneous ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$. 
+    - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathm{HP}^p_I$ and $mathrm{HP}^a_I$, respectively, to disambiguate.
+* Definition of *dimension*, *index of regularity*, and *degree* of a homogeneous ideal. 
+* The fact that, if $I \subseteq k[x_0, \dotsc, x_n]$ is a homogeneous ideal, then $$ \mathrm{HF}^p_I(s) = \mathrm{HF}^a_I(s) - \mathrm{HF}^a(s-1) $$ for all integers $s \geq 1$.
+* The fact that if $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal and $I^h \subseteq k[x_0, x_1, \dotsc, x_n]$$ is its homogenization with respect to $x_0$, then $\mathrm{HF}^p_{I^h}(s) = \mathrm{HF}^a_I(s)$. 
+
 Possible reading: {{ clo15 | replace: "x", "Section 9.3 starting from page 492" }}. 
+
+## Exercises
+
+1. ...
+
+# Bézout's Theorem
+
+## Core Ideas
 
 ## Exercises

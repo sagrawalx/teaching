@@ -27,7 +27,7 @@ It'll cover everything up through [Multivariable Division](content#multivariable
 
 ## Quiz 4
 
-Details TBA
+It'll cover everything up through [Affine Hilbert Functions](content#affine-hilbert-function). Same format as last time, except that this time you are allowed one two-sided handwritten sheet of notes.
 
 ## Quiz 5
 

@@ -170,8 +170,9 @@ Class: [Slides](slides/w7wed.pdf)
 Due: {{ ra | replace: "x", "w7wed" | replace: "y", "affine-nullstellensatz" }}
 </td>
 <td>
-Affine Hilbert Function
+Affine Hilbert Function 1
 
+Class: [Slides](slides/w7fri.pdf)  
 Due: {{ ra | replace: "x", "w7fri" | replace: "y", "affine-hilbert-function" }}, [WR]({{ wr }})
 </td>
 </tr>
@@ -179,15 +180,15 @@ Due: {{ ra | replace: "x", "w7fri" | replace: "y", "affine-hilbert-function" }},
 <tr>
 <td style="text-align: center;">8</td>
 <td>
+Affine Hilbert Function 2
+</td>
+<td>
 Catch Up
 </td>
 <td>
-<!--Projective Varieties-->
-</td>
-<td>
-<!--Projective Nullstellensatz-->
+Projective Varieties
 
-Due: [WR]({{ wr }})
+Due: {{ ra | replace: "x", "w8fri" | replace: "y", "projective-varieties" }}, [WR]({{ wr }})
 </td>
 </tr>
 
@@ -197,22 +198,30 @@ Due: [WR]({{ wr }})
 [Quiz 4](quiz)
 </td>
 <td>
-<!--Homogenization and Dehomogenization-->
+(De)Homogenization
+
+Due: {{ ra | replace: "x", "w9wed" | replace: "y", "homogenization-and-dehomogenization" }}
 </td>
 <td>
-<!--Projective Hilbert Function-->
+Projective Nullstellensatz
 
-Due: [WR]({{ wr }})
+Due: {{ ra | replace: "x", "w9fri" | replace: "y", "projective-nullstellensatz" }}, [WR]({{ wr }})
 </td>
 </tr>
 
 <tr>
 <td style="text-align: center;">10</td>
 <td>
+Projective Hilbert Function
+
+{{ ra | replace: "x", "w9mon" | replace: "y", "projective-hilbert-function" }}
 </td>
 <td>
+Bézout's Theorem
 </td>
 <td>
+(Work Day)
+
 Due: [Project](project), [FR](reflect#final)
 </td>
 </tr>
