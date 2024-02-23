@@ -17,7 +17,7 @@ Reading Assignments (RAs) are labeled by a week number and a day. For example, t
 
 1. Post a "Reading Question" (RQ) to our class [Zulip stream](https://sunnysclasses.zulipchat.com/). 
 
-    - The "topic" of a message that's intended to be an RQ *must* contain a label matching the regex `\[w(\d+)(wed|fri)\]`, followed by something indicating what your RQ is about. For example: 
+    - The "topic" of a message that's intended to be an RQ *must* contain a label matching the regex `\[w(\d+)(mon|wed|fri)\]`, followed by something indicating what your RQ is about. For example: 
     
         - If your RQ for Week 1 Wednesday is about exercise 3 in section 1, you might make the topic `[w1wed] exercise 1.3`.
         - If your RQ for Week 1 Wednesday is about quotient rings, you might make the topic `[w1wed] quotient rings`. 
