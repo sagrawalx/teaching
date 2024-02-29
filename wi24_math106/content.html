@@ -1423,7 +1423,9 @@ divisors of single variable polynomials, and (ii) the row reduction
 algorithm for solving homogeneous linear systems of equations. Hint: You
 might find it helpful to read through the exercises <a
 href="#gröbner-bases">above</a>, even if you haven’t finished doing all
-of them yet.</li>
+of them yet. <!--
+1. Suppose $F = (f_1, \dotsc, f_r)$ are nonzero polynomials in $k[x_1, \dotsc, x_m]$, that $f \in k[x_1, \dotsc, x_n]$, and that $\bar{f}^F \neq 0$. Let $F' = (f_1, \dotsc, f_r, \bar{f}^F)$. Is it true that $\bar{f}^{F'} = 0$?
+--></li>
 </ol>
 <h1 id="affine-nullstellensatz">Affine Nullstellensatz</h1>
 <h2 id="core-ideas-11">Core Ideas</h2>
@@ -1538,6 +1540,19 @@ is equal to the number of monomials of degree at most <span
 class="math inline">\(s\)</span> that are <em>not</em> in <span
 class="math inline">\(I\)</span> whenever <span
 class="math inline">\(I\)</span> is a monomial ideal.</li>
+<li>The fact that the complement of the set of monomials in a monomial
+ideal can be written as a finite disjoint union of translates of
+coordinate subspaces.
+<ul>
+<li>Note: The book proves this statement without the word “disjoint,”
+but the stronger statement above is true.</li>
+</ul></li>
+<li>The fact that the set of monomials of degree at most <span
+class="math inline">\(n\)</span> in <span class="math inline">\(T =
+\alpha + [e_{i_1}, \dotsc, e_{i_m}] \subseteq \mathbb{N}^n\)</span> for
+some <span class="math inline">\(\alpha \in \mathbb{N}^n\)</span> is
+<span
+class="math inline">\(\binom{m+s-|\alpha|}{s-|\alpha|}\)</span>.</li>
 <li>The fact that any ideal <span class="math inline">\(I\)</span> has
 the same Hilbert function as its ideal of leading terms <span
 class="math inline">\(\langle \mathrm{LT}(I) \rangle\)</span> with
@@ -1545,9 +1560,19 @@ respect to any graded monomial order.</li>
 <li>The fact that the Hilbert function of an ideal <span
 class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is
 eventually a polynomial, called the <em>Hilbert polynomial</em> <span
-class="math inline">\(\mathrm{HP}_I\)</span>.</li>
-<li>Definitions of <em>dimension</em> and <em>index of regularity</em>
-of an ideal.</li>
+class="math inline">\(\mathrm{HP}_I\)</span> of <span
+class="math inline">\(I\)</span>, whose leading coefficient is of the
+form <span class="math inline">\(g/d!\)</span> for some integer <span
+class="math inline">\(g \geq 1\)</span>, where <span
+class="math inline">\(d\)</span> is degree of the Hilbert polynomial.
+Then <span class="math inline">\(d\)</span> is called the
+<em>dimension</em> of <span class="math inline">\(I\)</span> and <span
+class="math inline">\(g\)</span> is called the <em>degree</em> of <span
+class="math inline">\(I\)</span>.</li>
+<li>Definition of the <em>index of regularity</em> of an ideal.</li>
+<li>The fact that the dimension of <span
+class="math inline">\(I\)</span> is equal to that of <span
+class="math inline">\(\sqrt{I}\)</span>.</li>
 <li>Definition: The <em>Hilbert series</em> <span
 class="math inline">\(\mathrm{HS}_I\)</span> of an ideal <span
 class="math inline">\(I \subseteq k[x_1, \dotsc, x_n]\)</span> is the
@@ -1574,12 +1599,11 @@ class="math inline">\(d \geq 0\)</span>. Prove that the leading
 coefficient of <span class="math inline">\(\mathrm{HP}_I(s)\)</span> is
 <span class="math inline">\(g/d!\)</span> for some positive integer
 <span class="math inline">\(g\)</span>. This integer is called the
-<em>degree</em> of <span class="math inline">\(I\)</span> (or of <span
-class="math inline">\(V(I)\)</span>). Hint: Explain why it suffices to
-consider the case when <span class="math inline">\(I\)</span> is a
-monomial ideal, and then consider [<a
-href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Proposition
-9.2.7].
+<em>degree</em> of <span class="math inline">\(I\)</span>. Hint: Explain
+why it suffices to consider the case when <span
+class="math inline">\(I\)</span> is a monomial ideal, and then consider
+[<a href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>,
+Proposition 9.2.7].
 <ul>
 <li>Note: The word “degree” is overloaded: the degree of <span
 class="math inline">\(I\)</span> is distinct from the degree of <span
@@ -1626,10 +1650,8 @@ set of generators for <span class="math inline">\(I\)</span> is a
 Gröbner basis with respect to a lexicographic order, but that is not a
 graded order! You might find it convenient to start by computing a
 Gröbner basis with respect to graded reverse lexicographic order.</li>
-<li>What is the index of regularity of <span
-class="math inline">\(I\)</span>?</li>
-<li>What is the degree of <span class="math inline">\(I\)</span>? Note:
-See exercise 2 for the relevant definition of degree.</li>
+<li>Find the Hilbert polynomial, dimension, degree, and index of
+regularity of <span class="math inline">\(I\)</span>.</li>
 </ol></li>
 <li>This problem is about the zero ideal <span
 class="math inline">\(\{0\} \subseteq k[x_1, \dotsc, x_n]\)</span>.
@@ -1690,6 +1712,15 @@ true that <span class="math inline">\(f\)</span> having total degree at
 most <span class="math inline">\(s\)</span> implies that <span
 class="math inline">\(r\)</span> has total degree at most <span
 class="math inline">\(s\)</span>? What about the converse?</li>
+<li>For ideals <span class="math inline">\(I, J \subseteq k[x_1, \dotsc,
+x_n]\)</span>, prove that <span class="math inline">\(\mathrm{HF}_{I
+\cap J} + \mathrm{HF}_{I + J} = \mathrm{HF}_I + \mathrm{HF}_J\)</span>.
+Possible hint: It may be helpful to use [<a
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Proposition
+9.3.1]. <!--
+1. Suppose $I \subseteq k[x_1, \dotsc, x_n]$ is a radical ideal and $V(I) = \emptyset$. Show by example that it need not be the case that $\mathrm{HP}_I = 0$. Can you add any assumptions to ensure that $\mathrm{HP}_I = 0$?
+1. Compute the Hilbert function, Hilbert polynomial, dimension, degree, and index of regularity for $I = \langle x^2 - y^2z \rangle \subseteq k[x, y, z]$. 
+--></li>
 </ol>
 <h1 id="projective-varieties">Projective Varieties</h1>
 <h2 id="core-ideas-13">Core Ideas</h2>
