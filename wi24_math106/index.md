@@ -181,9 +181,13 @@ Due: {{ ra | replace: "x", "w7fri" | replace: "y", "affine-hilbert-function" }},
 <td style="text-align: center;">8</td>
 <td>
 Affine Hilbert Function 2
+
+Class: [Slides](slides/w8mon.pdf)  
 </td>
 <td>
 Catch Up
+
+Class: [Slides](slides/w8wed.pdf)  
 </td>
 <td>
 Projective Varieties

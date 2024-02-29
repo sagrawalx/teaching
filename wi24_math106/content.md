@@ -435,7 +435,9 @@ Possible reading: {{ clo15 | replace: "x", "Section 2.7" }}.
     a. What is $a^4 + b^4 + c^4$? 
     a. What is $a^5 + b^5 + c^5$?
     a. Can you find a formula for $a^k + b^k + c^k$ for any positive integer $k$?
-1. Explain in your own words why it makes sense to say that Buchberger's algorithm for finding reduced Gröbner bases simultaneously generalizes both (i) the euclidean algorithm for finding greatest common divisors of single variable polynomials, and (ii) the row reduction algorithm for solving homogeneous linear systems of equations. Hint: You might find it helpful to read through the exercises [above](#gröbner-bases), even if you haven't finished doing all of them yet. 
+1. Explain in your own words why it makes sense to say that Buchberger's algorithm for finding reduced Gröbner bases simultaneously generalizes both (i) the euclidean algorithm for finding greatest common divisors of single variable polynomials, and (ii) the row reduction algorithm for solving homogeneous linear systems of equations. Hint: You might find it helpful to read through the exercises [above](#gröbner-bases), even if you haven't finished doing all of them yet. <!--
+1. Suppose $F = (f_1, \dotsc, f_r)$ are nonzero polynomials in $k[x_1, \dotsc, x_m]$, that $f \in k[x_1, \dotsc, x_n]$, and that $\bar{f}^F \neq 0$. Let $F' = (f_1, \dotsc, f_r, \bar{f}^F)$. Is it true that $\bar{f}^{F'} = 0$?
+-->
 
 # Affine Nullstellensatz
 
@@ -473,9 +475,13 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 
 * Definition of the *Hilbert function* $\mathrm{HF}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$. 
 * The fact that $\mathrm{HF}_I(s)$ is equal to the number of monomials of degree at most $s$ that are *not* in $I$ whenever $I$ is a monomial ideal. 
+* The fact that the complement of the set of monomials in a monomial ideal can be written as a finite disjoint union of translates of coordinate subspaces.
+    - Note: The book proves this statement without the word "disjoint," but the stronger statement above is true. 
+* The fact that the set of monomials of degree at most $n$ in $T = \alpha + [e_{i_1}, \dotsc, e_{i_m}] \subseteq \mathbb{N}^n$ for some $\alpha \in \mathbb{N}^n$ is $\binom{m+s-|\alpha|}{s-|\alpha|}$. 
 * The fact that any ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ with respect to any graded monomial order.
-* The fact that the Hilbert function of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$. 
-* Definitions of *dimension* and *index of regularity* of an ideal.
+* The fact that the Hilbert function of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$ of $I$, whose leading coefficient is of the form $g/d!$ for some integer $g \geq 1$, where $d$ is degree of the Hilbert polynomial. Then $d$ is called the *dimension* of $I$ and $g$ is called the *degree* of $I$. 
+* Definition of the *index of regularity* of an ideal.
+* The fact that the dimension of $I$ is equal to that of $\sqrt{I}$. 
 * Definition: The *Hilbert series* $\mathrm{HS}_I$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$ is the formal series defined by $$\mathrm{HS}_I(z) = \sum_{s = 0}^\infty \mathrm{HF}_I(s)z^s.$$
 
 Possible reading: {{ clo15 | replace: "x", "Sections 9.2 through Proposition 9.2.7" }} and {{ clo15 | replace: "x", "Section 9.3 through Theorem 9.3.8" }}.
@@ -483,7 +489,7 @@ Possible reading: {{ clo15 | replace: "x", "Sections 9.2 through Proposition 9.2
 ## Exercises
 
 1. Let $I = \langle xy \rangle \subseteq k[x, y]$. For any integer $s \geq 0$, give explicit bases for the finite dimensional $k$-vector spaces $I_{\leq s} = I \cap k[x, y]_{\leq s}$ and $k[x, y]_{\leq s} / I_{\leq s}$. 
-1. Suppose $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal whose Hilbert polynomial $\mathrm{HP}_I$ has degree $d \geq 0$. Prove that the leading coefficient of $\mathrm{HP}_I(s)$ is $g/d!$ for some positive integer $g$. This integer is called the *degree* of $I$ (or of $V(I)$). Hint: Explain why it suffices to consider the case when $I$ is a monomial ideal, and then consider {{ clo15 | replace: "x", "Proposition 9.2.7" }}.
+1. Suppose $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal whose Hilbert polynomial $\mathrm{HP}_I$ has degree $d \geq 0$. Prove that the leading coefficient of $\mathrm{HP}_I(s)$ is $g/d!$ for some positive integer $g$. This integer is called the *degree* of $I$. Hint: Explain why it suffices to consider the case when $I$ is a monomial ideal, and then consider {{ clo15 | replace: "x", "Proposition 9.2.7" }}.
     * Note: The word "degree" is overloaded: the degree of $I$ is distinct from the degree of $\mathrm{HP}_I$! Make sure you're using the correct definition of degree in the following exercises. 
 1. For each of the following ideals $I \subseteq k[x, y]$, (i) compute $\mathrm{HF}_I(s)$ for all integers $s \geq 0$, (ii) compute $\mathrm{HP}_I$, (iii) compute the index of regularity of $I$, and (iv) compute the degree of $I$. Note: See exercise 2 for the relevant definition of degree. 
     a. $I = \langle xy - 1 \rangle$ (ie, the ideal of the hyperbola).
@@ -494,8 +500,7 @@ Possible reading: {{ clo15 | replace: "x", "Sections 9.2 through Proposition 9.2
 1. Suppose $I, J \subseteq k[x_1, \dotsc, x_n]$ are ideals such that $V(I) = V(J)$. Is it true that $\mathrm{HF}_I = \mathrm{HF}_J$? Is it true that $\mathrm{HP}_I = \mathrm{HP}_J$? 
 1. Let $I = \langle y - x^2, z - x^3 \rangle \subseteq k[x, y, z]$ be the ideal of the affine twisted cubic. 
     a. Find $\mathrm{HF}_I(s)$ for all integers $s \geq 0$. Hint: The given set of generators for $I$ is a Gröbner basis with respect to a lexicographic order, but that is not a graded order! You might find it convenient to start by computing a Gröbner basis with respect to graded reverse lexicographic order. 
-    a. What is the index of regularity of $I$?
-    a. What is the degree of $I$? Note: See exercise 2 for the relevant definition of degree. 
+    a. Find the Hilbert polynomial, dimension, degree, and index of regularity of $I$. 
 1. This problem is about the zero ideal $\{0\} \subseteq k[x_1, \dotsc, x_n]$. 
     a. Prove that the Hilbert function is given by $\displaystyle \mathrm{HF}_{\{0\}}(s) = \binom{n+s}{s}$. 
     a. Explain in your own words why the index of regularity of $\{0\}$ is 0.
@@ -509,6 +514,10 @@ Possible reading: {{ clo15 | replace: "x", "Sections 9.2 through Proposition 9.2
     a. Prove that $\mathrm{HP}_I(s) = 3$. 
     a. What is the index of regularity of $I$? Hint: The answer depends on whether or not the three points $a_1, a_2, a_3$ are colinear in $\mathbb{A}^n(k)$. 
 1. Fix a graded monomial order $>$ and let $I$ be an ideal in $k[x_1, \dotsc, x_n]$. Recall that any $f \in k[x_1, \dotsc, x_n]$ can be written uniquely in the form $f = g + r$ where $g \in I$ and no term of $r$ is in $\langle \mathrm{LT}(I) \rangle$. Is it true that $f$ having total degree at most $s$ implies that $r$ has total degree at most $s$? What about the converse?
+1. For ideals $I, J \subseteq k[x_1, \dotsc, x_n]$, prove that $\mathrm{HF}_{I \cap J} + \mathrm{HF}_{I + J} = \mathrm{HF}_I + \mathrm{HF}_J$. Possible hint: It may be helpful to use {{ clo15 | replace: "x", "Proposition 9.3.1" }}. <!--
+1. Suppose $I \subseteq k[x_1, \dotsc, x_n]$ is a radical ideal and $V(I) = \emptyset$. Show by example that it need not be the case that $\mathrm{HP}_I = 0$. Can you add any assumptions to ensure that $\mathrm{HP}_I = 0$?
+1. Compute the Hilbert function, Hilbert polynomial, dimension, degree, and index of regularity for $I = \langle x^2 - y^2z \rangle \subseteq k[x, y, z]$. 
+-->
 
 # Projective Varieties
 
