@@ -569,7 +569,7 @@ Note: For all of the following exercises, assume that $k$ is infinite, that $V =
     a. Prove that if $V$ is nonempty, then $(0, \dotsc, 0) \in C$. 
     a. Show by example that, if $V$ is empty, then $(0, \dotsc, 0)$ may or may not be in $C$. 
 
-# Homogenization and Dehomogenization{{ clo15 | replace: "x", "Section 8.3 starting from Theorem 8.3.8" }}
+# Homogenization and Dehomogenization
 
 ## Core Ideas
 
