@@ -1905,9 +1905,31 @@ class="math inline">\(I\)</span> with respect to any monomial order
 consists of homogeneous polynomials. Hint: Carefully analyze what
 happens when one works through Buchberger’s algorithm starting from a
 homogeneous generating list.</li>
+<li>Let <span class="math inline">\(I\)</span> be a homogeneous ideal in
+<span class="math inline">\(k[x_0, \dotsc, x_n]\)</span>. Let <span
+class="math inline">\(V = V_p(I) \subseteq \mathbb{P}^n\)</span> and
+<span class="math inline">\(C = V_a(I) \subseteq
+\mathbb{A}^{n+1}\)</span>.
+<ol type="a">
+<li>Prove that, if <span class="math inline">\((a_0 : \cdots : a_n) \in
+V\)</span>, then <span class="math inline">\((a_0, \dotsc, a_n) \in
+C\)</span>.</li>
+<li>Prove that, if <span class="math inline">\((a_0, \dotsc, a_n) \in
+C\)</span> and <span class="math inline">\((a_0, \dotsc, a_n) \neq (0,
+\dotsc, 0)\)</span>, then <span class="math inline">\((a_0 : \dotsc :
+a_n) \in V\)</span>.</li>
+<li>Prove that if <span class="math inline">\(V\)</span> is nonempty,
+then <span class="math inline">\((0, \dotsc, 0) \in C\)</span>.</li>
+<li>Show by example that, if <span class="math inline">\(V\)</span> is
+empty, then <span class="math inline">\((0, \dotsc, 0)\)</span> may or
+may not be in <span class="math inline">\(C\)</span>.</li>
+</ol></li>
 </ol>
-<h1 id="homogenization-and-dehomogenization">Homogenization and
-Dehomogenization</h1>
+<h1
+id="homogenization-and-dehomogenizationclo15-section-8.3-starting-from-theorem-8.3.8">Homogenization
+and Dehomogenization[<a
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 8.3
+starting from Theorem 8.3.8]</h1>
 <h2 id="core-ideas-14">Core Ideas</h2>
 <ul>
 <li>Definition of <em>dehomogenization</em> of a homogeneous polynomial
@@ -2075,12 +2097,18 @@ class="math inline">\(\nu\)</span> is a <em>Veronese surface</em>.</li>
 <h1 id="projective-nullstellensatz">Projective Nullstellensatz</h1>
 <h2 id="core-ideas-15">Core Ideas</h2>
 <ul>
-<li>Nullstellensatz: If <span class="math inline">\(k\)</span> is
-algebraically closed, then <span class="math inline">\(I(V(I)) =
-\sqrt{I}\)</span> for any homogeneous ideal <span
-class="math inline">\(I \subseteq k[x_0, \dotsc, x_n]\)</span> such that
-<span class="math inline">\(V(I) \subseteq \mathbb{P}^n\)</span> is
-nonempty.</li>
+<li>Weak projective nullstellensatz: Suppose <span
+class="math inline">\(k\)</span> is algebraically closed. If <span
+class="math inline">\(I\)</span> is a homogeneous ideal, then <span
+class="math inline">\(V(I) = \emptyset\)</span> if and only if <span
+class="math inline">\(\sqrt{I} \supseteq \langle x_0, \dotsc, x_n
+\rangle\)</span>.</li>
+<li>Strong projective nullstellensatz: Suppose <span
+class="math inline">\(k\)</span> is algebraically closed. Then <span
+class="math inline">\(I(V(I)) = \sqrt{I}\)</span> for any homogeneous
+ideal <span class="math inline">\(I \subseteq k[x_0, \dotsc,
+x_n]\)</span> such that <span class="math inline">\(V(I) \subseteq
+\mathbb{P}^n\)</span> is nonempty.</li>
 <li>The fact that, if <span class="math inline">\(k\)</span> is
 algebraically closed, then <span class="math inline">\(V(-)\)</span> and
 <span class="math inline">\(I(-)\)</span> are inclusion-reversing
@@ -2091,7 +2119,7 @@ ideals contained in <span class="math inline">\(\langle x_0, \dotsc, x_n
 </ul>
 <p>Possible reading: [<a
 href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Section 8.3
-starting from Theorem 8.3.8] and/or [<a
+starting from Theorem 8.3.9] and/or [<a
 href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">Ful08</a>,
 Section 4.2].</p>
 <h2 id="exercises-15">Exercises</h2>
@@ -2115,7 +2143,19 @@ class="math inline">\(V_1, V_2\)</span> are proper algebraic subsets of
 <span class="math inline">\(V\)</span>. Prove that, if <span
 class="math inline">\(I\)</span> is a prime homogeneous ideal, then
 <span class="math inline">\(V(I)\)</span> is irreducible.</li>
-<li>…</li>
+<li>Prove the statement of the weak projective nullstellensatz given
+above (namely, that if <span class="math inline">\(I\)</span> is a
+homogeneous ideal, then <span class="math inline">\(V(I) =
+\emptyset\)</span> if and only if <span class="math inline">\(\sqrt{I}
+\supseteq \langle x_0, \dotsc, x_n \rangle\)</span>). Note: Don’t use
+the statement of [<a
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Theorem
+8.3.8]. There’s a more direct argument for this statement than the one
+given in the proof of that theorem. You’re welcome to inspect the proof
+given there for ideas, but it’s not strictly necessary, and in fact, you
+may actually get more ideas by studying the proof of [<a
+href="https://doi.org/10.1007/978-3-319-16721-3">CLO15</a>, Theorem
+8.3.9].</li>
 </ol>
 <h1 id="projective-hilbert-function">Projective Hilbert Function</h1>
 <h2 id="core-ideas-16">Core Ideas</h2>
