@@ -572,7 +572,7 @@ Note: For all of the following exercises, assume that $k$ is infinite, that $V =
 * Definition of *homogenization* $f^h \in k[x_0, \dotsc, x_n]$ of a polynomial $f \in k[x_1, \dotsc, x_n]$.
 * Definition of *homogenization* $I^h \subseteq k[x_0, \dotsc, x_n]$ of an ideal $I \subseteq k[x_1, \dotsc, x_n]$. 
 * The fact that the homogenization of a Gröbner basis for an ideal $I \subseteq k[x_1, \dotsc, x_n]$ with respect to a graded monomial order yields a set of generators for $I^h$. 
-* Definition of the *projective closure* of an algebraic subset $V \subseteq \mathbb{A}^n$, and the fact that it is the smallest algebraic subset of $\mathbb{P}^n$ containing $V$ when $\mathbb{A}^n$ is identified with $U_0 \subseteq \mathbb{P}^n$. 
+* Definition of the *projective closure* of an algebraic subset $V \subseteq \mathbb{A}^n$ as $V_p(I_a(V)^h)$, and the fact that it is the smallest algebraic subset of $\mathbb{P}^n$ containing $V$ when $\mathbb{A}^n$ is identified with $U_0 \subseteq \mathbb{P}^n$. 
 * The fact that, if $k$ is algebraically closed, then the projective closure of $V_a(I)$ is $V_p(I^h)$. 
 * The fact that there is nothing special about the index 0 in any of the above bullet points, i.e., that everything above can be done with any index $j = 0, 1, \dotsc, n$. 
 
@@ -587,6 +587,9 @@ Possible reading: {{ clo15 | replace: "x", "Section 8.2 starting from Propositio
     a. Compute the reduced Gröbner basis $G_{\mathrm{grlex}}$ for $I$ with respect to graded lexicographic order. You should find that $G_{\mathrm{grlex}} = \{f_1, f_2, f_3, f_4\}$, where $f_1, f_2, f_3$ are the same polynomials you found in the previous part. 
     a. With $f_1, f_2, f_3, f_4$ as above, find polynomials $q_1, q_2, q_3 \in k[x, y, z]$ such that $f_4 = q_1 f_1 + q_2 f_2 + q_3f_3$. 
     a. For the polynomial $f$ you named in part (a), find polynomials $q_1, q_2, q_3 \in k[w, x, y, z]$ such that $f^h = q_1 f_1^h + q_2 f_2^h + q_3 f_3^h$. 
+1. Let $V = V_p(wy - x^2, wz - xy, xz - y^2) \subseteq \mathbb{P}^3$. Let $U = \{(w : x : y : z) \mid w \neq 0\}$ and identify $U$ with $\mathbb{A}^3$ with coordinates $(x, y, z)$. 
+    a. Prove that $U \cap V = V_a(y - x^2, z - x^3)$. 
+    a. Prove that $V$ is the projective closure of $V_a(y - x^2, z - x^3)$. 
 1.  a. Construct an explicit example of an ideal $I \subseteq \R[x_1, \dotsc, x_n]$ such that $V_a(I) = \emptyset$ but $V_p(I^h) \neq \emptyset$. 
     a. Explain why no such ideal exists if we replace $\mathbb{R}$ with $\mathbb{C}$. 
 1.  a. Is it true that $(fg)^h = f^h g^h$ in $k[x_0, \dotsc, x_n]$ for any pair of polynomials $f, g \in k[x_1, \dotsc, x_n]$? 
