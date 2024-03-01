@@ -622,7 +622,11 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 
 1. Give an example of a homogeneous ideal $I \subseteq k[x, y]$ such that $I(V(I)) \neq \sqrt{I}$. 
 1. Prove that the only two radical homogeneous ideals $I \subseteq k[x_0, \dotsc, x_n]$ such that $V(I) = \emptyset$ are $I = \langle x_0, \dotsc, x_n \rangle$ and $I = k[x_0, \dotsc, x_n]$. 
-1. A projective variety $V$ is *irreducible* if it cannot be written as a union $V = V_1 \cup V_2$ where $V_1, V_2$ are proper algebraic subsets of $V$. Prove that, if $I$ is a prime homogeneous ideal, then $V(I)$ is irreducible.
+1. A projective variety $V$ is *irreducible* if it cannot be written as a union $V = V_1 \cup V_2$ where $V_1, V_2$ are proper algebraic subsets of $V$. 
+    a. Prove that, if $I$ is a prime homogeneous ideal, then $V(I)$ is irreducible.
+    a. Prove that, if $I$ is a radical homogeneous ideal and $V(I)$ is irreducible, then $I$ is prime. 
+    a. Give an example of a non-radical (hence non-prime) homogeneous ideal such that $V(I)$ is irreducible. Note that your example should work over an algebraically closed field!
+    a. Explain why prime homogeneous ideals in $k[x_0, \dotsc, x_n]$ are in bijection with irreducible algebraic subsets of $\mathbb{P}^n(k)$. 
 1. Prove the statement of the weak projective nullstellensatz given above (namely, that if $I$ is a homogeneous ideal, then $V(I) = \emptyset$ if and only if $\sqrt{I} \supseteq \langle x_0, \dotsc, x_n \rangle$). Note: Don't use the statement of {{ clo15 | replace: "x", "Theorem 8.3.8" }}. There's a more direct argument for this statement than the one given in the proof of that theorem. You're welcome to inspect the proof given there for ideas, but it's not strictly necessary, and in fact, you may actually get more ideas by studying the proof of {{ clo15 | replace: "x", "Theorem 8.3.9" }}. 
 
 # Projective Hilbert Function

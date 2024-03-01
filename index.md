@@ -16,7 +16,6 @@ Here is a partial list of course webpages in this archive. For brevity, I've mos
 ## UC San Diego
 
 * Spring 2023. [Math 11 - Probability and Statistics](sp23_math11).
-* Winter 2023. [Math 187A - Cryptography](wi23_math187a).
 * Fall 2022. [Math 103A - Modern Algebra 1](fa22_math103a).
 
 ## Colorado College

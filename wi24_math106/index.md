@@ -192,6 +192,7 @@ Class: [Slides](slides/w8wed.pdf)
 <td>
 Projective Varieties
 
+Class: [Slides](slides/w8fri.pdf)  
 Due: {{ ra | replace: "x", "w8fri" | replace: "y", "projective-varieties" }}, [WR]({{ wr }})
 </td>
 </tr>
