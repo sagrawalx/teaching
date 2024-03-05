@@ -621,7 +621,7 @@ Possible reading: {{ clo15 | replace: "x", "Section 8.3 starting from Theorem 8.
 
 ## Exercises
 
-Note: For all of the following exercises, assume that $k$ is algebraically closed, and that $V = V_p$ and $I = I_p$. 
+Note: For all of the following exercises, assume that $k$ is algebraically closed, and that $V = V_p$ and $I = I_p$. There are not many exercises here. If none of the above appeal to you for your reading assignment, you are welcome to choose an exercise from one of the previous sections that you haven't already done for this reading assignment!
 
 1. Give an example of a homogeneous ideal $I \subseteq k[x, y]$ such that $I(V(I)) \neq \sqrt{I}$. 
 1. Prove that the only two radical homogeneous ideals $I \subseteq k[x_0, \dotsc, x_n]$ such that $V(I) = \emptyset$ are $I = \langle x_0, \dotsc, x_n \rangle$ and $I = k[x_0, \dotsc, x_n]$. 
@@ -638,7 +638,7 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 
 * Definition of the *Hilbert function* of a homogeneous ideal.
     - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathm{HF}^p_I$ and $mathrm{HF}^a_I$, respectively, to disambiguate. 
-* The fact that any homogeneous ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ for any monomial order. 
+* The fact that any homogeneous ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ for *any* monomial order. 
 * The fact that the Hilbert function of a homogeneous ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$. 
     - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathm{HP}^p_I$ and $mathrm{HP}^a_I$, respectively, to disambiguate.
 * Definition of *dimension*, *index of regularity*, and *degree* of a homogeneous ideal. 
