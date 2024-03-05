@@ -605,6 +605,9 @@ Possible reading: {{ clo15 | replace: "x", "Section 8.2 starting from Propositio
 1.  a. Show that the formula $$\nu(x : y : z) = (x^2 : xy : y^2 : xz : yz : z^2)$$ gives a well-defined function $\nu : \mathbb{P}^2 \to \mathbb{P}^5$. 
     a. Is $\nu$ injective?
     a. Let $k$ be algebraically closed. Prove that the the image of $\nu$ is an algebraic subset of $\mathbb{P}^5$. Note: This may be somewhat challenging. You first have to find a set $S$ of homogeneous polynomials such that the image of $\nu$ is $V_p(S)$, and then prove that the image is in fact $V_p(S)$. The image of $\nu$ is a *Veronese surface*. 
+1. For this problem, fix using graded reverse lexicographic order on both $k[x_0, \dotsc, x_{n-1}]$ and $k[x_0, \dotsc, x_{n-1}, x_n]$. Also, homogenization of polynomials in $k[x_0, \dotsc, x_{n-1}]$ referes to homogenization with respect to $x_n$. Let $I \subseteq k[x_0, \dotsc, x_{n-1}]$ be an ideal. 
+    a. Prove that, if $G$ is a Gröbner basis for $I$, then $G^h$ is a Gröbner basis for $I^h$. 
+    a. If $G$ is the reduced Gröbner basis for $I$, must $G^h$ be the reduced Gröbner basis for $I^h$? 
 
 # Projective Nullstellensatz
 
