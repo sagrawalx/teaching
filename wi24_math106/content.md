@@ -637,10 +637,10 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
 ## Core Ideas
 
 * Definition of the *Hilbert function* of a homogeneous ideal.
-    - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathm{HF}^p_I$ and $mathrm{HF}^a_I$, respectively, to disambiguate. 
+    - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathrm{HF}^p_I$ and $\mathrm{HF}^a_I$, respectively, to disambiguate. 
 * The fact that any homogeneous ideal $I$ has the same Hilbert function as its ideal of leading terms $\langle \mathrm{LT}(I) \rangle$ for *any* monomial order. 
 * The fact that the Hilbert function of a homogeneous ideal $I \subseteq k[x_1, \dotsc, x_n]$ is eventually a polynomial, called the *Hilbert polynomial* $\mathrm{HP}_I$. 
-    - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathm{HP}^p_I$ and $mathrm{HP}^a_I$, respectively, to disambiguate.
+    - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathrm{HP}^p_I$ and $\mathrm{HP}^a_I$, respectively, to disambiguate.
 * Definition of *dimension*, *index of regularity*, and *degree* of a homogeneous ideal. 
 * The fact that, if $I \subseteq k[x_0, \dotsc, x_n]$ is a homogeneous ideal, then $$ \mathrm{HF}^p_I(s) = \mathrm{HF}^a_I(s) - \mathrm{HF}^a(s-1) $$ for all integers $s \geq 1$.
 * The fact that if $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal and $I^h \subseteq k[x_0, x_1, \dotsc, x_n]$$ is its homogenization with respect to $x_0$, then $\mathrm{HF}^p_{I^h}(s) = \mathrm{HF}^a_I(s)$. 
