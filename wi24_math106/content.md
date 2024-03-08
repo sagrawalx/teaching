@@ -643,7 +643,7 @@ Note: For all of the following exercises, assume that $k$ is algebraically close
     - Note: If ambiguity can arise between the projective and affine versions of this construction, we write $\mathrm{HP}^p_I$ and $\mathrm{HP}^a_I$, respectively, to disambiguate.
 * Definition of *dimension*, *index of regularity*, and *degree* of a homogeneous ideal. 
 * The fact that, if $I \subseteq k[x_0, \dotsc, x_n]$ is a homogeneous ideal, then $$ \mathrm{HF}^p_I(s) = \mathrm{HF}^a_I(s) - \mathrm{HF}^a(s-1) $$ for all integers $s \geq 1$.
-* The fact that if $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal and $I^h \subseteq k[x_0, x_1, \dotsc, x_n]$$ is its homogenization with respect to $x_0$, then $\mathrm{HF}^p_{I^h}(s) = \mathrm{HF}^a_I(s)$. 
+* The fact that if $I \subseteq k[x_1, \dotsc, x_n]$ is an ideal and $I^h \subseteq k[x_0, x_1, \dotsc, x_n]$ is its homogenization with respect to $x_0$, then $\mathrm{HF}^p_{I^h}(s) = \mathrm{HF}^a_I(s)$. 
 
 Possible reading: {{ clo15 | replace: "x", "Section 9.3 starting from page 492" }}. 
 
