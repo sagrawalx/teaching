@@ -205,6 +205,7 @@ Due: {{ ra | replace: "x", "w8fri" | replace: "y", "projective-varieties" }}, [W
 <td>
 (De)Homogenization
 
+Class: [Slides](slides/w9wed.pdf)  
 Due: {{ ra | replace: "x", "w9wed" | replace: "y", "homogenization-and-dehomogenization" }}
 </td>
 <td>

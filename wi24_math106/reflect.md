@@ -41,13 +41,10 @@ At the end of weeks 2--9, take a few minutes to fill out the [Weekly Reflection 
 
 ## Final Reflection {#final}
 
-TBA
-<!--
 Write up responses to all of the following (around 250 words each). Submit via Gradescope.
 
-1. *Cool Idea.* Give an example of an idea from this class that you found creative, beautiful, useful, or just "cool" in some way. Explain the idea briefly as you would explain it to someone who hasn't taken this class before, and then write about what you find creative/beautiful/useful/cool/etc about it. The idea could be a concept or technique you learned that you found particularly compelling, or an example of creative problem-solving that you encountered in your own work or in someone else's. You might also reflect on how mathematical creativity/beauty/coolness is similar to, or different from, other kinds of creativity/beauty/coolness/etc that human beings encounter. 
+1. *Cool Idea.* Give an example of an idea from this class that you found creative, beautiful, useful, or just "cool" in some way. Explain the idea briefly as you would explain it to someone who hasn't taken this class before, and then write about what you find creative/beautiful/useful/cool/etc about it. The idea could be a concept or technique you learned that you found particularly compelling, or an example of creative problem-solving that you encountered in your own work or in someone else's. You might also use this as an opportunity to reflect on how mathematical creativity/beauty/coolness/etc is similar to, or different from, other kinds of creativity/beauty/coolness/etc that human beings encounter. 
 
 2. *Persistence.* Write about one specific problem you worked on this quarter that you struggled to understand and solve, and explain how the struggle itself was valuable. It can be any problem you encountered this quarter. Describe the problem and your struggle with it. If you overcame it, describe how. Did you have a "Eureka!" moment, and if so, what seemed to bring it about? Do you feel that this struggle built aspects of character that might benefit you in future ventures (endurance, self-confidence, growth mindset, etc)?
 
 3. *Meta-learning.* Every week this quarter, you spent some time reflecting on your (mathematical) learning habits by filling out the Weekly Reflection Form. You used this to tell me about what you were doing to learn things, what you weren't doing, what you were hoping to change about your learning habits, etc. Describe one thing you learned about your learning habits this quarter. Did you discover that you weren't doing something that maybe you should have been doing, or that you were doing something that you shouldn't have been doing? If you set a goal for yourself to change one of your learning habits and followed through on it, what did you find? Was there a learning habit you acquired this quarter that you hope to carry with you into the future?
--->

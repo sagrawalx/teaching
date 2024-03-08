@@ -621,7 +621,7 @@ Possible reading: {{ clo15 | replace: "x", "Section 8.3 starting from Theorem 8.
 
 ## Exercises
 
-Note: For all of the following exercises, assume that $k$ is algebraically closed, and that $V = V_p$ and $I = I_p$. There are not many exercises here. If none of the above appeal to you for your reading assignment, you are welcome to choose an exercise from one of the previous sections that you haven't already done for this reading assignment!
+Note: For all of the following exercises, assume that $k$ is algebraically closed, and that $V = V_p$ and $I = I_p$. There are not many exercises here. If none of the above appeal to you for your reading assignment, you are welcome to choose an exercise from one of the previous sections that you haven't already done yet!
 
 1. Give an example of a homogeneous ideal $I \subseteq k[x, y]$ such that $I(V(I)) \neq \sqrt{I}$. 
 1. Prove that the only two radical homogeneous ideals $I \subseteq k[x_0, \dotsc, x_n]$ such that $V(I) = \emptyset$ are $I = \langle x_0, \dotsc, x_n \rangle$ and $I = k[x_0, \dotsc, x_n]$. 
@@ -649,10 +649,18 @@ Possible reading: {{ clo15 | replace: "x", "Section 9.3 starting from page 492" 
 
 ## Exercises
 
-1. ...
+Note: For all of the following, use the projective Hilbert function (not the affine one). There are not many exercises here. If none of the above appeal to you for your reading assignment, you are welcome to choose an exercise from one of the previous sections that you haven't already done yet!
 
-# Bézout's Theorem
-
-## Core Ideas
-
-## Exercises
+1. Compute the (projective!) Hilbert polynomial, dimension, and degree of the following homogeneous ideals. 
+    a. $\langle x^2 - y^2, x^3 - x^2y + y^3 \rangle$
+    a. $\langle y^2 - xz, x^2y - z^2w, x^3-yzw \rangle$
+    a. $\langle wy - x^2, xz - y^2, wz - xy \rangle$
+    a. $\langle ad - bc \rangle$
+1. Suppose $I \subseteq J$ are homogeneous ideals in $k[x_0, \dotsc, x_n]$. Prove that the dimension of $I$ is at least the dimension of $J$. 
+1.  a. Suppose $k$ is algebraically closed and $f \in k[x_0, \dotsc, x_n]$ is nonconstant, homogeneous, and irreducible. What is the dimension of the homogeneous ideal $\langle f \rangle$? 
+    a. Is your answer from part (a) still true without assuming that $k$ is algebraically closed? 
+    a. Is your answer from part (a) still true without assuming that $f$ is irreducible? 
+1. Let $I$ be a homogeneous ideal in $k[x_0, \dotsc, x_n]$ and let $V = V_p(I)$. 
+    a. Prove that $V$ is a finite set if and only if the dimension of $I$ is 0. 
+    a. Suppose $V$ is finite. Prove that the cardinality of $V$ is at most the degree of $I$. 
+    a. Give examples to show that the cardinality of $V$ is sometimes equal to the degree of $I$, and sometimes it's strictly less. 
