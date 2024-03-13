@@ -31,4 +31,4 @@ It'll cover everything up through [Affine Hilbert Functions](content#affine-hilb
 
 ## Quiz 5
 
-Details TBA
+It'll cover everything up through [Projective Hilbert Functions](content#projective-hilbert-function). Same format as last time (including the sheet of notes). 

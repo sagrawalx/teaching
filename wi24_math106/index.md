@@ -211,6 +211,7 @@ Due: {{ ra | replace: "x", "w9wed" | replace: "y", "homogenization-and-dehomogen
 <td>
 Projective Nullstellensatz
 
+Class: [Slides](slides/w9fri.pdf)  
 Due: {{ ra | replace: "x", "w9fri" | replace: "y", "projective-nullstellensatz" }}, [WR]({{ wr }})
 </td>
 </tr>
