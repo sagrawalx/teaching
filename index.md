@@ -7,7 +7,7 @@ This website (and the associated [GitHub repository](https://github.com/sagrawal
 
 # Current
 
-* Winter 2023. [Math 106 - Algebraic Geometry](wi24_math106). 
+* Spring 2024. [Math 187A - Cryptography](sp24_math187a).
 
 # Archive
 
@@ -15,6 +15,7 @@ Here is a partial list of course webpages in this archive. For brevity, I've mos
 
 ## UC San Diego
 
+* Winter 2023. [Math 106 - Algebraic Geometry](wi24_math106). 
 * Spring 2023. [Math 11 - Probability and Statistics](sp23_math11).
 * Fall 2022. [Math 103A - Modern Algebra 1](fa22_math103a).
 
