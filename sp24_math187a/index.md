@@ -15,7 +15,7 @@ banner: Spring 2024 — Math 187A
 * Class, Discussion, and Office Hours: [Calendar]({{ cal }})
 * Notes: [Introduction to Cryptography](/crypt/)
 * [Reading Assignments](read), [Reflection Assignments](reflect), [Quizzes](quiz)
-* [Other Resources](resources), [Canvas](https://canvas.ucsd.edu/courses/55190), [Voting Flashcard](flashcard.pdf)
+* [Other Resources](resources), [Gradescope](https://www.gradescope.com/courses/755790), [Canvas](https://canvas.ucsd.edu/courses/55190), [Voting Flashcard](flashcard.pdf)
 
 # Schedule
 
