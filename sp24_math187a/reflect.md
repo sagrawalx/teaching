@@ -1,6 +1,6 @@
 ---
 title: Reflection Assignments
-banner: Winter 2023 — Math 187A
+banner: Spring 2024 — Math 187A
 ---
 
 # Reflection Assignments
