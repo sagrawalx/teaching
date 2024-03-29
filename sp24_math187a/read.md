@@ -47,6 +47,7 @@ In order to complete your RA, you need to do two things:
         - Asking a question about, or sharing something about, how to use software to do relevant computations.
         - Responding to a relevant question that someone else posted. 
         - Sharing something relevant that you found confusing at first, but then managed to figure out. 
+        - Summarizing the key ideas in the reading in your own words. 
         
         Note that you can [typeset math](https://zulip.com/help/format-your-message-using-markdown#latex), [upload images](https://zulip.com/help/share-and-upload-files), and [share code](https://zulip.com/help/format-your-message-using-markdown#code) in Zulip messages.
     
