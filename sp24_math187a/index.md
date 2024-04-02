@@ -35,6 +35,7 @@ RAs are due at 6am. Everything else is due at 11:59pm.
 <td>
 Introduction
 
+Class: [Slides](slides/w1tue.pdf)
 </td>
 <td>
 Rectangular Transposition, Masonic Cipher, Caesar Cipher
