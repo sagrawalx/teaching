@@ -19,7 +19,7 @@ Below you'll find information about quiz corrections. Specific information about
 
 ## Quiz 1 {#q1}
 
-TBA
+Through 2.6. 
 
 ## Quiz 2 {#q2}
 
