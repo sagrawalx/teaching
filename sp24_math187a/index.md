@@ -40,6 +40,7 @@ Class: [Slides](slides/w1tue.pdf)
 <td>
 Rectangular Transposition, Masonic Cipher, Caesar Cipher
 
+Class: [Slides](slides/w1thu.pdf)
 Due: {{ ra | replace: "x", "w1thu" }}, [MA](reflect#autobio)
 </td>
 </tr>
