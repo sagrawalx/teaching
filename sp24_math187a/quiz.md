@@ -19,7 +19,7 @@ Below you'll find information about quiz corrections. Specific information about
 
 ## Quiz 1 {#q1}
 
-Through 2.6. There are 8 questions. 
+It'll cover through 2.6. There will be 8 questions. 
 
 ## Quiz 2 {#q2}
 
