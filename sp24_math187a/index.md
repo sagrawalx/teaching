@@ -50,6 +50,7 @@ Due: {{ ra | replace: "x", "w1thu" }}, [MA](reflect#autobio)
 <td>
 Modular Arithmetic, GCDs
 
+Class: [Slides](slides/w2tue.pdf)
 Due: {{ ra | replace: "x", "w2tue" }}
 </td>
 <td>
