@@ -77,6 +77,7 @@ Due: {{ ra | replace: "x", "w3thu" }}, [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">4</td>
 <td>
+Frequency Analysis, Probability
 
 Due: {{ ra | replace: "x", "w4tue" }}
 </td>
@@ -90,10 +91,12 @@ Due: [QC1](quiz#corrections), [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">5</td>
 <td>
+Index of Coincidence, Breaking Vignère
 
 Due: {{ ra | replace: "x", "w5tue" }}
 </td>
 <td>
+Breaking Rectangular Transposition, Known Plaintext Attack, Perfect Secrecy
 
 Due: {{ ra | replace: "x", "w5thu" }}, [WR]({{ wr }})
 </td>
