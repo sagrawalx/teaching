@@ -10,7 +10,7 @@ banner: Spring 2024 — Math 187A
 
 * [Course Syllabus](syllabus)
 * Instructor: Sunny Agrawal
-* TAs: Nik (A01-2), Shubhankar (A03-4), Zichen (A05-6), Chase (A07-8)
+* TAs: Nik Castro (A01-2), Shubhankar Sahai (A03-4), Zichen He (A05-6), Chase Wilson (A07-8)
 * Class Communication: [Zulip](https://sunnysclasses.zulipchat.com/)
 * Class, Discussion, and Office Hours: [Calendar]({{ cal }})
 * Notes: [Introduction to Cryptography](/crypt/)
