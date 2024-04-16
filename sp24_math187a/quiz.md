@@ -23,17 +23,13 @@ It'll cover through 2.6. There'll be 8 questions.
 
 ## Quiz 2 {#q2}
 
-TBA
+It'll cover through 2.14. There'll be 8 questions. 
 
 ## Quiz 3 {#q3}
 
 TBA
 
 ## Quiz 4 {#q4}
-
-TBA
-
-## Quiz 5 {#q5}
 
 TBA
 

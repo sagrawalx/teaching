@@ -40,7 +40,7 @@ Class: [Slides](slides/w1tue.pdf)
 <td>
 Rectangular Transposition, Masonic Cipher, Caesar Cipher
 
-Class: [Slides](slides/w1thu.pdf)
+Class: [Slides](slides/w1thu.pdf)  
 Due: {{ ra | replace: "x", "w1thu" }}, [MA](reflect#autobio)
 </td>
 </tr>
@@ -50,7 +50,7 @@ Due: {{ ra | replace: "x", "w1thu" }}, [MA](reflect#autobio)
 <td>
 Modular Arithmetic, GCDs
 
-Class: [Slides](slides/w2tue.pdf)
+Class: [Slides](slides/w2tue.pdf)  
 Due: {{ ra | replace: "x", "w2tue" }}
 </td>
 <td>
@@ -65,6 +65,7 @@ Due: [WR]({{ wr }})
 <td>
 Affine Cipher, Simple Substitution, Modular Linear Algebra, Hill Cipher
 
+Class: [Slides](slides/w3tue.pdf)  
 Due: {{ ra | replace: "x", "w3tue" }}
 </td>
 <td>
