@@ -71,6 +71,7 @@ Due: {{ ra | replace: "x", "w3tue" }}
 <td>
 Playfair Cipher, Vignère Cipher, One-Time Pad
 
+Class: [Slides](slides/w3thu.pdf)  
 Due: {{ ra | replace: "x", "w3thu" }}, [WR]({{ wr }})
 </td>
 </tr>
