@@ -81,6 +81,7 @@ Due: {{ ra | replace: "x", "w3thu" }}, [WR]({{ wr }})
 <td>
 Frequency Analysis, Probability
 
+Class: [Slides](slides/w4tue.pdf)  
 Due: {{ ra | replace: "x", "w4tue" }}
 </td>
 <td>
