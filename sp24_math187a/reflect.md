@@ -37,7 +37,7 @@ You should write ~500 words (unless you would like to write your autobiography i
 
 ## Weekly Reflections {#weekly}
 
-Towards the end of weeks $n = 2, \dotsc, 9$, you should take a few minutes to fill out the [Weekly Reflection Form](https://docs.google.com/forms/d/e/1FAIpQLSdAFyF-xoYq4YORUEpEGP5zlwq8iBqCqNEkdoUh0ia_yAHPfg/viewform). Your reflection for week $n$ is due by 4pm PT on Friday of week $n$.
+Towards the end of weeks $n = 2, \dotsc, 9$, you should take a few minutes to fill out the [Weekly Reflection Form](https://docs.google.com/forms/d/e/1FAIpQLSdAFyF-xoYq4YORUEpEGP5zlwq8iBqCqNEkdoUh0ia_yAHPfg/viewform). Your reflection for week $n$ is due by 11:59pm PT on Thursday of week $n$.
 
 ## Final Reflection {#final}
 
