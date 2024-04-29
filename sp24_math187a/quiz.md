@@ -27,7 +27,7 @@ It'll cover through 2.14. There'll be 8 questions.
 
 ## Quiz 3 {#q3}
 
-TBA
+It'll cover through 3.9. There'll be 8 questions. 
 
 ## Quiz 4 {#q4}
 

@@ -108,6 +108,7 @@ Due: {{ ra | replace: "x", "w5thu" }}, [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">6</td>
 <td>
+Primes, Euler's Phi Function
 
 Due: {{ ra | replace: "x", "w6tue" }}
 </td>
@@ -121,10 +122,12 @@ Due: [QC2](quiz#corrections), [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">7</td>
 <td>
+Binary Exponentiation, Primality Testing
 
 Due: {{ ra | replace: "x", "w7tue" }}
 </td>
 <td>
+RSA
 
 Due: {{ ra | replace: "x", "w7thu" }}, [WR]({{ wr }})
 </td>
@@ -133,6 +136,7 @@ Due: {{ ra | replace: "x", "w7thu" }}, [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">8</td>
 <td>
+Order, Elgamal, Diffie-Hellman
 
 Due: {{ ra | replace: "x", "w8tue" }}
 </td>
@@ -146,10 +150,12 @@ Due: [QC3](quiz#corrections), [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">9</td>
 <td>
+Elliptic Curves over the Reals
 
 Due: {{ ra | replace: "x", "w9tue" }}
 </td>
 <td>
+Elliptic Curves mod a Prime
 
 Due: {{ ra | replace: "x", "w9thu" }}, [WR]({{ wr }})
 </td>
@@ -158,10 +164,12 @@ Due: {{ ra | replace: "x", "w9thu" }}, [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">10</td>
 <td>
+Elliptic Curve Diffie-Hellman
 
 Due: {{ ra | replace: "x", "w10tue" }}
 </td>
 <td>
+Quadratic Residues, Elliptic Curve Elgamal
 
 Due: {{ ra | replace: "x", "w10thu" }}, [QC4](quiz#corrections), [FR](reflect#final)
 </td>
