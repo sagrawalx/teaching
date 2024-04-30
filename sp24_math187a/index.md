@@ -96,10 +96,11 @@ Due: [QC1](quiz#corrections), [WR]({{ wr }})
 <td>
 Index of Coincidence, Breaking Vignère
 
+Class: [Slides](slides/w5tue.pdf)  
 Due: {{ ra | replace: "x", "w5tue" }}
 </td>
 <td>
-Breaking Rectangular Transposition, Known Plaintext Attack, Perfect Secrecy
+G-Test, Breaking Rectangular Transposition, Known Plaintext Attack, Perfect Secrecy
 
 Due: {{ ra | replace: "x", "w5thu" }}, [WR]({{ wr }})
 </td>
