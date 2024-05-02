@@ -102,6 +102,7 @@ Due: {{ ra | replace: "x", "w5tue" }}
 <td>
 G-Test, Breaking Rectangular Transposition, Known Plaintext Attack, Perfect Secrecy
 
+Class: [Slides](slides/w5thu.pdf)  
 Due: {{ ra | replace: "x", "w5thu" }}, [WR]({{ wr }})
 </td>
 </tr>
