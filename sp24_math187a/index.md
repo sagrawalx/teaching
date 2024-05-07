@@ -112,6 +112,7 @@ Due: {{ ra | replace: "x", "w5thu" }}, [WR]({{ wr }})
 <td>
 Primes, Euler's Phi Function
 
+Class: [Slides](slides/w6tue.pdf)  
 Due: {{ ra | replace: "x", "w6tue" }}
 </td>
 <td>
