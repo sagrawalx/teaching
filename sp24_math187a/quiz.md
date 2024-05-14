@@ -31,7 +31,19 @@ It'll cover through 3.9. There'll be 8 questions.
 
 ## Quiz 4 {#q4}
 
-TBA
+It'll cover through 4.5 (but no 3.10). There'll be 8 questions. The last question on the quiz will be slightly peculiar in that it will require you do to some advance preparation. Please make sure to do the preparation described below in advance; during the quiz, you'll be on your own and you won't have access to technology!
+
+Here is a plaintext file containing some ciphertext that was encrypted using a simple substitution: 
+
+[`q4-cipher.txt`](q4-cipher.txt)
+
+The corresponding plaintext is known to contain `OKLAHOMA`. Decrypt this ciphertext. Once you've decrypted it, write down the decryption key on your sheet of notes. You may work with your classmates to decrypt this text, and if you do, you should also write down the names of everyone who you worked with and/or got help from on your sheet of notes. 
+
+You will use the information you've written down on your sheet of notes to answer Problem 8 on Quiz 4, which will begin as follows:
+    
+> **Problem 8.** The next page contains some ciphertext that was encrypted using a simple substitution; it is the same ciphertext that was made available to you in the `q4-cipher.txt` file last week. Using the same key that decrypts that ciphertext...
+
+You have permission to discuss this problem with each other on Zulip, but I request that you only give each other *suggestions* on Zulip; please don't reveal the answer there outright. If you get help from your classmates through Zulip, please still make sure to write down the names of everyone who helped on your sheet of notes. 
 
 ## Quiz Corrections {#corrections}
 

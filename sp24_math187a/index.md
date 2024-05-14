@@ -127,6 +127,7 @@ Due: [QC2](quiz#corrections), [WR]({{ wr }})
 <td>
 Binary Exponentiation, Primality Testing
 
+Class: [Slides](slides/w7tue.pdf)  
 Due: {{ ra | replace: "x", "w7tue" }}
 </td>
 <td>
