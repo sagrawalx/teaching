@@ -133,6 +133,7 @@ Due: {{ ra | replace: "x", "w7tue" }}
 <td>
 RSA
 
+Class: [Slides](slides/w7thu.pdf)  
 Due: {{ ra | replace: "x", "w7thu" }}, [WR]({{ wr }})
 </td>
 </tr>
