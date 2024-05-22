@@ -141,8 +141,9 @@ Due: {{ ra | replace: "x", "w7thu" }}, [WR]({{ wr }})
 <tr>
 <td style="text-align: center;">8</td>
 <td>
-Order, Elgamal, Diffie-Hellman
+Order, Diffie-Hellman, Elgamal
 
+Class: [Slides](slides/w8tue.pdf)  
 Due: {{ ra | replace: "x", "w8tue" }}
 </td>
 <td>
