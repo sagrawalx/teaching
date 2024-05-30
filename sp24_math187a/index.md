@@ -158,11 +158,13 @@ Due: [QC3](quiz#corrections), [WR]({{ wr }})
 <td>
 Elliptic Curves over the Reals
 
+Class: [Slides](slides/w9tue.pdf)  
 Due: {{ ra | replace: "x", "w9tue" }}
 </td>
 <td>
 Elliptic Curves mod a Prime
 
+Class: [Slides](slides/w9thu.pdf)  
 Due: {{ ra | replace: "x", "w9thu" }}, [WR]({{ wr }})
 </td>
 </tr>
