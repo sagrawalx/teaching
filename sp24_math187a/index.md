@@ -174,6 +174,7 @@ Due: {{ ra | replace: "x", "w9thu" }}, [WR]({{ wr }})
 <td>
 Elliptic Curve Diffie-Hellman
 
+Class: [Slides](slides/w10tue.pdf)  
 Due: {{ ra | replace: "x", "w10tue" }}
 </td>
 <td>

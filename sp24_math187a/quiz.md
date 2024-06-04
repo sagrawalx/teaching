@@ -61,4 +61,12 @@ Deadlines are indicated on the [schedule](index#schedule). Submit your correctio
 
 # Final Exam {#final}
 
-TBA
+It'll take place on Thu 6/13 at 8am, and you will have 3 hours (180 minutes). It'll cover everything (except 3.10). There will be 16 problems, and 5 of them will involve concepts introduced in 4.6 onwards. The only resource you will be allowed is one two-sided handwritten sheet of notes.
+
+In other words, you should expect roughly a ``double quiz,'' but the proportion of problems that cover strictly new material is less than has been typical of quizzes. 
+
+Things you might study include: 
+
+* Problems from the notes. 
+* Problems from the in-class slides.
+* Problems from previous quizzes. 
