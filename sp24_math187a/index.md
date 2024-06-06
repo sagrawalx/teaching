@@ -180,6 +180,7 @@ Due: {{ ra | replace: "x", "w10tue" }}
 <td>
 Quadratic Residues, Elliptic Curve Elgamal
 
+Class: [Slides](slides/w10thu.pdf)  
 Due: {{ ra | replace: "x", "w10thu" }}, [QC4](quiz#corrections), [FR](reflect#final)
 </td>
 </tr>
