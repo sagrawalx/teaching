@@ -3,18 +3,11 @@ banner: Teaching Archive
 title: Home
 ---
 
-This website (and the associated [GitHub repository](https://github.com/sagrawalx/teaching)) archives webpages for courses I've taught. It's intended to be both a record and a resource: if you teach math, you're welcome to steal anything from here that you like. Please also feel free to get in touch with me if you'd like to chat about something you find here.
-
-# Current
-
-* Spring 2024. [Math 187A - Cryptography](sp24_math187a).
-
-# Archive
-
-Here is a partial list of course webpages in this archive. For brevity, I've mostly only listed the most recent iteration of a given course at a given institution, and only when there may be something "worth seeing" on that page. However, this website does also archive other pages not linked below, and you can see what else is around by browsing the associated [GitHub repository](https://github.com/sagrawalx/teaching). 
+This website (and the associated [GitHub repository](https://github.com/sagrawalx/teaching)) archives webpages for courses I've taught. It's intended to be both a record and a resource: if you teach math, you're welcome to steal anything from here that you like. Please also feel free to get in touch with me if you'd like to chat about something you find here. For brevity, I've mostly only listed the most recent iteration of a given course at a given institution, and only when there may be something "worth seeing" on that page. However, this website does also archive other pages not linked below, and you can see what else is around by browsing the associated [GitHub repository](https://github.com/sagrawalx/teaching). 
 
 ## UC San Diego
 
+* Spring 2024. [Math 187A - Cryptography](sp24_math187a).
 * Winter 2023. [Math 106 - Algebraic Geometry](wi24_math106). 
 * Spring 2023. [Math 11 - Probability and Statistics](sp23_math11).
 * Fall 2022. [Math 103A - Modern Algebra 1](fa22_math103a).
